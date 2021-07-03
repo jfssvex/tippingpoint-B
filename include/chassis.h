@@ -26,6 +26,9 @@
 #define LENC_PORT_BOT 9
 #define RENC_PORT_BOT 10
 
+// IMU Port
+#define IMU_PORT 11
+
 // Robot dimensions in inches (TODO: Update to real dimensions)
 #define DRIVE_WHEEL_DIAMETER 3.25f
 #define TRACKING_WHEEL_DIAMETER 2.75f

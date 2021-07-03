@@ -41,3 +41,6 @@ extern TrackingData trackingData;
 
 // Display controller
 extern DisplayController display;
+
+// Inertial sensor (IMU)
+extern pros::Imu imuSensor;
