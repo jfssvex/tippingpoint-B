@@ -110,11 +110,6 @@ class DisplayController {
         void setMode(DISPLAY_MODE newMode);
 
         /**
-         * \brief Start debug mode, which prints statements to the console.
-        */
-        void startDebugMode();
-
-        /**
          * \brief Log a message.
          * @param message The message to log.
          * @param level The logging level, which defaults to LOG.
@@ -177,24 +172,6 @@ class DisplayController {
             int y,
             lv_obj_t* host
         );
-
-        /**
-         * \brief Render a warning on the display.
-         * @param message The message to display as the warning.
-        */
-        void renderWarning(std::string message);
-
-        /**
-         * \brief Render a error message on the display.
-         * @param message The message to display as the error message.
-        */
-        void renderError(std::string message);
-
-        /**
-         * \brief Render a debug message on the display.
-         * @param message The message to display as the debug message.
-        */
-        void renderDebug(std::string message);
 
         /**
          * \brief Initialize the style of the display.
