@@ -1,7 +1,7 @@
 #include "macros.h"
 #include "globals.h"
 #include "main.h"
-#include "PID.h"
+#include "control/PID.h"
 
 void autoBalanceRobot() {
     // Move the drivetrain to be completely on the platform
