@@ -17,8 +17,8 @@ void autoBalanceRobot() {
 
     // Stop until its settled
     while (!pitchController.isSettled()) {
-        // Run a step of the controller with the new IMU pitch value, also scale vel to [-1, 1]
-        double vel = pitchController.step(imuSensor.get_pitch()) / 45.;
+        // Run a step of the controller with the new IMU pitch value
+        double vel = pitchController.step(degToRad(imuSensor.get_pitch()));
 
         // Set the motors to the new vel
         driveTrainPID.move(Vector2(vel, 0), 0);
