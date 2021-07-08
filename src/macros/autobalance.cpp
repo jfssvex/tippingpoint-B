@@ -15,12 +15,9 @@ void autoBalanceRobot() {
         0.3
     );
 
-    // Stop until its settled
+    // TODO: Fix this to actually work, will probably require some testing
     while (!pitchController.isSettled()) {
-        // Run a step of the controller with the new IMU pitch value
         double vel = pitchController.step(degToRad(imuSensor.get_pitch()));
-
-        // Set the motors to the new vel
         driveTrainPID.move(Vector2(vel, 0), 0);
 
         pros::delay(20); 
