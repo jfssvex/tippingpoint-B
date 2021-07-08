@@ -1,16 +1,6 @@
 #include "main.h"
 #include "globals.h"
 
-void myOpControl() {
-    // Basic op control using arcade drive
-    while (true) {
-        int power = masterController.get_analog(ANALOG_LEFT_Y);
-        int turn = masterController.get_analog(ANALOG_RIGHT_X);
-
-        driveTrain->arcade(joystickCubicDrive(power), joystickCubicDrive(turn), 0.5); // TODO: Change threshold to something useful
-    }    
-}
-
 /**
  * \brief Scale joystick output to cubic graph
  * 
@@ -19,4 +9,14 @@ void myOpControl() {
 double joystickCubicDrive(int raw) {
     double scaledRaw = ((double)raw) / 127.0;
     return pow(scaledRaw, 3) * 127;
+}
+
+void myOpControl() {
+    // Basic op control using arcade drive
+    while (true) {
+        int power = masterController.get_analog(ANALOG_LEFT_Y);
+        int turn = masterController.get_analog(ANALOG_RIGHT_X);
+
+        driveTrain->arcade(joystickCubicDrive(power), joystickCubicDrive(turn), 0.5); // TODO: Change threshold to something useful
+    }    
 }
