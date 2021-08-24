@@ -14,3 +14,6 @@ This code is for VEX V5 systems only.
 
 ## Goals
 Goals for the project can be found [here](https://github.com/jfssvex/tippingpoint-B/projects/1).
+
+## Documentation
+Self-documentation can be found [here](https://jfssvex.github.io/tippingpoint-B/).
