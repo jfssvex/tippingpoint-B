@@ -28,7 +28,8 @@ var NAVTREE =
     [ "JFSS VEX 2020-21 Codebase - Team B", "index.html", [
       [ "Platform", "index.html#autotoc_md1", null ],
       [ "Compilation", "index.html#autotoc_md2", null ],
-      [ "Goals", "index.html#autotoc_md3", null ]
+      [ "Goals", "index.html#autotoc_md3", null ],
+      [ "Documentation", "index.html#autotoc_md4", null ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
