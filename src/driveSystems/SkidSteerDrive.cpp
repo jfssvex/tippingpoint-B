@@ -34,8 +34,8 @@ void SkidSteerDrive::stop() {
 
 void SkidSteerDrive::tank(double leftSpeed, double rightSpeed, double threshold) {
     // Apply threshold
-    leftSpeed = leftSpeed < threshold ? 0 : leftSpeed;
-    rightSpeed = rightSpeed < threshold ? 0 : rightSpeed;
+    leftSpeed = abs(leftSpeed) < threshold ? 0 : leftSpeed;
+    rightSpeed = abs(rightSpeed) < threshold ? 0 : rightSpeed;
 
     this->tLeft->move(leftSpeed);
     this->bLeft->move(leftSpeed);
@@ -46,8 +46,8 @@ void SkidSteerDrive::tank(double leftSpeed, double rightSpeed, double threshold)
 
 void SkidSteerDrive::arcade(double forwardSpeed, double yaw, double threshold) {
     // Apply threshold
-    forwardSpeed = forwardSpeed < threshold ? 0 : forwardSpeed;
-    yaw = forwardSpeed < threshold ? 0 : yaw;
+    forwardSpeed = abs(forwardSpeed) < threshold ? 0 : forwardSpeed;
+    yaw = abs(forwardSpeed) < threshold ? 0 : yaw;
 
     this->tLeft->move(forwardSpeed + yaw);
     this->bLeft->move(forwardSpeed + yaw);
