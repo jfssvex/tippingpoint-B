@@ -17,7 +17,8 @@ void myOpControl() {
         int power = masterController.get_analog(ANALOG_LEFT_Y);
         int turn = masterController.get_analog(ANALOG_RIGHT_X);
 
-        driveTrain->arcade(joystickCubicDrive(power), joystickCubicDrive(turn), 0.5); // TODO: Change threshold to something useful
+        // TODO: Change threshold to something useful
+        driveTrain->arcade(joystickCubicDrive(power), joystickCubicDrive(turn), 0.5);
 
         pros::delay(5);
     }    
