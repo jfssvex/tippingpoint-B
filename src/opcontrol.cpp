@@ -12,13 +12,13 @@ double joystickCubicDrive(int raw) {
 }
 
 void myOpControl() {
-    // Basic op control using arcade drive
+    // Basic op control using tank drive
     while (true) {
-        int power = masterController.get_analog(ANALOG_LEFT_Y);
-        int turn = masterController.get_analog(ANALOG_RIGHT_X);
+        int left = masterController.get_analog(ANALOG_LEFT_Y);
+        int right = masterController.get_analog(ANALOG_RIGHT_Y);
 
         // TODO: Change threshold to something useful
-        driveTrain->arcade(joystickCubicDrive(power), joystickCubicDrive(turn), 0.5);
+        driveTrain->tank(joystickCubicDrive(left), joystickCubicDrive(right), 10);
 
         pros::delay(5);
     }    
