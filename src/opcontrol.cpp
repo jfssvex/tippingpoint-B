@@ -17,6 +17,11 @@ void myOpControl() {
         int left = masterController.get_analog(ANALOG_LEFT_Y);
         int right = masterController.get_analog(ANALOG_RIGHT_Y);
 
+        if (left > 60) {
+            printf("hello wrld!!!!");
+        }
+
+        
         // TODO: Change threshold to something useful
         driveTrain->tank(joystickCubicDrive(left), joystickCubicDrive(right), 10);
 

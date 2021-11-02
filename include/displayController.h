@@ -34,9 +34,10 @@ enum LOGGING_LEVEL {
 */
 enum DISPLAY_MODE {
     SELECTOR, // The autonomous selector
-    CONFIRM, // Shows the autonomous selected
-    MATCH, // The mode to display during a match
-    DEBUG // The debug mode
+    CONFIRM,  // Shows the autonomous selected
+    MATCH,    // The mode to display during a match
+    DEBUG,    // The debug mode,
+    STATS     // Shows statistics on screen
 };
 
 /**
@@ -128,6 +129,11 @@ class DisplayController {
          * @param callback The callback function.
         */
         void addFixedMessage(std::string format, char type, void* callback);
+
+        /**
+         * \brief Clears the screen.
+        */
+        void clearScreen();
     
     private:
         static bool initialized;

@@ -2,6 +2,8 @@
 #include "tracking.h"
 #include "globals.h"
 
+bool showStats = false;
+
 /**
  * A callback function for LLEMU's center button.
  *
@@ -16,6 +18,7 @@ void on_center_button() {
 	// } else {
 	// 	pros::lcd::clear_line(2);
 	// }
+	// display.logMessage("Hello world!");
 }
 
 /**
@@ -30,7 +33,26 @@ void initialize() {
 
 	// pros::lcd::register_btn1_cb(on_center_button);
 
+	// Set mode to debug
 	display.setMode(DEBUG);
+
+	// Statistics display mode update
+	pros::Task statsUpdate{[=] {
+		while (true) {
+			// Only show stats if asked
+			if (showStats) {
+            	display.setMode(STATS);
+			}
+			pros::delay(30);
+		}
+    }};
+
+	/**
+	display.logMessage("This is a log!", LOG);
+	display.logMessage("This is a warning!", WARNING);
+	display.logMessage("This is an error!", ERROR);
+	*/
+	// printf("Hello 123");
 }
 
 /**
@@ -49,7 +71,11 @@ void disabled() {}
  * This task will exit when the robot is enabled and autonomous or opcontrol
  * starts.
  */
-void competition_initialize() {}
+void competition_initialize() {
+	// Enable auton selecton
+	display.setMode(SELECTOR);
+	showStats = false;
+}
 
 /**
  * Runs the user autonomous code. This function will be started in its own task
@@ -63,6 +89,7 @@ void competition_initialize() {}
  * from where it left off.
  */
 void autonomous() {
+	showStats = true;
 	myAuton();
 }
 
@@ -80,5 +107,6 @@ void autonomous() {
  * task, not resume it from where it left off.
  */
 void opcontrol() {
+	showStats = true;
 	myOpControl();
 }
