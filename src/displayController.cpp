@@ -35,8 +35,6 @@ const std::map<std::string, lv_color_t> colors {
 };
 
 /**
- * \brief All possible 
-/**
  * \brief All the log messages and their respective data.
 */
 std::vector<lv_obj_t*> logMessages;
