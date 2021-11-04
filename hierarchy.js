@@ -8,7 +8,9 @@ var hierarchy =
     [ "FixedDebugInfo", "class_fixed_debug_info.html", null ],
     [ "PIDController", "class_p_i_d_controller.html", null ],
     [ "PIDInfo", "class_p_i_d_info.html", null ],
-    [ "SystemManager", "class_system_manager.html", null ],
+    [ "SystemManager", "class_system_manager.html", [
+      [ "Intake", "class_intake.html", null ]
+    ] ],
     [ "TrackingData", "class_tracking_data.html", null ],
     [ "Vector2", "class_vector2.html", null ]
 ];

@@ -5,6 +5,7 @@ var chassis_8h =
     [ "BL_PORT", "chassis_8h.html#aee4d6a4bb97672b8cc732efd671311e4", null ],
     [ "BR_PORT", "chassis_8h.html#abffded7443c2b390b6b249c27f164cf3", null ],
     [ "DRIVE_WHEEL_DIAMETER", "chassis_8h.html#aff1e2abf80b0ad5e18ce7c53c6ec2d33", null ],
+    [ "INTAKE_PORT", "chassis_8h.html#a8f9d4303e16d8050148539e2cf90fabe", null ],
     [ "LENC_PORT_BOT", "chassis_8h.html#acb7b0cb2d24fc1de3ccc8b3c2785483a", null ],
     [ "LENC_PORT_TOP", "chassis_8h.html#a66e81a87b6efa348a9cb65f16d4c89f7", null ],
     [ "RENC_PORT_BOT", "chassis_8h.html#a6dca4111f5a1dcf08970cfa04e3eeac3", null ],
