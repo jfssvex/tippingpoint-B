@@ -86,7 +86,7 @@ class SystemManager {
         /**
          * The control loop for the system. This should be run every loop.
         */
-        virtual void update();
+        virtual void update() = 0;
 
         /**
          * Run a full reset of the system and its variables and state.

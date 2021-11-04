@@ -1,5 +1,6 @@
 #include "main.h"
 #include "globals.h"
+#include "macros.h"
 
 /**
  * \brief Scale joystick output to cubic graph
@@ -14,6 +15,8 @@ double joystickCubicDrive(int raw) {
 void myOpControl() {
     display.logMessage("Running OPControl!!!");
 
+    int intakeMacroState = 0; // 0 -> Not on, 1 -> Clockwise, -1 -> Counter-Clockwise
+
     // Basic op control using tank drive
     while (true) {
         int left = masterController.get_analog(ANALOG_LEFT_Y);
@@ -23,17 +26,36 @@ void myOpControl() {
         int intakeUp = masterController.get_digital(DIGITAL_L1);
         int intakeDown = masterController.get_digital(DIGITAL_R1);
 
-        // masterController.clear();
-        
-        if (intakeUp) {
-            intakeMotor.move(127);
-            masterController.set_text(0, 0, "Up  ");
-        } else if (intakeDown) {
-            intakeMotor.move(-127);
-            masterController.set_text(0, 0, "Down");
+        int intakeMacroCC = masterController.get_digital_new_press(DIGITAL_UP);
+        int intakeMacroCCW = masterController.get_digital_new_press(DIGITAL_DOWN);
+
+        // Toggle macro based on button
+        if (intakeMacroState == 1 && intakeMacroCC == 1) {
+            intakeMacroState = 0;
+        } else if (intakeMacroState == -1 && intakeMacroCCW == 1) {
+            intakeMacroState = 0;
         } else {
-            intakeMotor.move(0);
-            masterController.set_text(0, 0, "None");
+            intakeMacroState = intakeMacroCC + (-1 * intakeMacroCCW);
+        }
+
+        // masterController.clear();
+        if (intakeMacroState == 0) {
+            // Operator control
+            intake.control();
+
+            if (intakeUp) {
+                intake.setPower(42);
+            } else if (intakeDown) {
+                intake.setPower(42);
+            } else {
+                intake.setPower(0);
+            }
+        } else if (intakeMacroState == -1) {
+            // Go backwards
+            startIntakeSmoothMove(true, true);
+        } else if (intakeMacroState == 1) {
+            // Go frowards
+            startIntakeSmoothMove(false, false);
         }
 
         pros::delay(10);
