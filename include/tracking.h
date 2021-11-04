@@ -140,6 +140,12 @@ class TrackingData {
         */ 
         void update(Vector2 newPos, double newH);
 
+        /**
+         * Set whether the angle modulus should be either suspended or resumed
+         * @param suspend Whether the angle modulus should be suspended or not.
+        */
+       void setAngleModulusSuspend(bool suspend);
+
     private:
         /**
          * Current position of the robot represented as a Vector2 (units: ft)
@@ -149,6 +155,9 @@ class TrackingData {
          * Current heading (angle) of the robot
         */
         double heading;
+        
+        // Whether the angle modulus task should be suspended
+        bool suspendModulus;
 };
 
 /**

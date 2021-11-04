@@ -12,19 +12,30 @@ double joystickCubicDrive(int raw) {
 }
 
 void myOpControl() {
+    display.logMessage("Running OPControl!!!");
+
     // Basic op control using tank drive
     while (true) {
         int left = masterController.get_analog(ANALOG_LEFT_Y);
         int right = masterController.get_analog(ANALOG_RIGHT_Y);
+        driveTrain->tank(joystickCubicDrive(left), joystickCubicDrive(right), 0);
 
-        if (left > 60) {
-            printf("hello wrld!!!!");
+        int intakeUp = masterController.get_digital(DIGITAL_L1);
+        int intakeDown = masterController.get_digital(DIGITAL_R1);
+
+        // masterController.clear();
+        
+        if (intakeUp) {
+            intakeMotor.move(127);
+            masterController.set_text(0, 0, "Up  ");
+        } else if (intakeDown) {
+            intakeMotor.move(-127);
+            masterController.set_text(0, 0, "Down");
+        } else {
+            intakeMotor.move(0);
+            masterController.set_text(0, 0, "None");
         }
 
-        
-        // TODO: Change threshold to something useful
-        driveTrain->tank(joystickCubicDrive(left), joystickCubicDrive(right), 10);
-
-        pros::delay(5);
+        pros::delay(10);
     }    
 }

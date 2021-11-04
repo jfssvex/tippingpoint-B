@@ -36,6 +36,7 @@ void initialize() {
 	// Set mode to debug
 	display.setMode(DEBUG);
 
+	/*
 	// Statistics display mode update
 	pros::Task statsUpdate{[=] {
 		while (true) {
@@ -46,6 +47,7 @@ void initialize() {
 			pros::delay(30);
 		}
     }};
+	*/
 
 	/**
 	display.logMessage("This is a log!", LOG);
@@ -89,7 +91,7 @@ void competition_initialize() {
  * from where it left off.
  */
 void autonomous() {
-	showStats = true;
+	showStats = false;
 	myAuton();
 }
 
@@ -107,6 +109,6 @@ void autonomous() {
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-	showStats = true;
+	showStats = false;
 	myOpControl();
 }

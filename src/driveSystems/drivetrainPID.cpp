@@ -77,6 +77,12 @@ void DrivetrainPID::moveRelative(Vector2 offset, double aOffset) {
 }
 
 void DrivetrainPID::rotateTo(double target) {
+    // Stop applying modulo to angle to prevent issues
+    trackingData.setAngleModulusSuspend(true);
+
+    // Get starting time
+    double time = pros::millis();
+
     // Turn the other way if it's more efficient
     if (abs(target - trackingData.getHeading()) > degToRad(180)) {
         target = flipAngle(target);
@@ -86,5 +92,9 @@ void DrivetrainPID::rotateTo(double target) {
     do {
         // Run PID step and move to angle
         move(Vector2(), turnController->step(trackingData.getHeading()));
-    } while (!turnController->isSettled());
+
+        pros::delay(20);
+    } while (!turnController->isSettled() || pros::millis() - time <= 3000); // Break if settled or taking more than 3s
+
+    trackingData.setAngleModulusSuspend(false);
 }

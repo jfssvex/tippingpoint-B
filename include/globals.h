@@ -23,6 +23,7 @@ extern pros::Motor tRight; // Top right motor
 extern pros::Motor bLeft; // Bottom left motor
 extern pros::Motor bRight; // Bottom right motor
 
+extern pros::Motor intakeMotor; // Intake motor
 
 // Encoders
 
