@@ -13,7 +13,8 @@ double joystickCubicDrive(int raw) {
 }
 
 void myOpControl() {
-    display.logMessage("Running OPControl!!!");
+    // Enable the intake
+    intake.enable();
 
     // Basic op control using tank drive
     while (true) {
@@ -33,22 +34,20 @@ void myOpControl() {
 
             // Operator control
             intake.control();
-            printf("Operator control -> Intake");
+            // printf("Operator control -> Intake");
 
             if (intakeUp) {
-                intake.setPower(42);
+                intake.setPower(60);
             } else if (intakeDown) {
-                intake.setPower(-42);
+                intake.setPower(-60);
             } else {
                 intake.setPower(0);
             }
         } else if (intakeMacroCCW == 1) {
             // Go backwards
-            printf("Going CCW -> Intake");
             startIntakeSmoothMove(true, true);
         } else if (intakeMacroCC == 1) {
             // Go frowards
-            printf("Going CW -> Intake");
             startIntakeSmoothMove(false, false);
         }
 
