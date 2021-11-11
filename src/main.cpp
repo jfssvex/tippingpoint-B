@@ -2,7 +2,7 @@
 #include "tracking.h"
 #include "globals.h"
 
-bool* showStats = false;
+bool* showStats = new bool(true);
 
 /**
  * A callback function for LLEMU's center button.

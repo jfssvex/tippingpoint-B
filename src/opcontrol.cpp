@@ -16,10 +16,11 @@ void myOpControl() {
     // Enable the intake
     intake.enable();
 
-    int macroToggle = 0; // 0 -> nothing, 1 -> clockwise, -1 -> counter clockwise
+    // 0 -> nothing, 1 -> clockwise, -1 -> counter clockwise
+    int macroToggle = 0;
 
-    // Basic op control using tank drive
     while (true) {
+        // Basic op control using tank drive
         int left = masterController.get_analog(ANALOG_LEFT_Y);
         int right = masterController.get_analog(ANALOG_RIGHT_Y);
         driveTrain->tank(joystickCubicDrive(left), joystickCubicDrive(right), 0);
@@ -27,10 +28,12 @@ void myOpControl() {
         int intakeUp = masterController.get_digital(DIGITAL_L1);
         int intakeDown = masterController.get_digital(DIGITAL_R1);
 
+        /*
         // For experimenting with speeds
         int intakeSpeed2 = masterController.get_digital(DIGITAL_L2);
         int intakeSpeed3 = masterController.get_digital(DIGITAL_R2);
-
+        */
+       
         int intakeMacroCW = masterController.get_digital_new_press(DIGITAL_UP);
         int intakeMacroCCW = masterController.get_digital_new_press(DIGITAL_DOWN);
 
