@@ -2,7 +2,7 @@
 #include "tracking.h"
 #include "globals.h"
 
-bool showStats = false;
+bool* showStats = false;
 
 /**
  * A callback function for LLEMU's center button.
@@ -27,12 +27,12 @@ void on_center_button() {
 void displayStatsUpdateTask(void* param) {
 	while (true) {
 		// Only show stats if asked
-		if (showStats) {
+		if (*showStats) {
 			display.setMode(STATS);
 		}
 
 		// Not very high priority
-		pros::delay(50);
+		pros::delay(85);
 	}
 }
 
@@ -53,13 +53,6 @@ void initialize() {
 	
 	// Statistics display mode update
 	pros::Task my_task(displayStatsUpdateTask, NULL, "Statistics Display Mode");
-
-	/**
-	display.logMessage("This is a log!", LOG);
-	display.logMessage("This is a warning!", WARNING);
-	display.logMessage("This is an error!", ERROR);
-	*/
-	// printf("Hello 123");
 }
 
 /**
@@ -81,7 +74,7 @@ void disabled() {}
 void competition_initialize() {
 	// Enable auton selecton
 	display.setMode(SELECTOR);
-	showStats = true;
+	*showStats = true;
 }
 
 /**
@@ -96,7 +89,7 @@ void competition_initialize() {
  * from where it left off.
  */
 void autonomous() {
-	showStats = true;
+	*showStats = true;
 	myAuton();
 }
 
@@ -114,6 +107,6 @@ void autonomous() {
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-	showStats = true;
+	*showStats = true;
 	myOpControl();
 }
