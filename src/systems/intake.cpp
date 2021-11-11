@@ -5,6 +5,10 @@
 #include "systems/intake.h"
 #include "systems/systemManager.h"
 
+double abs(double x) {
+    return x >= 0 ? x : -x;
+}
+
 Intake::Intake(STATE defaultState) : SystemManager((SystemManager::STATE) defaultState) {
     this->defaultState = defaultState;
 }

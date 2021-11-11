@@ -16,6 +16,8 @@ void myOpControl() {
     // Enable the intake
     intake.enable();
 
+    int macroToggle = 0; // 0 -> nothing, 1 -> clockwise, -1 -> counter clockwise
+
     // Basic op control using tank drive
     while (true) {
         int left = masterController.get_analog(ANALOG_LEFT_Y);
@@ -25,30 +27,75 @@ void myOpControl() {
         int intakeUp = masterController.get_digital(DIGITAL_L1);
         int intakeDown = masterController.get_digital(DIGITAL_R1);
 
-        int intakeMacroCC = masterController.get_digital(DIGITAL_UP);
-        int intakeMacroCCW = masterController.get_digital(DIGITAL_DOWN);
+        // For experimenting with speeds
+        int intakeSpeed2 = masterController.get_digital(DIGITAL_L2);
+        int intakeSpeed3 = masterController.get_digital(DIGITAL_R2);
 
-        // masterController.clear();
-        if (intakeMacroCC == 0 && intakeMacroCCW == 0) {
-            stopIntakeSmoothMove();
+        int intakeMacroCW = masterController.get_digital_new_press(DIGITAL_UP);
+        int intakeMacroCCW = masterController.get_digital_new_press(DIGITAL_DOWN);
 
-            // Operator control
-            intake.control();
-            // printf("Operator control -> Intake");
-
-            if (intakeUp) {
-                intake.setPower(60);
-            } else if (intakeDown) {
-                intake.setPower(-60);
-            } else {
-                intake.setPower(0);
+        // Intake macro handler
+        if (macroToggle == -1 && intakeMacroCCW) {
+            // Turn off macro
+            macroToggle = 0;
+        } else if (macroToggle == 1 && intakeMacroCW) {
+            // Turn off macro
+            macroToggle = 0;
+        } else {
+            // State does not match the button pressed, enable the respective macro
+            if (intakeMacroCW) {
+                // Change macro state to clockwise
+                macroToggle = 1;
+            } else if (intakeMacroCCW) {
+                // Change macro state to counter clockwise
+                macroToggle = -1;
             }
-        } else if (intakeMacroCCW == 1) {
-            // Go backwards
-            startIntakeSmoothMove(true, true);
-        } else if (intakeMacroCC == 1) {
-            // Go frowards
-            startIntakeSmoothMove(false, false);
+        }
+
+        // Apply macro control to intake system
+        switch (macroToggle) {
+            case 1: {
+                startIntakeSmoothMove(false, false);
+                break;
+            }
+            case -1: {
+                startIntakeSmoothMove(true, true);
+                break;
+            }
+            case 0: {
+                // Operator control
+                intake.control();
+
+                /*
+                int speed = 40;
+
+                if (intakeSpeed3) {
+                    speed = 100;
+                } else if (intakeSpeed2) {
+                    speed = 60;
+                }
+
+                if (intakeUp) {
+                    intake.setPower(speed);
+                } else if (intakeDown) {
+                    intake.setPower(-speed);
+                } else {
+                    intake.setPower(0);
+                }
+                */
+
+                // Joystick now mapped to intake, change later
+                intake.setPower(joystickCubicDrive(right));
+                break;
+            }
+            default: {
+                break;
+            }
+        }
+
+        // Operator control
+        if (!macroToggle) {
+            stopIntakeSmoothMove();
         }
 
         pros::delay(10);

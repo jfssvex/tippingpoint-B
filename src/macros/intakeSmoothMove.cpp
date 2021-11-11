@@ -16,6 +16,6 @@ void startIntakeSmoothMove(bool driveBack, bool intakeCCW) {
 }
 
 void stopIntakeSmoothMove() {
-    driveTrain->stop();
-    intake.stop();
+    // driveTrain->stop();
+    // intake.stop();
 }

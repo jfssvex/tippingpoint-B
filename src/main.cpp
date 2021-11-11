@@ -22,6 +22,21 @@ void on_center_button() {
 }
 
 /**
+ * Statistics display mode update function
+*/
+void displayStatsUpdateTask(void* param) {
+	while (true) {
+		// Only show stats if asked
+		if (showStats) {
+			display.setMode(STATS);
+		}
+
+		// Not very high priority
+		pros::delay(50);
+	}
+}
+
+/**
  * Runs initialization code. This occurs as soon as the program is started.
  *
  * All other competition modes are blocked by initialize; it is recommended
@@ -34,20 +49,10 @@ void initialize() {
 	// pros::lcd::register_btn1_cb(on_center_button);
 
 	// Set mode to debug
-	display.setMode(DEBUG);
-
-	/*
+	// display.setMode(DEBUG);
+	
 	// Statistics display mode update
-	pros::Task statsUpdate{[=] {
-		while (true) {
-			// Only show stats if asked
-			if (showStats) {
-            	display.setMode(STATS);
-			}
-			pros::delay(30);
-		}
-    }};
-	*/
+	pros::Task my_task(displayStatsUpdateTask, NULL, "Statistics Display Mode");
 
 	/**
 	display.logMessage("This is a log!", LOG);
@@ -76,7 +81,7 @@ void disabled() {}
 void competition_initialize() {
 	// Enable auton selecton
 	display.setMode(SELECTOR);
-	showStats = false;
+	showStats = true;
 }
 
 /**
@@ -91,7 +96,7 @@ void competition_initialize() {
  * from where it left off.
  */
 void autonomous() {
-	showStats = false;
+	showStats = true;
 	myAuton();
 }
 
@@ -109,6 +114,6 @@ void autonomous() {
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-	showStats = false;
+	showStats = true;
 	myOpControl();
 }
