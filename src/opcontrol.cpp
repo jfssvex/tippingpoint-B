@@ -20,20 +20,16 @@ void myOpControl() {
     int macroToggle = 0;
 
     while (true) {
-        // Basic op control using tank drive
+        // Tank drive
         int left = masterController.get_analog(ANALOG_LEFT_Y);
         int right = masterController.get_analog(ANALOG_RIGHT_Y);
         driveTrain->tank(joystickCubicDrive(left), joystickCubicDrive(right), 0);
 
+        // Intake manual controls
         int intakeUp = masterController.get_digital(DIGITAL_L1);
         int intakeDown = masterController.get_digital(DIGITAL_R1);
 
-        /*
-        // For experimenting with speeds
-        int intakeSpeed2 = masterController.get_digital(DIGITAL_L2);
-        int intakeSpeed3 = masterController.get_digital(DIGITAL_R2);
-        */
-       
+        // Intake macro
         int intakeMacroCW = masterController.get_digital_new_press(DIGITAL_UP);
         int intakeMacroCCW = masterController.get_digital_new_press(DIGITAL_DOWN);
 
@@ -94,11 +90,6 @@ void myOpControl() {
             default: {
                 break;
             }
-        }
-
-        // Operator control
-        if (!macroToggle) {
-            stopIntakeSmoothMove();
         }
 
         pros::delay(10);

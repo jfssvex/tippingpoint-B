@@ -2,7 +2,7 @@
 #include "tracking.h"
 #include "globals.h"
 
-bool* showStats = new bool(true);
+bool* showStats;
 
 /**
  * A callback function for LLEMU's center button.
@@ -52,7 +52,8 @@ void initialize() {
 	// display.setMode(DEBUG);
 	
 	// Statistics display mode update
-	pros::Task my_task(displayStatsUpdateTask, NULL, "Statistics Display Mode");
+	showStats = new bool(true);
+	// pros::Task my_task(displayStatsUpdateTask, NULL, "Statistics Display Mode");
 }
 
 /**
