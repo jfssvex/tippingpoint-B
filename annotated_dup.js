@@ -4,6 +4,7 @@ var annotated_dup =
     [ "Drivetrain", "class_drivetrain.html", "class_drivetrain" ],
     [ "DrivetrainPID", "class_drivetrain_p_i_d.html", "class_drivetrain_p_i_d" ],
     [ "FixedDebugInfo", "class_fixed_debug_info.html", "class_fixed_debug_info" ],
+    [ "Forklift", "class_forklift.html", "class_forklift" ],
     [ "Intake", "class_intake.html", "class_intake" ],
     [ "PIDController", "class_p_i_d_controller.html", "class_p_i_d_controller" ],
     [ "PIDInfo", "class_p_i_d_info.html", "class_p_i_d_info" ],

@@ -9,6 +9,7 @@ var hierarchy =
     [ "PIDController", "class_p_i_d_controller.html", null ],
     [ "PIDInfo", "class_p_i_d_info.html", null ],
     [ "SystemManager", "class_system_manager.html", [
+      [ "Forklift", "class_forklift.html", null ],
       [ "Intake", "class_intake.html", null ]
     ] ],
     [ "TrackingData", "class_tracking_data.html", null ],
