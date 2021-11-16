@@ -13,8 +13,10 @@ double joystickCubicDrive(int raw) {
 }
 
 void myOpControl() {
-    // Enable the intake
+    // Enable all systems
     intake.enable();
+    forklift1.enable();
+    forklift2.enable();
 
     // 0 -> nothing, 1 -> clockwise, -1 -> counter clockwise
     int macroToggle = 0;
@@ -28,6 +30,10 @@ void myOpControl() {
         // Intake manual controls
         int intakeUp = masterController.get_digital(DIGITAL_L1);
         int intakeDown = masterController.get_digital(DIGITAL_R1);
+
+        // Forklift manual controls
+        int forklift1Input = masterController.get_digital_new_press(DIGITAL_L2);
+        int forklift2Input = masterController.get_digital_new_press(DIGITAL_R2);
 
         // Intake macro
         int intakeMacroCW = masterController.get_digital_new_press(DIGITAL_UP);
@@ -65,14 +71,7 @@ void myOpControl() {
                 // Operator control
                 intake.control();
 
-                /*
-                int speed = 40;
-
-                if (intakeSpeed3) {
-                    speed = 100;
-                } else if (intakeSpeed2) {
-                    speed = 60;
-                }
+                int speed = 60; // Also can be 40
 
                 if (intakeUp) {
                     intake.setPower(speed);
@@ -81,16 +80,35 @@ void myOpControl() {
                 } else {
                     intake.setPower(0);
                 }
-                */
 
                 // Joystick now mapped to intake, change later
-                intake.setPower(joystickCubicDrive(right));
+                // intake.setPower(joystickCubicDrive(right));
                 break;
             }
             default: {
                 break;
             }
         }
+
+        if (forklift1Input == 1) {
+            // Set to alternate position
+            if (forklift1.getState() == Forklift::UP_STATE) {
+                forklift1.goDown();
+            } else if (forklift1.getState() == Forklift::DOWN_STATE) {
+                forklift1.goUp();
+            }
+        }
+
+        if (forklift2Input == 1) {
+            // Set to alternate position
+            if (forklift2.getState() == Forklift::UP_STATE) {
+                forklift2.goDown();
+            } else if (forklift2.getState() == Forklift::DOWN_STATE) {
+                forklift2.goUp();
+            }
+        }
+
+        
 
         pros::delay(10);
     }    

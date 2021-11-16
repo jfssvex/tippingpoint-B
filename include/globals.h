@@ -15,6 +15,7 @@
 #include "displayController.h"
 #include "tracking.h"
 #include "systems/intake.h"
+#include "systems/forklift.h"
 
 // Motors
 
@@ -23,6 +24,10 @@ extern pros::Motor tLeft; // Top left motor
 extern pros::Motor tRight; // Top right motor      
 extern pros::Motor bLeft; // Bottom left motor
 extern pros::Motor bRight; // Bottom right motor
+
+// Forklift motors
+extern pros::Motor* forklift1Motor; // Forklift 1 motor
+extern pros::Motor* forklift2Motor; // Forklift 2 motor
 
 // Encoders
 
@@ -33,6 +38,8 @@ extern pros::ADIEncoder rEnc; // Right encoder
 
 // System Managers
 extern Intake intake;
+extern Forklift forklift1;
+extern Forklift forklift2;
 
 // Drivetrain
 extern SkidSteerDrive* driveTrain;

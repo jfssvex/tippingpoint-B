@@ -16,7 +16,10 @@
 #define TR_PORT 2
 #define BL_PORT 3
 #define BR_PORT 4
+
 #define INTAKE_PORT 12
+#define FORKLIFT_1_PORT 11
+#define FORKLIFT_2_PORT 10
 
 // Encoder pin numbers
 #define BENC_PORT_TOP 5
