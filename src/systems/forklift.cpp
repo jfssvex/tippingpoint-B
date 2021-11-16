@@ -41,14 +41,18 @@ bool Forklift::changeState(STATE newState) {
     bool processed = SystemManager::changeState((SystemManager::STATE) newState);
 
     if (!processed) {
+        printf("dead\n");
         return false;
     }
+
+    printf("not dead\n");
 
     switch(newState) {
         case UP_STATE: {
             // Set forklift motor to hold at up position
             this->forkliftMotor->set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-            this->forkliftMotor->move_absolute(120, 100); // TODO: Change to maximum rpm based on cartridge
+            this->forkliftMotor->move_relative(360, 100);
+            // this->forkliftMotor->move_absolute(120, 100); // TODO: Change to maximum rpm based on cartridge
             break;
         }
         case DOWN_STATE: {

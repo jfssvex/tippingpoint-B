@@ -5,7 +5,8 @@
 /**
  * \brief Scale joystick output to cubic graph
  * 
- * Scales raw value in range [-127, 127] to range [-1, 1] and apply exponent 3 in order to allow for more driver accuracy
+ * Scales raw value in range [-127, 127] to range [-1, 1] and 
+ * apply exponent 3 in order to allow for more driver accuracy
 */
 double joystickCubicDrive(int raw) {
     double scaledRaw = ((double)raw) / 127.0;
@@ -80,9 +81,6 @@ void myOpControl() {
                 } else {
                     intake.setPower(0);
                 }
-
-                // Joystick now mapped to intake, change later
-                // intake.setPower(joystickCubicDrive(right));
                 break;
             }
             default: {
@@ -92,20 +90,29 @@ void myOpControl() {
 
         if (forklift1Input == 1) {
             // Set to alternate position
+            printf("yoooooooooo\n");
+
+            // somethng is wrong with state
             if (forklift1.getState() == Forklift::UP_STATE) {
                 forklift1.goDown();
+                printf("down!\n");
             } else if (forklift1.getState() == Forklift::DOWN_STATE) {
                 forklift1.goUp();
+                printf("up!\n");
+            } else {
+                printf("forklift is something different???\n");
             }
         }
 
         if (forklift2Input == 1) {
+            /*
             // Set to alternate position
             if (forklift2.getState() == Forklift::UP_STATE) {
                 forklift2.goDown();
             } else if (forklift2.getState() == Forklift::DOWN_STATE) {
                 forklift2.goUp();
             }
+            */
         }
 
         

@@ -49,10 +49,10 @@ void initialize() {
 	// pros::lcd::register_btn1_cb(on_center_button);
 
 	// Set mode to debug
-	// display.setMode(DEBUG);
+	display.setMode(DEBUG);
 	
 	// Statistics display mode update
-	showStats = new bool(true);
+	showStats = new bool(false);
 	// pros::Task my_task(displayStatsUpdateTask, NULL, "Statistics Display Mode");
 }
 
@@ -75,7 +75,7 @@ void disabled() {}
 void competition_initialize() {
 	// Enable auton selecton
 	display.setMode(SELECTOR);
-	*showStats = true;
+	*showStats = false;
 }
 
 /**
@@ -90,7 +90,7 @@ void competition_initialize() {
  * from where it left off.
  */
 void autonomous() {
-	*showStats = true;
+	*showStats = false;
 	myAuton();
 }
 
@@ -108,6 +108,6 @@ void autonomous() {
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-	*showStats = true;
+	*showStats = false;
 	myOpControl();
 }
