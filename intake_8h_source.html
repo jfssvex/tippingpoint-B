@@ -100,65 +100,52 @@ $(document).ready(function(){initNavTree('intake_8h_source.html',''); initResiza
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_intake.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_intake.html">Intake</a>: <span class="keyword">public</span> <a class="code" href="class_system_manager.html">SystemManager</a> {</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_intake.html#ada0a306f5945111ccd19f78177ece424">   23</a></span>&#160;        <span class="keyword">enum</span> <a class="code" href="class_intake.html#ada0a306f5945111ccd19f78177ece424">STATE</a> {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            DISABLED_STATE = (uint8_t) 0x00,</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            RESET_STATE = (uint8_t) 0x01,</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            CLOCKWISE_STATE = (uint8_t) 0x02,          <span class="comment">// Intake going clockwise</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            COUNTER_CLOCKWISE_STATE = (uint8_t) 0x03,  <span class="comment">// Intake going counter clockwise</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            HOLD_STATE = (uint8_t) 0x04,               <span class="comment">// Hold intake in place (idle about don&#39;t allow freespin)</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            OPERATOR_OVERRIDE = (uint8_t) 0x20</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        };</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="class_intake.html#ad462c18853ba486de5eb84570369d6c8">Intake</a>(<a class="code" href="class_intake.html#ada0a306f5945111ccd19f78177ece424">STATE</a> <a class="code" href="class_intake.html#a2081d4198ad91a144f0af93ca4e84ac9">defaultState</a>);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_intake.html#a2c379879ee68fa1e8a5a970c8321f494">setPower</a>(<span class="keywordtype">double</span> newPower);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_intake.html#af57df8bbfbd97d7412ca7fa392b4b840">clockwise</a>(<span class="keywordtype">double</span> newPower);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_intake.html#ad045a0a5b45c0e6cc86b3d17dffa4553">counterClockwise</a>(<span class="keywordtype">double</span> newPower);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_intake.html#a50fd3e4e3e6de23d91ec9441a1d54ddc">control</a>();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_intake.html#aa3093b638197b57b18ee9d519f4da68b">stop</a>();</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="class_intake.html#a1d921cc57419b9c03c3e93a8ae02c506">   69</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_intake.html#a1d921cc57419b9c03c3e93a8ae02c506">revertState</a>();</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_intake.html#af7e009e05fcb3e7b2f41c489303182c3">update</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_intake.html#ab6516299d9a6d8ca581e4aad463a167a">fullReset</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="class_intake.html#a72ccde783a0c5e4d6b28798e701e7a4b">   85</a></span>&#160;        <a class="code" href="class_intake.html#ada0a306f5945111ccd19f78177ece424">STATE</a> <a class="code" href="class_intake.html#a72ccde783a0c5e4d6b28798e701e7a4b">lastState</a> = DISABLED_STATE;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="class_intake.html#a59d68f71275fed696ce4195a337bf44b">   90</a></span>&#160;        <a class="code" href="class_intake.html#ada0a306f5945111ccd19f78177ece424">STATE</a> <a class="code" href="class_intake.html#a59d68f71275fed696ce4195a337bf44b">state</a> = DISABLED_STATE;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="class_intake.html#a2081d4198ad91a144f0af93ca4e84ac9">   95</a></span>&#160;        <a class="code" href="class_intake.html#ada0a306f5945111ccd19f78177ece424">STATE</a> <a class="code" href="class_intake.html#a2081d4198ad91a144f0af93ca4e84ac9">defaultState</a>;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_intake.html#a4a8bf54d3181e6bc6205fcf6d244e89a">changeState</a>(<a class="code" href="class_intake.html#ada0a306f5945111ccd19f78177ece424">STATE</a> newState);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="class_intake.html#a6f725bff73deb783c2f35cd087513bed">  109</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_intake.html#a6f725bff73deb783c2f35cd087513bed">timedOut</a>(uint32_t timeout);</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="comment">// Intake motor</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        pros::Motor intakeMotor = pros::Motor(INTAKE_PORT, pros::E_MOTOR_GEARSET_18, <span class="keyword">false</span>, pros::E_MOTOR_ENCODER_DEGREES);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;};</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_intake.html#a2dc632668a40e6ea935649a47369873f">   23</a></span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> uint8_t <a class="code" href="class_intake.html#a2dc632668a40e6ea935649a47369873f">DISABLED_STATE</a> = 0x00;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> uint8_t RESET_STATE = 0x01;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> uint8_t CLOCKWISE_STATE = 0x02;          <span class="comment">// Intake going clockwise</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> uint8_t COUNTER_CLOCKWISE_STATE = 0x03;  <span class="comment">// Intake going counter clockwise</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> uint8_t HOLD_STATE = 0x04;               <span class="comment">// Hold intake in place (idle about don&#39;t allow freespin)</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> uint8_t OPERATOR_OVERRIDE = 0x20;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="class_intake.html#a39827df4434fb83590b5d541e3dd072e">Intake</a>(uint8_t <a class="code" href="class_system_manager.html#a5839d9ede630184ec6d2f39dd6866e4d">defaultState</a>);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_intake.html#a2c379879ee68fa1e8a5a970c8321f494">setPower</a>(<span class="keywordtype">double</span> newPower);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_intake.html#af57df8bbfbd97d7412ca7fa392b4b840">clockwise</a>(<span class="keywordtype">double</span> newPower);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_intake.html#ad045a0a5b45c0e6cc86b3d17dffa4553">counterClockwise</a>(<span class="keywordtype">double</span> newPower);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_intake.html#a50fd3e4e3e6de23d91ec9441a1d54ddc">control</a>();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_intake.html#aa3093b638197b57b18ee9d519f4da68b">stop</a>();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_intake.html#af7e009e05fcb3e7b2f41c489303182c3">update</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_intake.html#ab6516299d9a6d8ca581e4aad463a167a">fullReset</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_intake.html#a4f28530a9b16c5819b539bd50cae3067">changeState</a>(uint8_t newState);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="class_intake.html#a6f725bff73deb783c2f35cd087513bed">   87</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_intake.html#a6f725bff73deb783c2f35cd087513bed">timedOut</a>(uint32_t timeout);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="comment">// Intake motor</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        pros::Motor intakeMotor = pros::Motor(INTAKE_PORT, pros::E_MOTOR_GEARSET_18, <span class="keyword">false</span>, pros::E_MOTOR_ENCODER_DEGREES);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;};</div>
 <div class="ttc" id="achassis_8h_html"><div class="ttname"><a href="chassis_8h.html">chassis.h</a></div><div class="ttdoc">Contains definition macros such as pin numbers.</div></div>
 <div class="ttc" id="aclass_intake_html"><div class="ttname"><a href="class_intake.html">Intake</a></div><div class="ttdoc">Intake system manager class, inherits from SystemManager.</div><div class="ttdef"><b>Definition:</b> intake.h:18</div></div>
-<div class="ttc" id="aclass_intake_html_a1d921cc57419b9c03c3e93a8ae02c506"><div class="ttname"><a href="class_intake.html#a1d921cc57419b9c03c3e93a8ae02c506">Intake::revertState</a></div><div class="ttdeci">void revertState()</div></div>
-<div class="ttc" id="aclass_intake_html_a2081d4198ad91a144f0af93ca4e84ac9"><div class="ttname"><a href="class_intake.html#a2081d4198ad91a144f0af93ca4e84ac9">Intake::defaultState</a></div><div class="ttdeci">STATE defaultState</div><div class="ttdef"><b>Definition:</b> intake.h:95</div></div>
 <div class="ttc" id="aclass_intake_html_a2c379879ee68fa1e8a5a970c8321f494"><div class="ttname"><a href="class_intake.html#a2c379879ee68fa1e8a5a970c8321f494">Intake::setPower</a></div><div class="ttdeci">void setPower(double newPower)</div><div class="ttdef"><b>Definition:</b> intake.cpp:17</div></div>
-<div class="ttc" id="aclass_intake_html_a4a8bf54d3181e6bc6205fcf6d244e89a"><div class="ttname"><a href="class_intake.html#a4a8bf54d3181e6bc6205fcf6d244e89a">Intake::changeState</a></div><div class="ttdeci">virtual bool changeState(STATE newState)</div><div class="ttdef"><b>Definition:</b> intake.cpp:66</div></div>
+<div class="ttc" id="aclass_intake_html_a2dc632668a40e6ea935649a47369873f"><div class="ttname"><a href="class_intake.html#a2dc632668a40e6ea935649a47369873f">Intake::DISABLED_STATE</a></div><div class="ttdeci">static const uint8_t DISABLED_STATE</div><div class="ttdef"><b>Definition:</b> intake.h:23</div></div>
+<div class="ttc" id="aclass_intake_html_a39827df4434fb83590b5d541e3dd072e"><div class="ttname"><a href="class_intake.html#a39827df4434fb83590b5d541e3dd072e">Intake::Intake</a></div><div class="ttdeci">Intake(uint8_t defaultState)</div><div class="ttdef"><b>Definition:</b> intake.cpp:12</div></div>
+<div class="ttc" id="aclass_intake_html_a4f28530a9b16c5819b539bd50cae3067"><div class="ttname"><a href="class_intake.html#a4f28530a9b16c5819b539bd50cae3067">Intake::changeState</a></div><div class="ttdeci">virtual bool changeState(uint8_t newState)</div><div class="ttdef"><b>Definition:</b> intake.cpp:66</div></div>
 <div class="ttc" id="aclass_intake_html_a50fd3e4e3e6de23d91ec9441a1d54ddc"><div class="ttname"><a href="class_intake.html#a50fd3e4e3e6de23d91ec9441a1d54ddc">Intake::control</a></div><div class="ttdeci">void control()</div><div class="ttdef"><b>Definition:</b> intake.cpp:34</div></div>
-<div class="ttc" id="aclass_intake_html_a59d68f71275fed696ce4195a337bf44b"><div class="ttname"><a href="class_intake.html#a59d68f71275fed696ce4195a337bf44b">Intake::state</a></div><div class="ttdeci">STATE state</div><div class="ttdef"><b>Definition:</b> intake.h:90</div></div>
 <div class="ttc" id="aclass_intake_html_a6f725bff73deb783c2f35cd087513bed"><div class="ttname"><a href="class_intake.html#a6f725bff73deb783c2f35cd087513bed">Intake::timedOut</a></div><div class="ttdeci">bool timedOut(uint32_t timeout)</div></div>
-<div class="ttc" id="aclass_intake_html_a72ccde783a0c5e4d6b28798e701e7a4b"><div class="ttname"><a href="class_intake.html#a72ccde783a0c5e4d6b28798e701e7a4b">Intake::lastState</a></div><div class="ttdeci">STATE lastState</div><div class="ttdef"><b>Definition:</b> intake.h:85</div></div>
 <div class="ttc" id="aclass_intake_html_aa3093b638197b57b18ee9d519f4da68b"><div class="ttname"><a href="class_intake.html#aa3093b638197b57b18ee9d519f4da68b">Intake::stop</a></div><div class="ttdeci">void stop()</div><div class="ttdef"><b>Definition:</b> intake.cpp:38</div></div>
 <div class="ttc" id="aclass_intake_html_ab6516299d9a6d8ca581e4aad463a167a"><div class="ttname"><a href="class_intake.html#ab6516299d9a6d8ca581e4aad463a167a">Intake::fullReset</a></div><div class="ttdeci">void fullReset() override</div><div class="ttdef"><b>Definition:</b> intake.cpp:116</div></div>
 <div class="ttc" id="aclass_intake_html_ad045a0a5b45c0e6cc86b3d17dffa4553"><div class="ttname"><a href="class_intake.html#ad045a0a5b45c0e6cc86b3d17dffa4553">Intake::counterClockwise</a></div><div class="ttdeci">void counterClockwise(double newPower)</div><div class="ttdef"><b>Definition:</b> intake.cpp:29</div></div>
-<div class="ttc" id="aclass_intake_html_ad462c18853ba486de5eb84570369d6c8"><div class="ttname"><a href="class_intake.html#ad462c18853ba486de5eb84570369d6c8">Intake::Intake</a></div><div class="ttdeci">Intake(STATE defaultState)</div><div class="ttdef"><b>Definition:</b> intake.cpp:12</div></div>
-<div class="ttc" id="aclass_intake_html_ada0a306f5945111ccd19f78177ece424"><div class="ttname"><a href="class_intake.html#ada0a306f5945111ccd19f78177ece424">Intake::STATE</a></div><div class="ttdeci">STATE</div><div class="ttdef"><b>Definition:</b> intake.h:23</div></div>
 <div class="ttc" id="aclass_intake_html_af57df8bbfbd97d7412ca7fa392b4b840"><div class="ttname"><a href="class_intake.html#af57df8bbfbd97d7412ca7fa392b4b840">Intake::clockwise</a></div><div class="ttdeci">void clockwise(double newPower)</div><div class="ttdef"><b>Definition:</b> intake.cpp:24</div></div>
 <div class="ttc" id="aclass_intake_html_af7e009e05fcb3e7b2f41c489303182c3"><div class="ttname"><a href="class_intake.html#af7e009e05fcb3e7b2f41c489303182c3">Intake::update</a></div><div class="ttdeci">void update() override</div><div class="ttdef"><b>Definition:</b> intake.cpp:42</div></div>
 <div class="ttc" id="aclass_system_manager_html"><div class="ttname"><a href="class_system_manager.html">SystemManager</a></div><div class="ttdoc">Base class for a system manager.</div><div class="ttdef"><b>Definition:</b> systemManager.h:13</div></div>
+<div class="ttc" id="aclass_system_manager_html_a5839d9ede630184ec6d2f39dd6866e4d"><div class="ttname"><a href="class_system_manager.html#a5839d9ede630184ec6d2f39dd6866e4d">SystemManager::defaultState</a></div><div class="ttdeci">uint8_t defaultState</div><div class="ttdef"><b>Definition:</b> systemManager.h:133</div></div>
 <div class="ttc" id="amain_8h_html"><div class="ttname"><a href="main_8h.html">main.h</a></div></div>
 <div class="ttc" id="asystem_manager_8h_html"><div class="ttname"><a href="system_manager_8h.html">systemManager.h</a></div><div class="ttdoc">Contains headers for the SystemManager abstract class.</div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -167,7 +154,7 @@ $(document).ready(function(){initNavTree('intake_8h_source.html',''); initResiza
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_3c04bc290434a2bfff240c0777e37105.html">systems</a></li><li class="navelem"><a class="el" href="intake_8h.html">intake.h</a></li>
-    <li class="footer">Generated on Tue Nov 16 2021 23:51:09 for VEX V5 Bootstrapped Project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Nov 19 2021 04:57:52 for VEX V5 Bootstrapped Project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

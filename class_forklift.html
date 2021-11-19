@@ -86,9 +86,8 @@ $(document).ready(function(){initNavTree('class_forklift.html',''); initResizabl
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_forklift-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -110,46 +109,27 @@ Inheritance diagram for Forklift:</div>
   </map>
 </div></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a73d7463847ff43ca1e2aadd75062dc5e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_forklift.html#a73d7463847ff43ca1e2aadd75062dc5e">STATE</a> { <br />
-&#160;&#160;<b>DISABLED_STATE</b> = (uint8_t) 0x00
-, <b>RESET_STATE</b> = (uint8_t) 0x01
-, <b>UP_STATE</b> = (uint8_t) 0x02
-, <b>DOWN_STATE</b> = (uint8_t) 0x03
-, <br />
-&#160;&#160;<b>OPERATOR_OVERRIDE</b> = (uint8_t) 0x20
-<br />
- }</td></tr>
-<tr class="separator:a73d7463847ff43ca1e2aadd75062dc5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_types_class_system_manager"><td colspan="2" onclick="javascript:toggleInherit('pub_types_class_system_manager')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="class_system_manager.html">SystemManager</a></td></tr>
-<tr class="memitem:aa410df72c7b0aab84be208a677fc9720 inherit pub_types_class_system_manager"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system_manager.html#aa410df72c7b0aab84be208a677fc9720">STATE</a> { <b>DISABLED_STATE</b> = (uint8_t) 0x00
-, <b>RESET_STATE</b> = (uint8_t) 0x01
-, <b>OPERATOR_OVERRIDE</b> = (uint8_t) 0x20
- }</td></tr>
-<tr class="separator:aa410df72c7b0aab84be208a677fc9720 inherit pub_types_class_system_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a10e7ad255d492cb4b80bc318db1e1865"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_forklift.html#a10e7ad255d492cb4b80bc318db1e1865">Forklift</a> (<a class="el" href="class_forklift.html#a73d7463847ff43ca1e2aadd75062dc5e">STATE</a> <a class="el" href="class_forklift.html#acae3229217140c88ca840c661736514b">defaultState</a>, pros::Motor *forkliftMotor)</td></tr>
-<tr class="separator:a10e7ad255d492cb4b80bc318db1e1865"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61dedc1e3558904c9c133d260852b31b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_forklift.html#a61dedc1e3558904c9c133d260852b31b">Forklift</a> (uint8_t <a class="el" href="class_system_manager.html#a5839d9ede630184ec6d2f39dd6866e4d">defaultState</a>, pros::Motor *forkliftMotor)</td></tr>
+<tr class="separator:a61dedc1e3558904c9c133d260852b31b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5627f183a5f84f8b66fc92221c232b57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_forklift.html#a5627f183a5f84f8b66fc92221c232b57">goUp</a> ()</td></tr>
 <tr class="separator:a5627f183a5f84f8b66fc92221c232b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7da99d1870bae455855186aabc5482f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_forklift.html#a7da99d1870bae455855186aabc5482f2">goMiddle</a> ()</td></tr>
+<tr class="separator:a7da99d1870bae455855186aabc5482f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af880b6019832871ac56cb350f00f30ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_forklift.html#af880b6019832871ac56cb350f00f30ce">goDown</a> ()</td></tr>
 <tr class="separator:af880b6019832871ac56cb350f00f30ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0484be0bb64f74ba083485ee47c54f33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_forklift.html#a0484be0bb64f74ba083485ee47c54f33">control</a> ()</td></tr>
 <tr class="separator:a0484be0bb64f74ba083485ee47c54f33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e6bc98fed631fa002409d79e5d70623"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_forklift.html#a6e6bc98fed631fa002409d79e5d70623">revertState</a> ()</td></tr>
-<tr class="separator:a6e6bc98fed631fa002409d79e5d70623"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3edf708a020a9c3a4b642a18d60aa4ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_forklift.html#a73d7463847ff43ca1e2aadd75062dc5e">Forklift::STATE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_forklift.html#a3edf708a020a9c3a4b642a18d60aa4ea">getState</a> ()</td></tr>
-<tr class="separator:a3edf708a020a9c3a4b642a18d60aa4ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5925dc0f32e608abb78f147f8cc26500"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_forklift.html#a5925dc0f32e608abb78f147f8cc26500">update</a> () override</td></tr>
 <tr class="separator:a5925dc0f32e608abb78f147f8cc26500"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af507744530c1d6338d84704da97d4970"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_forklift.html#af507744530c1d6338d84704da97d4970">fullReset</a> () override</td></tr>
 <tr class="separator:af507744530c1d6338d84704da97d4970"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4109ab040e4d7fe2f02d736dc86f65ee"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_forklift.html#a4109ab040e4d7fe2f02d736dc86f65ee">changeState</a> (uint8_t newState)</td></tr>
+<tr class="separator:a4109ab040e4d7fe2f02d736dc86f65ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_system_manager"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_system_manager')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_system_manager.html">SystemManager</a></td></tr>
-<tr class="memitem:af1388f537e2d034befcd0783ee914c3b inherit pub_methods_class_system_manager"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system_manager.html#af1388f537e2d034befcd0783ee914c3b">SystemManager</a> (<a class="el" href="class_system_manager.html#aa410df72c7b0aab84be208a677fc9720">STATE</a> <a class="el" href="class_system_manager.html#a6d330c8e733138aabeeeb7940f3b9c9a">defaultState</a>)</td></tr>
-<tr class="separator:af1388f537e2d034befcd0783ee914c3b inherit pub_methods_class_system_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a887c137c541cdcef0f1af86eee282d inherit pub_methods_class_system_manager"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system_manager.html#a3a887c137c541cdcef0f1af86eee282d">SystemManager</a> (uint8_t <a class="el" href="class_system_manager.html#a5839d9ede630184ec6d2f39dd6866e4d">defaultState</a>)</td></tr>
+<tr class="separator:a3a887c137c541cdcef0f1af86eee282d inherit pub_methods_class_system_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf8a83804c573e5ec19bd99a8cd7285d inherit pub_methods_class_system_manager"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system_manager.html#aaf8a83804c573e5ec19bd99a8cd7285d">getTarget</a> ()</td></tr>
 <tr class="separator:aaf8a83804c573e5ec19bd99a8cd7285d inherit pub_methods_class_system_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7df5009bd0f659c0c8284978f9ca5754 inherit pub_methods_class_system_manager"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system_manager.html#a7df5009bd0f659c0c8284978f9ca5754">getError</a> ()</td></tr>
@@ -158,8 +138,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a194cc27c2648e9250af5905008aa690c inherit pub_methods_class_system_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae98e95af795c701f2d0d8ee60511177 inherit pub_methods_class_system_manager"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system_manager.html#aae98e95af795c701f2d0d8ee60511177">getPower</a> ()</td></tr>
 <tr class="separator:aae98e95af795c701f2d0d8ee60511177 inherit pub_methods_class_system_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c1ab0fd356cd8568f31dbcdee0f67e1 inherit pub_methods_class_system_manager"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_system_manager.html#aa410df72c7b0aab84be208a677fc9720">STATE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system_manager.html#a8c1ab0fd356cd8568f31dbcdee0f67e1">getState</a> ()</td></tr>
-<tr class="separator:a8c1ab0fd356cd8568f31dbcdee0f67e1 inherit pub_methods_class_system_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40386dcba7afa80799e1f8d1da4e0f58 inherit pub_methods_class_system_manager"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system_manager.html#a40386dcba7afa80799e1f8d1da4e0f58">getState</a> ()</td></tr>
+<tr class="separator:a40386dcba7afa80799e1f8d1da4e0f58 inherit pub_methods_class_system_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a250c53d4af50b451db44ad2a44b96447 inherit pub_methods_class_system_manager"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system_manager.html#a250c53d4af50b451db44ad2a44b96447">enabled</a> ()</td></tr>
 <tr class="separator:a250c53d4af50b451db44ad2a44b96447 inherit pub_methods_class_system_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ea4ac3b13492e4d6525518b24c11ab2 inherit pub_methods_class_system_manager"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system_manager.html#a8ea4ac3b13492e4d6525518b24c11ab2">reset</a> ()</td></tr>
@@ -171,28 +151,37 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab11f0da7d9d33da0b5b00225f062556f inherit pub_methods_class_system_manager"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system_manager.html#ab11f0da7d9d33da0b5b00225f062556f">revertState</a> ()</td></tr>
 <tr class="separator:ab11f0da7d9d33da0b5b00225f062556f inherit pub_methods_class_system_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a412cccb4546395e70878bae24b1ca789"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_forklift.html#a412cccb4546395e70878bae24b1ca789">changeState</a> (<a class="el" href="class_forklift.html#a73d7463847ff43ca1e2aadd75062dc5e">STATE</a> newState)</td></tr>
-<tr class="separator:a412cccb4546395e70878bae24b1ca789"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b4b664190c221c4657261fde19a1c9f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_forklift.html#a1b4b664190c221c4657261fde19a1c9f">timedOut</a> (uint32_t timeout)</td></tr>
-<tr class="separator:a1b4b664190c221c4657261fde19a1c9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_methods_class_system_manager"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_system_manager')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_system_manager.html">SystemManager</a></td></tr>
-<tr class="memitem:abaaaf78376df24f53f10a0fa5910e4fb inherit pro_methods_class_system_manager"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system_manager.html#abaaaf78376df24f53f10a0fa5910e4fb">changeState</a> (<a class="el" href="class_system_manager.html#aa410df72c7b0aab84be208a677fc9720">STATE</a> newState)</td></tr>
-<tr class="separator:abaaaf78376df24f53f10a0fa5910e4fb inherit pro_methods_class_system_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9139ac23ca89964dcc740f2e49516698 inherit pro_methods_class_system_manager"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system_manager.html#a9139ac23ca89964dcc740f2e49516698">operator=</a> (<a class="el" href="class_system_manager.html#aa410df72c7b0aab84be208a677fc9720">STATE</a> newState)</td></tr>
-<tr class="separator:a9139ac23ca89964dcc740f2e49516698 inherit pro_methods_class_system_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a555f9459e136da217a97a0fa1f926536 inherit pro_methods_class_system_manager"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system_manager.html#a555f9459e136da217a97a0fa1f926536">timedOut</a> (uint32_t timeout)</td></tr>
-<tr class="separator:a555f9459e136da217a97a0fa1f926536 inherit pro_methods_class_system_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a7f95e28639cbe6d0fa5e263756782d4c"><td class="memItemLeft" align="right" valign="top">static const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_forklift.html#a7f95e28639cbe6d0fa5e263756782d4c">DISABLED_STATE</a> = 0x00</td></tr>
+<tr class="separator:a7f95e28639cbe6d0fa5e263756782d4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad49f26651e2daf9a3a55ca642d4b52d1"><td class="memItemLeft" align="right" valign="top"><a id="ad49f26651e2daf9a3a55ca642d4b52d1"></a>
+static const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>RESET_STATE</b> = 0x01</td></tr>
+<tr class="separator:ad49f26651e2daf9a3a55ca642d4b52d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e0d20653fb39cbfbac2db4b0443c89f"><td class="memItemLeft" align="right" valign="top"><a id="a6e0d20653fb39cbfbac2db4b0443c89f"></a>
+static const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>UP_STATE</b> = 0x02</td></tr>
+<tr class="separator:a6e0d20653fb39cbfbac2db4b0443c89f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3ef7146cb72917dd40815efcd799859"><td class="memItemLeft" align="right" valign="top"><a id="ae3ef7146cb72917dd40815efcd799859"></a>
+static const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>MIDDLE_STATE</b> = 0x04</td></tr>
+<tr class="separator:ae3ef7146cb72917dd40815efcd799859"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a509ae0a1ed3cdabfc175ec5021ee31c8"><td class="memItemLeft" align="right" valign="top"><a id="a509ae0a1ed3cdabfc175ec5021ee31c8"></a>
+static const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>DOWN_STATE</b> = 0x03</td></tr>
+<tr class="separator:a509ae0a1ed3cdabfc175ec5021ee31c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98774a0effacf95d870a3bb3a5a14cce"><td class="memItemLeft" align="right" valign="top"><a id="a98774a0effacf95d870a3bb3a5a14cce"></a>
+static const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>OPERATOR_OVERRIDE</b> = 0x20</td></tr>
+<tr class="separator:a98774a0effacf95d870a3bb3a5a14cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_static_attribs_class_system_manager"><td colspan="2" onclick="javascript:toggleInherit('pub_static_attribs_class_system_manager')"><img src="closed.png" alt="-"/>&#160;Static Public Attributes inherited from <a class="el" href="class_system_manager.html">SystemManager</a></td></tr>
+<tr class="memitem:a49b5e7ff7b91e7caa049b4265e781b18 inherit pub_static_attribs_class_system_manager"><td class="memItemLeft" align="right" valign="top">static const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system_manager.html#a49b5e7ff7b91e7caa049b4265e781b18">DISABLED_STATE</a> = 0x00</td></tr>
+<tr class="separator:a49b5e7ff7b91e7caa049b4265e781b18 inherit pub_static_attribs_class_system_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a418748a98b9d72f869bf45836ba35f65 inherit pub_static_attribs_class_system_manager"><td class="memItemLeft" align="right" valign="top"><a id="a418748a98b9d72f869bf45836ba35f65"></a>
+static const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>RESET_STATE</b> = 0x01</td></tr>
+<tr class="separator:a418748a98b9d72f869bf45836ba35f65 inherit pub_static_attribs_class_system_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45da94015c7746d1cfa46afbab706998 inherit pub_static_attribs_class_system_manager"><td class="memItemLeft" align="right" valign="top"><a id="a45da94015c7746d1cfa46afbab706998"></a>
+static const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>OPERATOR_OVERRIDE</b> = 0x20</td></tr>
+<tr class="separator:a45da94015c7746d1cfa46afbab706998 inherit pub_static_attribs_class_system_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:ac3521421cd86d24648a8af22c063a926"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_forklift.html#a73d7463847ff43ca1e2aadd75062dc5e">STATE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_forklift.html#ac3521421cd86d24648a8af22c063a926">lastState</a> = DISABLED_STATE</td></tr>
-<tr class="separator:ac3521421cd86d24648a8af22c063a926"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab151e1fce6bfabc95ba62f8a8ab7a061"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_forklift.html#a73d7463847ff43ca1e2aadd75062dc5e">STATE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_forklift.html#ab151e1fce6bfabc95ba62f8a8ab7a061">state</a> = DISABLED_STATE</td></tr>
-<tr class="separator:ab151e1fce6bfabc95ba62f8a8ab7a061"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acae3229217140c88ca840c661736514b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_forklift.html#a73d7463847ff43ca1e2aadd75062dc5e">STATE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_forklift.html#acae3229217140c88ca840c661736514b">defaultState</a></td></tr>
-<tr class="separator:acae3229217140c88ca840c661736514b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2951092e2ce6a8c025b41c453e6019e4"><td class="memItemLeft" align="right" valign="top"><a id="a2951092e2ce6a8c025b41c453e6019e4"></a>
 pros::Motor *&#160;</td><td class="memItemRight" valign="bottom"><b>forkliftMotor</b></td></tr>
 <tr class="separator:a2951092e2ce6a8c025b41c453e6019e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -207,34 +196,26 @@ pros::Motor *&#160;</td><td class="memItemRight" valign="bottom"><b>forkliftMoto
 <tr class="separator:aba3dec1374b2eee5f6f73248de4d5ec7 inherit pro_attribs_class_system_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ffbc9a0bdb0c4070a8d0579c4c7509a inherit pro_attribs_class_system_manager"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system_manager.html#a9ffbc9a0bdb0c4070a8d0579c4c7509a">timeOfLastChange</a> = 0</td></tr>
 <tr class="separator:a9ffbc9a0bdb0c4070a8d0579c4c7509a inherit pro_attribs_class_system_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abffc95775e4dc9dd43345d1d650ba12a inherit pro_attribs_class_system_manager"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_system_manager.html#aa410df72c7b0aab84be208a677fc9720">STATE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system_manager.html#abffc95775e4dc9dd43345d1d650ba12a">lastState</a> = DISABLED_STATE</td></tr>
-<tr class="separator:abffc95775e4dc9dd43345d1d650ba12a inherit pro_attribs_class_system_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b3d54b17c22bd3b44a7e758b570db91 inherit pro_attribs_class_system_manager"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_system_manager.html#aa410df72c7b0aab84be208a677fc9720">STATE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system_manager.html#a7b3d54b17c22bd3b44a7e758b570db91">state</a> = DISABLED_STATE</td></tr>
-<tr class="separator:a7b3d54b17c22bd3b44a7e758b570db91 inherit pro_attribs_class_system_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d330c8e733138aabeeeb7940f3b9c9a inherit pro_attribs_class_system_manager"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_system_manager.html#aa410df72c7b0aab84be208a677fc9720">STATE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system_manager.html#a6d330c8e733138aabeeeb7940f3b9c9a">defaultState</a></td></tr>
-<tr class="separator:a6d330c8e733138aabeeeb7940f3b9c9a inherit pro_attribs_class_system_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2db2dcc527a5db3edcc89d801f6a0754 inherit pro_attribs_class_system_manager"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system_manager.html#a2db2dcc527a5db3edcc89d801f6a0754">lastState</a> = <a class="el" href="class_system_manager.html#a49b5e7ff7b91e7caa049b4265e781b18">DISABLED_STATE</a></td></tr>
+<tr class="separator:a2db2dcc527a5db3edcc89d801f6a0754 inherit pro_attribs_class_system_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7971d6f0d81ef3c1dd1142e3963bdb5c inherit pro_attribs_class_system_manager"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system_manager.html#a7971d6f0d81ef3c1dd1142e3963bdb5c">state</a> = <a class="el" href="class_system_manager.html#a49b5e7ff7b91e7caa049b4265e781b18">DISABLED_STATE</a></td></tr>
+<tr class="separator:a7971d6f0d81ef3c1dd1142e3963bdb5c inherit pro_attribs_class_system_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5839d9ede630184ec6d2f39dd6866e4d inherit pro_attribs_class_system_manager"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system_manager.html#a5839d9ede630184ec6d2f39dd6866e4d">defaultState</a></td></tr>
+<tr class="separator:a5839d9ede630184ec6d2f39dd6866e4d inherit pro_attribs_class_system_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_methods_class_system_manager"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_system_manager')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_system_manager.html">SystemManager</a></td></tr>
+<tr class="memitem:aa7937d597ed0bd51774f20ed8c5cb97b inherit pro_methods_class_system_manager"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system_manager.html#aa7937d597ed0bd51774f20ed8c5cb97b">operator=</a> (uint8_t newState)</td></tr>
+<tr class="separator:aa7937d597ed0bd51774f20ed8c5cb97b inherit pro_methods_class_system_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a555f9459e136da217a97a0fa1f926536 inherit pro_methods_class_system_manager"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system_manager.html#a555f9459e136da217a97a0fa1f926536">timedOut</a> (uint32_t timeout)</td></tr>
+<tr class="separator:a555f9459e136da217a97a0fa1f926536 inherit pro_methods_class_system_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_forklift.html" title="Forklift system manager class, inherits from SystemManager.">Forklift</a> system manager class, inherits from <a class="el" href="class_system_manager.html" title="Base class for a system manager.">SystemManager</a>. </p>
-</div><h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="a73d7463847ff43ca1e2aadd75062dc5e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73d7463847ff43ca1e2aadd75062dc5e">&#9670;&nbsp;</a></span>STATE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="class_forklift.html#a73d7463847ff43ca1e2aadd75062dc5e">Forklift::STATE</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>All possible states for the system. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a10e7ad255d492cb4b80bc318db1e1865"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10e7ad255d492cb4b80bc318db1e1865">&#9670;&nbsp;</a></span>Forklift()</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a61dedc1e3558904c9c133d260852b31b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61dedc1e3558904c9c133d260852b31b">&#9670;&nbsp;</a></span>Forklift()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -242,7 +223,7 @@ pros::Motor *&#160;</td><td class="memItemRight" valign="bottom"><b>forkliftMoto
         <tr>
           <td class="memname">Forklift::Forklift </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_forklift.html#a73d7463847ff43ca1e2aadd75062dc5e">STATE</a>&#160;</td>
+          <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>defaultState</em>, </td>
         </tr>
         <tr>
@@ -269,8 +250,8 @@ pros::Motor *&#160;</td><td class="memItemRight" valign="bottom"><b>forkliftMoto
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a412cccb4546395e70878bae24b1ca789"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a412cccb4546395e70878bae24b1ca789">&#9670;&nbsp;</a></span>changeState()</h2>
+<a id="a4109ab040e4d7fe2f02d736dc86f65ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4109ab040e4d7fe2f02d736dc86f65ee">&#9670;&nbsp;</a></span>changeState()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -281,14 +262,14 @@ pros::Motor *&#160;</td><td class="memItemRight" valign="bottom"><b>forkliftMoto
         <tr>
           <td class="memname">bool Forklift::changeState </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_forklift.html#a73d7463847ff43ca1e2aadd75062dc5e">STATE</a>&#160;</td>
+          <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>newState</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -299,6 +280,8 @@ pros::Motor *&#160;</td><td class="memItemRight" valign="bottom"><b>forkliftMoto
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the system was enabled, and false if it was disabled. </dd></dl>
+
+<p>Reimplemented from <a class="el" href="class_system_manager.html#a839e6c911f1b3bc6d7b0b2705ccc92a2">SystemManager</a>.</p>
 
 </div>
 </div>
@@ -348,24 +331,6 @@ pros::Motor *&#160;</td><td class="memItemRight" valign="bottom"><b>forkliftMoto
 
 </div>
 </div>
-<a id="a3edf708a020a9c3a4b642a18d60aa4ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3edf708a020a9c3a4b642a18d60aa4ea">&#9670;&nbsp;</a></span>getState()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_forklift.html#a73d7463847ff43ca1e2aadd75062dc5e">Forklift::STATE</a> Forklift::getState </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Get the current state. </p>
-
-</div>
-</div>
 <a id="af880b6019832871ac56cb350f00f30ce"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af880b6019832871ac56cb350f00f30ce">&#9670;&nbsp;</a></span>goDown()</h2>
 
@@ -384,6 +349,24 @@ pros::Motor *&#160;</td><td class="memItemRight" valign="bottom"><b>forkliftMoto
 
 </div>
 </div>
+<a id="a7da99d1870bae455855186aabc5482f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7da99d1870bae455855186aabc5482f2">&#9670;&nbsp;</a></span>goMiddle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Forklift::goMiddle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Bring the forklift into the middle position </p>
+
+</div>
+</div>
 <a id="a5627f183a5f84f8b66fc92221c232b57"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5627f183a5f84f8b66fc92221c232b57">&#9670;&nbsp;</a></span>goUp()</h2>
 
@@ -399,57 +382,6 @@ pros::Motor *&#160;</td><td class="memItemRight" valign="bottom"><b>forkliftMoto
       </table>
 </div><div class="memdoc">
 <p>Bring the forklift up </p>
-
-</div>
-</div>
-<a id="a6e6bc98fed631fa002409d79e5d70623"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e6bc98fed631fa002409d79e5d70623">&#9670;&nbsp;</a></span>revertState()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Forklift::revertState </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Revert the state to what it previously was. </p>
-
-</div>
-</div>
-<a id="a1b4b664190c221c4657261fde19a1c9f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b4b664190c221c4657261fde19a1c9f">&#9670;&nbsp;</a></span>timedOut()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Forklift::timedOut </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>timeout</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Checks whether the last change of state was made during a specific period of time. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">timeout</td><td>The amount of milliseconds after the last state change. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the system state was changed before the time period, False if not. </dd></dl>
 
 </div>
 </div>
@@ -482,8 +414,8 @@ pros::Motor *&#160;</td><td class="memItemRight" valign="bottom"><b>forkliftMoto
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="acae3229217140c88ca840c661736514b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acae3229217140c88ca840c661736514b">&#9670;&nbsp;</a></span>defaultState</h2>
+<a id="a7f95e28639cbe6d0fa5e263756782d4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f95e28639cbe6d0fa5e263756782d4c">&#9670;&nbsp;</a></span>DISABLED_STATE</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -492,62 +424,16 @@ pros::Motor *&#160;</td><td class="memItemRight" valign="bottom"><b>forkliftMoto
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_forklift.html#a73d7463847ff43ca1e2aadd75062dc5e">STATE</a> Forklift::defaultState</td>
+          <td class="memname">const uint8_t Forklift::DISABLED_STATE = 0x00</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>The default state of the system. </p>
-
-</div>
-</div>
-<a id="ac3521421cd86d24648a8af22c063a926"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac3521421cd86d24648a8af22c063a926">&#9670;&nbsp;</a></span>lastState</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_forklift.html#a73d7463847ff43ca1e2aadd75062dc5e">STATE</a> Forklift::lastState = DISABLED_STATE</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>The previous state of the system. </p>
-
-</div>
-</div>
-<a id="ab151e1fce6bfabc95ba62f8a8ab7a061"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab151e1fce6bfabc95ba62f8a8ab7a061">&#9670;&nbsp;</a></span>state</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_forklift.html#a73d7463847ff43ca1e2aadd75062dc5e">STATE</a> Forklift::state = DISABLED_STATE</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>The current state of the system. </p>
+<p>All possible states for the system. </p>
 
 </div>
 </div>
@@ -561,7 +447,7 @@ pros::Motor *&#160;</td><td class="memItemRight" valign="bottom"><b>forkliftMoto
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_forklift.html">Forklift</a></li>
-    <li class="footer">Generated on Tue Nov 16 2021 23:51:09 for VEX V5 Bootstrapped Project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Nov 19 2021 04:57:52 for VEX V5 Bootstrapped Project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
