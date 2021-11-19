@@ -18,24 +18,28 @@ class Forklift: public SystemManager {
         /**
          * All possible states for the system.
         */
-        enum STATE {
-            DISABLED_STATE = (uint8_t) 0x00,
-            RESET_STATE = (uint8_t) 0x01,
-            UP_STATE = (uint8_t) 0x02,          // Forklift holding MOGO up
-            DOWN_STATE = (uint8_t) 0x03,        // Forklift holding MOGO down
-            OPERATOR_OVERRIDE = (uint8_t) 0x20
-        };
-
+        static const uint8_t DISABLED_STATE = 0x00;
+        static const uint8_t RESET_STATE = 0x01;
+        static const uint8_t UP_STATE = 0x02;            // Forklift holding MOGO up
+        static const uint8_t MIDDLE_STATE = 0x04;        // Forklift holding MOGO for transport
+        static const uint8_t DOWN_STATE = 0x03;          // Forklift holding MOGO down
+        static const uint8_t OPERATOR_OVERRIDE = 0x20;
+        
         /**
          * Constructor for the Forklift class
          * @param defaultState The default state for the system.
         */
-        Forklift(STATE defaultState, pros::Motor* forkliftMotor);
+        Forklift(uint8_t defaultState, pros::Motor* forkliftMotor);
 
         /**
          * Bring the forklift up
         */
         void goUp();
+
+        /**
+         * Bring the forklift into the middle position
+        */
+        void goMiddle();
 
         /**
          * Bring the forklift down
@@ -48,16 +52,6 @@ class Forklift: public SystemManager {
         void control();
 
         /**
-         * Revert the state to what it previously was.
-        */
-        void revertState();
-
-        /**
-         * Get the current state.
-        */
-        Forklift::STATE getState();
-
-        /**
          * The control loop for the system. This should be run every loop.
         */
         void update() override;
@@ -67,36 +61,14 @@ class Forklift: public SystemManager {
         */
         void fullReset() override;
 
-    protected:
-        /**
-         * The previous state of the system.
-        */
-        STATE lastState = DISABLED_STATE;
-
-        /**
-         * The current state of the system.
-        */
-        STATE state = DISABLED_STATE;
-
-        /**
-         * The default state of the system.
-        */
-        STATE defaultState;
-
         /**
          * Sets the state of the system.
          * @param newState The new state of the system.
          * @return True if the system was enabled, and false if it was disabled.
         */
-        virtual bool changeState(STATE newState);
+        virtual bool changeState(uint8_t newState);
 
-        /**
-         * Checks whether the last change of state was made during a specific period of time.
-         * @param timeout The amount of milliseconds after the last state change.
-         * @return True if the system state was changed before the time period, False if not.
-        */
-        bool timedOut(uint32_t timeout);
-
+    protected:
         // Forklift motor
         pros::Motor* forkliftMotor;
 };

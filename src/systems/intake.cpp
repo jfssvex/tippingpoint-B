@@ -9,7 +9,7 @@ double abs(double x) {
     return x >= 0 ? x : -x;
 }
 
-Intake::Intake(STATE defaultState) : SystemManager((SystemManager::STATE) defaultState) {
+Intake::Intake(uint8_t defaultState) : SystemManager(defaultState) {
     this->defaultState = defaultState;
 }
 
@@ -63,9 +63,9 @@ void Intake::update() {
     }
 }
 
-bool Intake::changeState(STATE newState) {
+bool Intake::changeState(uint8_t newState) {
     // Run basic state change code in base function
-    bool processed = SystemManager::changeState((SystemManager::STATE) newState);
+    bool processed = SystemManager::changeState(newState);
 
     if (!processed) {
         return false;
@@ -74,13 +74,13 @@ bool Intake::changeState(STATE newState) {
     switch(newState) {
         case CLOCKWISE_STATE: {
             // Run intake clockwise
-            this->intakeMotor.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+            this->intakeMotor.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
             this->setPower(this->power);
             break;
         }
         case COUNTER_CLOCKWISE_STATE: {
             // Run intake counter-clockwise
-            this->intakeMotor.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+            this->intakeMotor.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
             this->setPower(this->power);
             break;
         }
@@ -105,7 +105,7 @@ bool Intake::changeState(STATE newState) {
         }
         case OPERATOR_OVERRIDE: {
             // Allow motor to coast
-            this->intakeMotor.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+            this->intakeMotor.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
             break;
         }
     }

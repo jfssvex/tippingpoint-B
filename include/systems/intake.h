@@ -20,20 +20,18 @@ class Intake: public SystemManager {
         /**
          * All possible states for the system.
         */
-        enum STATE {
-            DISABLED_STATE = (uint8_t) 0x00,
-            RESET_STATE = (uint8_t) 0x01,
-            CLOCKWISE_STATE = (uint8_t) 0x02,          // Intake going clockwise
-            COUNTER_CLOCKWISE_STATE = (uint8_t) 0x03,  // Intake going counter clockwise
-            HOLD_STATE = (uint8_t) 0x04,               // Hold intake in place (idle about don't allow freespin)
-            OPERATOR_OVERRIDE = (uint8_t) 0x20
-        };
+        static const uint8_t DISABLED_STATE = 0x00;
+        static const uint8_t RESET_STATE = 0x01;
+        static const uint8_t CLOCKWISE_STATE = 0x02;          // Intake going clockwise
+        static const uint8_t COUNTER_CLOCKWISE_STATE = 0x03;  // Intake going counter clockwise
+        static const uint8_t HOLD_STATE = 0x04;               // Hold intake in place (idle about don't allow freespin)
+        static const uint8_t OPERATOR_OVERRIDE = 0x20;
 
         /**
          * Constructor for the Intake class
          * @param defaultState The default state for the system.
         */
-        Intake(STATE defaultState);
+        Intake(uint8_t defaultState);
 
         /**
          * Set the new power for the intake.
@@ -64,11 +62,6 @@ class Intake: public SystemManager {
         void stop();
 
         /**
-         * Revert the state to what it previously was.
-        */
-        void revertState();
-
-        /**
          * The control loop for the system. This should be run every loop.
         */
         void update() override;
@@ -80,26 +73,11 @@ class Intake: public SystemManager {
 
     protected:
         /**
-         * The previous state of the system.
-        */
-        STATE lastState = DISABLED_STATE;
-
-        /**
-         * The current state of the system.
-        */
-        STATE state = DISABLED_STATE;
-
-        /**
-         * The default state of the system.
-        */
-        STATE defaultState;
-
-        /**
          * Sets the state of the system.
          * @param newState The new state of the system.
          * @return True if the system was enabled, and false if it was disabled.
         */
-        virtual bool changeState(STATE newState);
+        virtual bool changeState(uint8_t newState);
 
         /**
          * Checks whether the last change of state was made during a specific period of time.

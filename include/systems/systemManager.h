@@ -15,17 +15,15 @@ class SystemManager {
         /**
          * All possible states for the system.
         */
-        enum STATE {
-            DISABLED_STATE = (uint8_t) 0x00,
-            RESET_STATE = (uint8_t) 0x01,
-            OPERATOR_OVERRIDE = (uint8_t) 0x20
-        };
+        static const uint8_t DISABLED_STATE = 0x00;
+        static const uint8_t RESET_STATE = 0x01;
+        static const uint8_t OPERATOR_OVERRIDE = 0x20;
 
         /**
          * Constructor for the SystemManager class
          * @param defaultState The default state for the system.
         */
-        SystemManager(STATE defaultState);
+        SystemManager(uint8_t defaultState);
         
         /**
          * Gets the current target value.
@@ -55,7 +53,7 @@ class SystemManager {
          * Gets the current state of the system.
          * @return The current state.
         */
-        STATE getState() { return this->state; };
+        uint8_t getState() { return this->state; };
 
         /**
          * Returns whether the system is enabled or not.
@@ -122,31 +120,31 @@ class SystemManager {
         /**
          * The previous state of the system.
         */
-        STATE lastState = DISABLED_STATE;
+        uint8_t lastState = DISABLED_STATE;
 
         /**
          * The current state of the system.
         */
-        STATE state = DISABLED_STATE;
+        uint8_t state = DISABLED_STATE;
 
         /**
          * The default state of the system.
         */
-        STATE defaultState;
+        uint8_t defaultState;
 
         /**
          * Sets the state of the system.
          * @param newState The new state of the system.
          * @return True if the system was enabled, and false if it was disabled.
         */
-        virtual bool changeState(STATE newState);
+        virtual bool changeState(uint8_t newState);
 
         /**
          * Sets the state of the system, alias to changeState()
          * @param newState The new state of the system.
          * @return True if the system was enabled, and false if it was disabled.
         */
-        bool operator=(STATE newState);
+        bool operator=(uint8_t newState);
 
         /**
          * Checks whether the last change of state was made during a specific period of time.

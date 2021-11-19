@@ -215,8 +215,6 @@ DisplayController::DisplayController() {
 
     // Set up the theme
     coloredBg = initTheme(10, colors.at("purple"), colors.at("purple"), 0);
-
-    printf("test...");
 }
 
 DISPLAY_MODE DisplayController::getMode() {

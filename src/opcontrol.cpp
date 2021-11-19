@@ -17,16 +17,20 @@ void myOpControl() {
     // Enable all systems
     intake.enable();
     forklift1.enable();
-    forklift2.enable();
+    forklift1.fullReset();
 
     // 0 -> nothing, 1 -> clockwise, -1 -> counter clockwise
     int macroToggle = 0;
 
+    // Internal state for forklift 1
+    // 0 -> Down, 1 -> Middle, 2 -> Up
+    int forklift1State = 0;
+
     while (true) {
         // Tank drive
-        int left = masterController.get_analog(ANALOG_LEFT_Y);
-        int right = masterController.get_analog(ANALOG_RIGHT_Y);
-        driveTrain->tank(joystickCubicDrive(left), joystickCubicDrive(right), 0);
+        int forward = masterController.get_analog(ANALOG_LEFT_Y);
+        int yaw = masterController.get_analog(ANALOG_RIGHT_X);
+        driveTrain->arcade(forward, yaw, 0);
 
         // Intake manual controls
         int intakeUp = masterController.get_digital(DIGITAL_L1);
@@ -89,22 +93,27 @@ void myOpControl() {
         }
 
         if (forklift1Input == 1) {
+            forklift1State += 1;
+            forklift1State %= 3; // There are only 3 states available, modulo to 3
+            
             // Set to alternate position
-            printf("yoooooooooo\n");
-
-            // somethng is wrong with state
-            if (forklift1.getState() == Forklift::UP_STATE) {
+            if (forklift1State == 0) {
+                // Go down
                 forklift1.goDown();
-                printf("down!\n");
-            } else if (forklift1.getState() == Forklift::DOWN_STATE) {
+                display.logMessage("Forklift 1: going down.");
+            } else if (forklift1State == 1) {
+                // Go middle
+                forklift1.goMiddle();
+                display.logMessage("Forklift 1: going middle.");
+            } else if (forklift1State == 2) {
+                // Go up
                 forklift1.goUp();
-                printf("up!\n");
-            } else {
-                printf("forklift is something different???\n");
+                display.logMessage("Forklift 1: going up.");
             }
         }
 
         if (forklift2Input == 1) {
+            display.logMessage("Forklift 2: clicked");
             /*
             // Set to alternate position
             if (forklift2.getState() == Forklift::UP_STATE) {

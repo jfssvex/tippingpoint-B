@@ -5,7 +5,7 @@
 #include "systems/forklift.h"
 #include "systems/systemManager.h"
 
-Forklift::Forklift(STATE defaultState, pros::Motor* forkliftMotor) : SystemManager((SystemManager::STATE) defaultState) {
+Forklift::Forklift(uint8_t defaultState, pros::Motor* forkliftMotor) : SystemManager(defaultState) {
     this->defaultState = defaultState;
     this->forkliftMotor = forkliftMotor;
 }
@@ -14,12 +14,12 @@ void Forklift::goUp() {
     this->changeState(UP_STATE);
 }
 
-void Forklift::goDown() {
-    this->changeState(DOWN_STATE);
+void Forklift::goMiddle() {
+    this->changeState(MIDDLE_STATE);
 }
 
-Forklift::STATE Forklift::getState() {
-    return this->state;
+void Forklift::goDown() {
+    this->changeState(DOWN_STATE);
 }
 
 // TODO: Add custom PID loop
@@ -36,23 +36,25 @@ void Forklift::update() {
     }
 }
 
-bool Forklift::changeState(STATE newState) {
+bool Forklift::changeState(uint8_t newState) {
     // Run basic state change code in base function
-    bool processed = SystemManager::changeState((SystemManager::STATE) newState);
+    bool processed = SystemManager::changeState(newState);
 
     if (!processed) {
-        printf("dead\n");
         return false;
     }
-
-    printf("not dead\n");
 
     switch(newState) {
         case UP_STATE: {
             // Set forklift motor to hold at up position
             this->forkliftMotor->set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-            this->forkliftMotor->move_relative(360, 100);
-            // this->forkliftMotor->move_absolute(120, 100); // TODO: Change to maximum rpm based on cartridge
+            this->forkliftMotor->move_absolute(60, 100); // TODO: Change to maximum rpm based on cartridge
+            break;
+        }
+        case MIDDLE_STATE: {
+            // Set forklift motor to hold at middle position
+            this->forkliftMotor->set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+            this->forkliftMotor->move_absolute(30, 100); // TODO: Change to maximum rpm based on cartridge
             break;
         }
         case DOWN_STATE: {
@@ -69,6 +71,7 @@ bool Forklift::changeState(STATE newState) {
         }
         case OPERATOR_OVERRIDE: {
             // Allow motor to coast
+            printf("operate me!!\n");
             this->forkliftMotor->set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
             break;
         }

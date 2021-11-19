@@ -7,7 +7,7 @@
 
 #include "systems/systemManager.h"
 
-SystemManager::SystemManager(STATE defaultState) {
+SystemManager::SystemManager(uint8_t defaultState) {
     *this = defaultState;
     this->defaultState = defaultState;
     this->lastState = defaultState;
@@ -40,7 +40,7 @@ void SystemManager::fullReset() {
     this->power = 0;
 }
 
-bool SystemManager::changeState(STATE newState) {
+bool SystemManager::changeState(uint8_t newState) {
     if (this->state == DISABLED_STATE) {
         return false;
     }
@@ -50,7 +50,7 @@ bool SystemManager::changeState(STATE newState) {
     return true;
 }
 
-bool SystemManager::operator=(STATE newState) {
+bool SystemManager::operator=(uint8_t newState) {
     return this->changeState(newState);
 }
 
