@@ -48,19 +48,19 @@ bool Forklift::changeState(uint8_t newState) {
         case UP_STATE: {
             // Set forklift motor to hold at up position
             this->forkliftMotor->set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-            this->forkliftMotor->move_absolute(60, 100); // TODO: Change to maximum rpm based on cartridge
+            this->forkliftMotor->move_absolute(900, 200); // TODO: Change to maximum rpm based on cartridge
             break;
         }
         case MIDDLE_STATE: {
             // Set forklift motor to hold at middle position
             this->forkliftMotor->set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-            this->forkliftMotor->move_absolute(30, 100); // TODO: Change to maximum rpm based on cartridge
+            this->forkliftMotor->move_absolute(500, 200); // TODO: Change to maximum rpm based on cartridge
             break;
         }
         case DOWN_STATE: {
             // Set forklift motor to hold at down position
             this->forkliftMotor->set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-            this->forkliftMotor->move_absolute(0, 100); // TODO: Change to maximum rpm based on cartridge
+            this->forkliftMotor->move_absolute(0, 200); // TODO: Change to maximum rpm based on cartridge
             break;
         }
         case DISABLED_STATE: {
