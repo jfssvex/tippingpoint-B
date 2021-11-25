@@ -155,7 +155,11 @@ void myOpControl() {
             intakeIMEVal = intake.intakeMotor.get_position();
         }
         */
-    
+
+
+
+        // Run update funcs on sysman
+        forklift1.update();
 
         pros::delay(10);
     }    
