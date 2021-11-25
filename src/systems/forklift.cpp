@@ -34,10 +34,10 @@ void Forklift::setPower(int power) {
 // TODO: Add custom PID loop
 void Forklift::update() {
     if (manualPower == 0) {
-        // Retain position if power not being applied
+        // Retain position if manual power not being applied
         this->forkliftMotor->move_absolute(this->target, 200);
     } else {
-        // Update target as current position
+        // Update target to be current position
         this->target = this->forkliftMotor->get_position();
     }
 }

@@ -82,7 +82,7 @@ void myOpControl() {
                 // Operator control
                 intake.control();
 
-                int speed = 90; // Also can be 40
+                int intakeSpeed = 90; // Also can be 40
 
                 if (intakeUp) {
                     intake.setPower(speed);
@@ -102,7 +102,7 @@ void myOpControl() {
         // Operator control
         forklift1.control();
 
-        int speed = 90;
+        int forkliftSpeed = 127;
 
         if (forklift1Up) {
             forklift1.setPower(speed);
