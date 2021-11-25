@@ -123,13 +123,13 @@ $(document).ready(function(){initNavTree('intake_8h_source.html',''); initResiza
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_intake.html#ab6516299d9a6d8ca581e4aad463a167a">fullReset</a>() <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_intake.html#a4f28530a9b16c5819b539bd50cae3067">changeState</a>(uint8_t newState);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="class_intake.html#a6f725bff73deb783c2f35cd087513bed">   87</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_intake.html#a6f725bff73deb783c2f35cd087513bed">timedOut</a>(uint32_t timeout);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="comment">// Intake motor</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        pros::Motor intakeMotor = pros::Motor(INTAKE_PORT, pros::E_MOTOR_GEARSET_18, <span class="keyword">false</span>, pros::E_MOTOR_ENCODER_DEGREES);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="comment">// Intake motor</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        pros::Motor intakeMotor = pros::Motor(INTAKE_PORT, pros::E_MOTOR_GEARSET_36, <span class="keyword">false</span>, pros::E_MOTOR_ENCODER_DEGREES);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_intake.html#a4f28530a9b16c5819b539bd50cae3067">changeState</a>(uint8_t newState);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="class_intake.html#a6f725bff73deb783c2f35cd087513bed">   90</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="class_intake.html#a6f725bff73deb783c2f35cd087513bed">timedOut</a>(uint32_t timeout);</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;};</div>
 <div class="ttc" id="achassis_8h_html"><div class="ttname"><a href="chassis_8h.html">chassis.h</a></div><div class="ttdoc">Contains definition macros such as pin numbers.</div></div>
 <div class="ttc" id="aclass_intake_html"><div class="ttname"><a href="class_intake.html">Intake</a></div><div class="ttdoc">Intake system manager class, inherits from SystemManager.</div><div class="ttdef"><b>Definition:</b> intake.h:18</div></div>
@@ -154,7 +154,7 @@ $(document).ready(function(){initNavTree('intake_8h_source.html',''); initResiza
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_3c04bc290434a2bfff240c0777e37105.html">systems</a></li><li class="navelem"><a class="el" href="intake_8h.html">intake.h</a></li>
-    <li class="footer">Generated on Tue Nov 23 2021 17:14:00 for VEX V5 Bootstrapped Project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Nov 25 2021 17:33:15 for VEX V5 Bootstrapped Project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

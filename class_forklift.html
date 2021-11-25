@@ -119,6 +119,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7da99d1870bae455855186aabc5482f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af880b6019832871ac56cb350f00f30ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_forklift.html#af880b6019832871ac56cb350f00f30ce">goDown</a> ()</td></tr>
 <tr class="separator:af880b6019832871ac56cb350f00f30ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef1c88a9ae164edd103cb97343c61cae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_forklift.html#aef1c88a9ae164edd103cb97343c61cae">setPower</a> (int <a class="el" href="class_system_manager.html#aba3dec1374b2eee5f6f73248de4d5ec7">power</a>)</td></tr>
+<tr class="separator:aef1c88a9ae164edd103cb97343c61cae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0484be0bb64f74ba083485ee47c54f33"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_forklift.html#a0484be0bb64f74ba083485ee47c54f33">control</a> ()</td></tr>
 <tr class="separator:a0484be0bb64f74ba083485ee47c54f33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5925dc0f32e608abb78f147f8cc26500"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_forklift.html#a5925dc0f32e608abb78f147f8cc26500">update</a> () override</td></tr>
@@ -185,6 +187,9 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a2951092e2ce6a8c025b41c453e6019e4"><td class="memItemLeft" align="right" valign="top"><a id="a2951092e2ce6a8c025b41c453e6019e4"></a>
 pros::Motor *&#160;</td><td class="memItemRight" valign="bottom"><b>forkliftMotor</b></td></tr>
 <tr class="separator:a2951092e2ce6a8c025b41c453e6019e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabdbfb6db4bc8e468e1b72bd205b3155"><td class="memItemLeft" align="right" valign="top"><a id="aabdbfb6db4bc8e468e1b72bd205b3155"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>manualPower</b> = 0</td></tr>
+<tr class="separator:aabdbfb6db4bc8e468e1b72bd205b3155"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_system_manager"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_system_manager')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_system_manager.html">SystemManager</a></td></tr>
 <tr class="memitem:ad626174d0b68bcf2b7e184f808f56fe0 inherit pro_attribs_class_system_manager"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system_manager.html#ad626174d0b68bcf2b7e184f808f56fe0">target</a></td></tr>
 <tr class="separator:ad626174d0b68bcf2b7e184f808f56fe0 inherit pro_attribs_class_system_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -385,6 +390,25 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="aef1c88a9ae164edd103cb97343c61cae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef1c88a9ae164edd103cb97343c61cae">&#9670;&nbsp;</a></span>setPower()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Forklift::setPower </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>power</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the power of the forklift motor </p>
+
+</div>
+</div>
 <a id="a5925dc0f32e608abb78f147f8cc26500"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5925dc0f32e608abb78f147f8cc26500">&#9670;&nbsp;</a></span>update()</h2>
 
@@ -447,7 +471,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_forklift.html">Forklift</a></li>
-    <li class="footer">Generated on Tue Nov 23 2021 17:14:00 for VEX V5 Bootstrapped Project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Nov 25 2021 17:33:15 for VEX V5 Bootstrapped Project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

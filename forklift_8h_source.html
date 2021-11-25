@@ -113,31 +113,38 @@ $(document).ready(function(){initNavTree('forklift_8h_source.html',''); initResi
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_forklift.html#af880b6019832871ac56cb350f00f30ce">goDown</a>();</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="class_forklift.html#a0484be0bb64f74ba083485ee47c54f33">   52</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_forklift.html#a0484be0bb64f74ba083485ee47c54f33">control</a>();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_forklift.html#aef1c88a9ae164edd103cb97343c61cae">setPower</a>(<span class="keywordtype">int</span> <a class="code" href="class_system_manager.html#aba3dec1374b2eee5f6f73248de4d5ec7">power</a>);</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_forklift.html#a5925dc0f32e608abb78f147f8cc26500">update</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_forklift.html#a0484be0bb64f74ba083485ee47c54f33">control</a>();</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_forklift.html#af507744530c1d6338d84704da97d4970">fullReset</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_forklift.html#a5925dc0f32e608abb78f147f8cc26500">update</a>() <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_forklift.html#a4109ab040e4d7fe2f02d736dc86f65ee">changeState</a>(uint8_t newState);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="comment">// Forklift motor</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        pros::Motor* forkliftMotor;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;};</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_forklift.html#af507744530c1d6338d84704da97d4970">fullReset</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_forklift.html#a4109ab040e4d7fe2f02d736dc86f65ee">changeState</a>(uint8_t newState);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="comment">// Forklift motor</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        pros::Motor* forkliftMotor;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="comment">// Manual power</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordtype">int</span> manualPower = 0;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;};</div>
 <div class="ttc" id="achassis_8h_html"><div class="ttname"><a href="chassis_8h.html">chassis.h</a></div><div class="ttdoc">Contains definition macros such as pin numbers.</div></div>
 <div class="ttc" id="aclass_forklift_html"><div class="ttname"><a href="class_forklift.html">Forklift</a></div><div class="ttdoc">Forklift system manager class, inherits from SystemManager.</div><div class="ttdef"><b>Definition:</b> forklift.h:16</div></div>
-<div class="ttc" id="aclass_forklift_html_a0484be0bb64f74ba083485ee47c54f33"><div class="ttname"><a href="class_forklift.html#a0484be0bb64f74ba083485ee47c54f33">Forklift::control</a></div><div class="ttdeci">void control()</div></div>
-<div class="ttc" id="aclass_forklift_html_a4109ab040e4d7fe2f02d736dc86f65ee"><div class="ttname"><a href="class_forklift.html#a4109ab040e4d7fe2f02d736dc86f65ee">Forklift::changeState</a></div><div class="ttdeci">virtual bool changeState(uint8_t newState)</div><div class="ttdef"><b>Definition:</b> forklift.cpp:39</div></div>
+<div class="ttc" id="aclass_forklift_html_a0484be0bb64f74ba083485ee47c54f33"><div class="ttname"><a href="class_forklift.html#a0484be0bb64f74ba083485ee47c54f33">Forklift::control</a></div><div class="ttdeci">void control()</div><div class="ttdef"><b>Definition:</b> forklift.cpp:25</div></div>
+<div class="ttc" id="aclass_forklift_html_a4109ab040e4d7fe2f02d736dc86f65ee"><div class="ttname"><a href="class_forklift.html#a4109ab040e4d7fe2f02d736dc86f65ee">Forklift::changeState</a></div><div class="ttdeci">virtual bool changeState(uint8_t newState)</div><div class="ttdef"><b>Definition:</b> forklift.cpp:42</div></div>
 <div class="ttc" id="aclass_forklift_html_a5627f183a5f84f8b66fc92221c232b57"><div class="ttname"><a href="class_forklift.html#a5627f183a5f84f8b66fc92221c232b57">Forklift::goUp</a></div><div class="ttdeci">void goUp()</div><div class="ttdef"><b>Definition:</b> forklift.cpp:13</div></div>
-<div class="ttc" id="aclass_forklift_html_a5925dc0f32e608abb78f147f8cc26500"><div class="ttname"><a href="class_forklift.html#a5925dc0f32e608abb78f147f8cc26500">Forklift::update</a></div><div class="ttdeci">void update() override</div><div class="ttdef"><b>Definition:</b> forklift.cpp:26</div></div>
+<div class="ttc" id="aclass_forklift_html_a5925dc0f32e608abb78f147f8cc26500"><div class="ttname"><a href="class_forklift.html#a5925dc0f32e608abb78f147f8cc26500">Forklift::update</a></div><div class="ttdeci">void update() override</div><div class="ttdef"><b>Definition:</b> forklift.cpp:35</div></div>
 <div class="ttc" id="aclass_forklift_html_a61dedc1e3558904c9c133d260852b31b"><div class="ttname"><a href="class_forklift.html#a61dedc1e3558904c9c133d260852b31b">Forklift::Forklift</a></div><div class="ttdeci">Forklift(uint8_t defaultState, pros::Motor *forkliftMotor)</div><div class="ttdef"><b>Definition:</b> forklift.cpp:8</div></div>
 <div class="ttc" id="aclass_forklift_html_a7da99d1870bae455855186aabc5482f2"><div class="ttname"><a href="class_forklift.html#a7da99d1870bae455855186aabc5482f2">Forklift::goMiddle</a></div><div class="ttdeci">void goMiddle()</div><div class="ttdef"><b>Definition:</b> forklift.cpp:17</div></div>
 <div class="ttc" id="aclass_forklift_html_a7f95e28639cbe6d0fa5e263756782d4c"><div class="ttname"><a href="class_forklift.html#a7f95e28639cbe6d0fa5e263756782d4c">Forklift::DISABLED_STATE</a></div><div class="ttdeci">static const uint8_t DISABLED_STATE</div><div class="ttdef"><b>Definition:</b> forklift.h:21</div></div>
-<div class="ttc" id="aclass_forklift_html_af507744530c1d6338d84704da97d4970"><div class="ttname"><a href="class_forklift.html#af507744530c1d6338d84704da97d4970">Forklift::fullReset</a></div><div class="ttdeci">void fullReset() override</div><div class="ttdef"><b>Definition:</b> forklift.cpp:83</div></div>
+<div class="ttc" id="aclass_forklift_html_aef1c88a9ae164edd103cb97343c61cae"><div class="ttname"><a href="class_forklift.html#aef1c88a9ae164edd103cb97343c61cae">Forklift::setPower</a></div><div class="ttdeci">void setPower(int power)</div><div class="ttdef"><b>Definition:</b> forklift.cpp:29</div></div>
+<div class="ttc" id="aclass_forklift_html_af507744530c1d6338d84704da97d4970"><div class="ttname"><a href="class_forklift.html#af507744530c1d6338d84704da97d4970">Forklift::fullReset</a></div><div class="ttdeci">void fullReset() override</div><div class="ttdef"><b>Definition:</b> forklift.cpp:84</div></div>
 <div class="ttc" id="aclass_forklift_html_af880b6019832871ac56cb350f00f30ce"><div class="ttname"><a href="class_forklift.html#af880b6019832871ac56cb350f00f30ce">Forklift::goDown</a></div><div class="ttdeci">void goDown()</div><div class="ttdef"><b>Definition:</b> forklift.cpp:21</div></div>
 <div class="ttc" id="aclass_system_manager_html"><div class="ttname"><a href="class_system_manager.html">SystemManager</a></div><div class="ttdoc">Base class for a system manager.</div><div class="ttdef"><b>Definition:</b> systemManager.h:13</div></div>
 <div class="ttc" id="aclass_system_manager_html_a5839d9ede630184ec6d2f39dd6866e4d"><div class="ttname"><a href="class_system_manager.html#a5839d9ede630184ec6d2f39dd6866e4d">SystemManager::defaultState</a></div><div class="ttdeci">uint8_t defaultState</div><div class="ttdef"><b>Definition:</b> systemManager.h:133</div></div>
+<div class="ttc" id="aclass_system_manager_html_aba3dec1374b2eee5f6f73248de4d5ec7"><div class="ttname"><a href="class_system_manager.html#aba3dec1374b2eee5f6f73248de4d5ec7">SystemManager::power</a></div><div class="ttdeci">double power</div><div class="ttdef"><b>Definition:</b> systemManager.h:113</div></div>
 <div class="ttc" id="amain_8h_html"><div class="ttname"><a href="main_8h.html">main.h</a></div></div>
 <div class="ttc" id="asystem_manager_8h_html"><div class="ttname"><a href="system_manager_8h.html">systemManager.h</a></div><div class="ttdoc">Contains headers for the SystemManager abstract class.</div></div>
 </div><!-- fragment --></div><!-- contents -->
@@ -146,7 +153,7 @@ $(document).ready(function(){initNavTree('forklift_8h_source.html',''); initResi
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_3c04bc290434a2bfff240c0777e37105.html">systems</a></li><li class="navelem"><a class="el" href="forklift_8h.html">forklift.h</a></li>
-    <li class="footer">Generated on Tue Nov 23 2021 17:14:00 for VEX V5 Bootstrapped Project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Thu Nov 25 2021 17:33:15 for VEX V5 Bootstrapped Project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

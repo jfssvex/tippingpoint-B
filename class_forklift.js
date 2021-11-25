@@ -7,6 +7,8 @@ var class_forklift =
     [ "goDown", "class_forklift.html#af880b6019832871ac56cb350f00f30ce", null ],
     [ "goMiddle", "class_forklift.html#a7da99d1870bae455855186aabc5482f2", null ],
     [ "goUp", "class_forklift.html#a5627f183a5f84f8b66fc92221c232b57", null ],
+    [ "setPower", "class_forklift.html#aef1c88a9ae164edd103cb97343c61cae", null ],
     [ "update", "class_forklift.html#a5925dc0f32e608abb78f147f8cc26500", null ],
-    [ "forkliftMotor", "class_forklift.html#a2951092e2ce6a8c025b41c453e6019e4", null ]
+    [ "forkliftMotor", "class_forklift.html#a2951092e2ce6a8c025b41c453e6019e4", null ],
+    [ "manualPower", "class_forklift.html#aabdbfb6db4bc8e468e1b72bd205b3155", null ]
 ];
