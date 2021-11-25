@@ -32,7 +32,7 @@ void myOpControl() {
     double intakeIMEVal = 0;
 
     while (true) {
-        // Arcade drive
+        // Arcade drive controls
         int forward = masterController.get_analog(ANALOG_LEFT_Y);
         int yaw = masterController.get_analog(ANALOG_RIGHT_X);
 
@@ -48,14 +48,12 @@ void myOpControl() {
         int intakeMacroCW = masterController.get_digital_new_press(DIGITAL_UP);
         int intakeMacroCCW = masterController.get_digital_new_press(DIGITAL_DOWN);
 
+        // Pass joystick values to drivetrain
         driveTrain->arcade(forward, yaw, 0);
 
         // Intake macro handler
-        if (macroToggle == -1 && intakeMacroCCW) {
-            // Turn off macro
-            macroToggle = 0;
-        } else if (macroToggle == 1 && intakeMacroCW) {
-            // Turn off macro
+        if (macroToggle != 0 && intakeMacroCCW) {
+            // Turn off macro if already on
             macroToggle = 0;
         } else {
             // State does not match the button pressed, enable the respective macro
@@ -85,9 +83,9 @@ void myOpControl() {
                 int intakeSpeed = 90; // Also can be 40
 
                 if (intakeUp) {
-                    intake.setPower(speed);
+                    intake.setPower(intakeSpeed);
                 } else if (intakeDown) {
-                    intake.setPower(-speed);
+                    intake.setPower(-intakeSpeed);
                 } else {
                     intake.setPower(0);
                 }
@@ -99,15 +97,14 @@ void myOpControl() {
         }
 
         // Forklift 1
-        // Operator control
         forklift1.control();
 
         int forkliftSpeed = 127;
 
         if (forklift1Up) {
-            forklift1.setPower(speed);
+            forklift1.setPower(forkliftSpeed);
         } else if (forklift1Down) {
-            forklift1.setPower(-speed);
+            forklift1.setPower(-forkliftSpeed);
         } else {
             forklift1.setPower(0);
         }
@@ -148,17 +145,13 @@ void myOpControl() {
             }
         }
         
-
-        /*
         if (intakeIMEVal != intake.intakeMotor.get_position()) {
             printf("!! Intake IME: %f\n", intake.intakeMotor.get_position());
             intakeIMEVal = intake.intakeMotor.get_position();
         }
         */
 
-
-
-        // Run update funcs on sysman
+        // Run update funcs on sysmans
         forklift1.update();
 
         pros::delay(10);
