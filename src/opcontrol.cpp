@@ -19,6 +19,9 @@ void myOpControl() {
     forklift1.enable();
     forklift1.fullReset();
 
+    forklift1Motor->set_brake_mode(MOTOR_BRAKE_HOLD);
+    intake.intakeMotor.set_brake_mode(MOTOR_BRAKE_HOLD);
+
     // 0 -> nothing, 1 -> clockwise, -1 -> counter clockwise
     int macroToggle = 0;
 
@@ -26,23 +29,26 @@ void myOpControl() {
     // 0 -> Down, 1 -> Middle, 2 -> Up
     int forklift1State = 0;
 
+    double intakeIMEVal = 0;
+
     while (true) {
-        // Tank drive
+        // Arcade drive
         int forward = masterController.get_analog(ANALOG_LEFT_Y);
         int yaw = masterController.get_analog(ANALOG_RIGHT_X);
-        driveTrain->arcade(forward, yaw, 0);
 
         // Intake manual controls
         int intakeUp = masterController.get_digital(DIGITAL_L1);
         int intakeDown = masterController.get_digital(DIGITAL_R1);
 
         // Forklift manual controls
-        int forklift1Input = masterController.get_digital_new_press(DIGITAL_L2);
-        int forklift2Input = masterController.get_digital_new_press(DIGITAL_R2);
+        int forklift1Up = masterController.get_digital(DIGITAL_L2);
+        int forklift1Down = masterController.get_digital(DIGITAL_R2);
 
         // Intake macro
         int intakeMacroCW = masterController.get_digital_new_press(DIGITAL_UP);
         int intakeMacroCCW = masterController.get_digital_new_press(DIGITAL_DOWN);
+
+        driveTrain->arcade(forward, yaw, 0);
 
         // Intake macro handler
         if (macroToggle == -1 && intakeMacroCCW) {
@@ -76,7 +82,7 @@ void myOpControl() {
                 // Operator control
                 intake.control();
 
-                int speed = 80; // Also can be 40
+                int speed = 90; // Also can be 40
 
                 if (intakeUp) {
                     intake.setPower(speed);
@@ -92,7 +98,24 @@ void myOpControl() {
             }
         }
 
+        // Forklift 1
+        // Operator control
+        forklift1.control();
+
+        int speed = 90;
+
+        if (forklift1Up) {
+            forklift1.setPower(speed);
+        } else if (forklift1Down) {
+            forklift1.setPower(-speed);
+        } else {
+            forklift1.setPower(0);
+        }
+
+        /*
         if (forklift1Input == 1) {
+            // forklift1.setPower(forward);
+            
             forklift1State += 1;
             forklift1State %= 3; // There are only 3 states available, modulo to 3
             
@@ -110,21 +133,29 @@ void myOpControl() {
                 forklift1.goUp();
                 display.logMessage("Forklift 1: going up.");
             }
+            
+
+            
         }
 
         if (forklift2Input == 1) {
             display.logMessage("Forklift 2: clicked");
-            /*
             // Set to alternate position
             if (forklift2.getState() == Forklift::UP_STATE) {
                 forklift2.goDown();
             } else if (forklift2.getState() == Forklift::DOWN_STATE) {
                 forklift2.goUp();
             }
-            */
         }
-
         
+
+        /*
+        if (intakeIMEVal != intake.intakeMotor.get_position()) {
+            printf("!! Intake IME: %f\n", intake.intakeMotor.get_position());
+            intakeIMEVal = intake.intakeMotor.get_position();
+        }
+        */
+    
 
         pros::delay(10);
     }    

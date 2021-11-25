@@ -52,8 +52,8 @@ void initialize() {
 	display.setMode(DEBUG);
 	
 	// Statistics display mode update
-	showStats = new bool(false);
-	// pros::Task my_task(displayStatsUpdateTask, NULL, "Statistics Display Mode");
+	showStats = new bool(true);
+	pros::Task my_task(displayStatsUpdateTask, NULL, "Statistics Display Mode");
 }
 
 /**
@@ -75,7 +75,7 @@ void disabled() {}
 void competition_initialize() {
 	// Enable auton selecton
 	display.setMode(SELECTOR);
-	*showStats = false;
+	*showStats = true;
 }
 
 /**
@@ -90,7 +90,7 @@ void competition_initialize() {
  * from where it left off.
  */
 void autonomous() {
-	*showStats = false;
+	*showStats = true;
 	myAuton();
 }
 
@@ -108,6 +108,6 @@ void autonomous() {
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-	*showStats = false;
+	*showStats = true;
 	myOpControl();
 }

@@ -417,6 +417,10 @@ void DisplayController::setMode(DISPLAY_MODE mode) {
             char myIntakeSpeed[50];
             sprintf(myIntakeSpeed, "Intake: %f", intake.getPower()); 
             renderLabel(myIntakeSpeed, 20, 60, scr);
+
+            char forklift1Pos[50];
+            sprintf(myIntakeSpeed, "Forklift1: %f", forklift1Motor->get_position()); 
+            renderLabel(myIntakeSpeed, 20, 120, scr);
             break;
         }
 

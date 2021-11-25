@@ -71,6 +71,9 @@ class Intake: public SystemManager {
         */
         void fullReset() override;
 
+        // Intake motor
+        pros::Motor intakeMotor = pros::Motor(INTAKE_PORT, pros::E_MOTOR_GEARSET_36, false, pros::E_MOTOR_ENCODER_DEGREES);
+
     protected:
         /**
          * Sets the state of the system.
@@ -85,7 +88,4 @@ class Intake: public SystemManager {
          * @return True if the system state was changed before the time period, False if not.
         */
         bool timedOut(uint32_t timeout);
-
-        // Intake motor
-        pros::Motor intakeMotor = pros::Motor(INTAKE_PORT, pros::E_MOTOR_GEARSET_18, false, pros::E_MOTOR_ENCODER_DEGREES);
 };

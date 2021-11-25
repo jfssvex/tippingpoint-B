@@ -47,6 +47,11 @@ class Forklift: public SystemManager {
         void goDown();
 
         /**
+         * Set the power of the forklift motor
+        */
+        void setPower(int power);
+
+        /**
          * Allow for an operator to control the system.
         */
         void control();
@@ -71,4 +76,7 @@ class Forklift: public SystemManager {
     protected:
         // Forklift motor
         pros::Motor* forkliftMotor;
+
+        // Manual power
+        int manualPower = 0;
 };
