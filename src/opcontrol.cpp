@@ -29,8 +29,6 @@ void myOpControl() {
     // 0 -> Down, 1 -> Middle, 2 -> Up
     int forklift1State = 0;
 
-    double intakeIMEVal = 0;
-
     while (true) {
         // Arcade drive controls
         int forward = masterController.get_analog(ANALOG_LEFT_Y);
@@ -40,13 +38,17 @@ void myOpControl() {
         int intakeUp = masterController.get_digital(DIGITAL_L1);
         int intakeDown = masterController.get_digital(DIGITAL_R1);
 
-        // Forklift manual controls
-        int forklift1Up = masterController.get_digital(DIGITAL_L2);
-        int forklift1Down = masterController.get_digital(DIGITAL_R2);
+        // Forklift 1 manual controls
+        int forklift1Up = masterController.get_digital(DIGITAL_UP);
+        int forklift1Down = masterController.get_digital(DIGITAL_DOWN);
+
+        // Forklift 2 manual controls
+        int forklift2Up = masterController.get_digital(DIGITAL_X);
+        int forklift2Down = masterController.get_digital(DIGITAL_B);
 
         // Intake macro
-        int intakeMacroCW = masterController.get_digital_new_press(DIGITAL_UP);
-        int intakeMacroCCW = masterController.get_digital_new_press(DIGITAL_DOWN);
+        int intakeMacroCW = masterController.get_digital_new_press(DIGITAL_LEFT);
+        int intakeMacroCCW = masterController.get_digital_new_press(DIGITAL_RIGHT);
 
         // Pass joystick values to drivetrain
         driveTrain->arcade(forward, yaw, 0);
@@ -96,9 +98,8 @@ void myOpControl() {
             }
         }
 
-        // Forklift 1
+        // Forklift 1 control
         forklift1.control();
-
         int forkliftSpeed = 127;
 
         if (forklift1Up) {
@@ -108,48 +109,6 @@ void myOpControl() {
         } else {
             forklift1.setPower(0);
         }
-
-        /*
-        if (forklift1Input == 1) {
-            // forklift1.setPower(forward);
-            
-            forklift1State += 1;
-            forklift1State %= 3; // There are only 3 states available, modulo to 3
-            
-            // Set to alternate position
-            if (forklift1State == 0) {
-                // Go down
-                forklift1.goDown();
-                display.logMessage("Forklift 1: going down.");
-            } else if (forklift1State == 1) {
-                // Go middle
-                forklift1.goMiddle();
-                display.logMessage("Forklift 1: going middle.");
-            } else if (forklift1State == 2) {
-                // Go up
-                forklift1.goUp();
-                display.logMessage("Forklift 1: going up.");
-            }
-            
-
-            
-        }
-
-        if (forklift2Input == 1) {
-            display.logMessage("Forklift 2: clicked");
-            // Set to alternate position
-            if (forklift2.getState() == Forklift::UP_STATE) {
-                forklift2.goDown();
-            } else if (forklift2.getState() == Forklift::DOWN_STATE) {
-                forklift2.goUp();
-            }
-        }
-        
-        if (intakeIMEVal != intake.intakeMotor.get_position()) {
-            printf("!! Intake IME: %f\n", intake.intakeMotor.get_position());
-            intakeIMEVal = intake.intakeMotor.get_position();
-        }
-        */
 
         // Run update funcs on sysmans
         forklift1.update();
