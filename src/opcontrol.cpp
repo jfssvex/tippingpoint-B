@@ -17,10 +17,6 @@ void myOpControl() {
     // Enable all systems
     intake.enable();
     forklift1.enable();
-    forklift1.fullReset();
-
-    forklift1Motor->set_brake_mode(MOTOR_BRAKE_HOLD);
-    intake.intakeMotor.set_brake_mode(MOTOR_BRAKE_HOLD);
 
     // 0 -> nothing, 1 -> clockwise, -1 -> counter clockwise
     int macroToggle = 0;

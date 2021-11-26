@@ -11,6 +11,7 @@ double abs(double x) {
 
 Intake::Intake(uint8_t defaultState) : SystemManager(defaultState) {
     this->defaultState = defaultState;
+    this->intakeMotor.set_brake_mode(MOTOR_BRAKE_HOLD);
 }
 
 

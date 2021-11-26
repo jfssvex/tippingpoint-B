@@ -11,6 +11,8 @@ Forklift::Forklift(uint8_t defaultState, pros::Motor* forkliftMotor, PIDInfo con
 
     this->constants = constants;
     this->pidController = new PIDController(0, this->constants, 10, 1);
+
+    forkliftMotor->set_brake_mode(MOTOR_BRAKE_HOLD);
 }
 
 void Forklift::goUp() {
