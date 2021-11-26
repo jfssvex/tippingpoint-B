@@ -9,6 +9,7 @@
 #include "main.h"
 #include "systemManager.h"
 #include "chassis.h"
+#include "PID.h"
 
 /**
  * \brief Forklift system manager class, inherits from SystemManager. 
@@ -29,7 +30,7 @@ class Forklift: public SystemManager {
          * Constructor for the Forklift class
          * @param defaultState The default state for the system.
         */
-        Forklift(uint8_t defaultState, pros::Motor* forkliftMotor);
+        Forklift(uint8_t defaultState, pros::Motor* forkliftMotor, PIDInfo constants, double totalError, double lastError);
 
         /**
          * Bring the forklift up
@@ -79,4 +80,9 @@ class Forklift: public SystemManager {
 
         // Manual power
         int manualPower = 0;
+
+        PIDInfo constants;
+
+        double totalError;
+        double lastError;
 };

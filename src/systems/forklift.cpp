@@ -2,12 +2,16 @@
  * Implementation for the Intake system manager.
 */
 
-#include "systems/forklift.h"
-#include "systems/systemManager.h"
+#include "include/systems/forklift.h"
+#include "include/systems/systemManager.h"
+#include "PID.h"
 
-Forklift::Forklift(uint8_t defaultState, pros::Motor* forkliftMotor) : SystemManager(defaultState) {
+Forklift::Forklift(uint8_t defaultState, pros::Motor* forkliftMotor, PIDInfo constants, double totalError, double lastError) : SystemManager(defaultState) {
     this->defaultState = defaultState;
     this->forkliftMotor = forkliftMotor;
+    this->constants = constants;
+    this->totalError = totalError;
+    this->lastError = lastError;
 }
 
 void Forklift::goUp() {
@@ -38,7 +42,19 @@ void Forklift::update() {
         this->forkliftMotor->move_absolute(this->target, 200);
     } else {
         // Update target to be current position
-        this->target = this->forkliftMotor->get_position();
+        //this->target = this->forkliftMotor->get_position();
+        
+        // need way to get target
+        int currValue = this->forkliftMotor->get_position();
+        int currError = currValue - this->target;
+        this->totalError += currError;
+        int dError = currError - this->lastError;
+
+        int currSpeed = (this->constants.p * currError) + (this->constants.i * this->totalError) + (this->constants.d * dError);
+
+        this->forkliftMotor->move(currSpeed);
+
+        this->lastError = currError;
     }
 }
 
