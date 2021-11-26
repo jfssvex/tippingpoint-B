@@ -111,8 +111,8 @@ Inheritance diagram for Forklift:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a61dedc1e3558904c9c133d260852b31b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_forklift.html#a61dedc1e3558904c9c133d260852b31b">Forklift</a> (uint8_t <a class="el" href="class_system_manager.html#a5839d9ede630184ec6d2f39dd6866e4d">defaultState</a>, pros::Motor *forkliftMotor)</td></tr>
-<tr class="separator:a61dedc1e3558904c9c133d260852b31b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e1c758dad3b9b1e164fb8718d2e4a4a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_forklift.html#a4e1c758dad3b9b1e164fb8718d2e4a4a">Forklift</a> (uint8_t <a class="el" href="class_system_manager.html#a5839d9ede630184ec6d2f39dd6866e4d">defaultState</a>, pros::Motor *forkliftMotor, <a class="el" href="class_p_i_d_info.html">PIDInfo</a> constants, double totalError, double lastError)</td></tr>
+<tr class="separator:a4e1c758dad3b9b1e164fb8718d2e4a4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5627f183a5f84f8b66fc92221c232b57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_forklift.html#a5627f183a5f84f8b66fc92221c232b57">goUp</a> ()</td></tr>
 <tr class="separator:a5627f183a5f84f8b66fc92221c232b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7da99d1870bae455855186aabc5482f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_forklift.html#a7da99d1870bae455855186aabc5482f2">goMiddle</a> ()</td></tr>
@@ -190,6 +190,15 @@ pros::Motor *&#160;</td><td class="memItemRight" valign="bottom"><b>forkliftMoto
 <tr class="memitem:aabdbfb6db4bc8e468e1b72bd205b3155"><td class="memItemLeft" align="right" valign="top"><a id="aabdbfb6db4bc8e468e1b72bd205b3155"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>manualPower</b> = 0</td></tr>
 <tr class="separator:aabdbfb6db4bc8e468e1b72bd205b3155"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af45fa4638b7a71a1c06be8122708d8f0"><td class="memItemLeft" align="right" valign="top"><a id="af45fa4638b7a71a1c06be8122708d8f0"></a>
+<a class="el" href="class_p_i_d_info.html">PIDInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><b>constants</b></td></tr>
+<tr class="separator:af45fa4638b7a71a1c06be8122708d8f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbf0813984a9b6b6525d26b5c51a08f6"><td class="memItemLeft" align="right" valign="top"><a id="acbf0813984a9b6b6525d26b5c51a08f6"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>totalError</b></td></tr>
+<tr class="separator:acbf0813984a9b6b6525d26b5c51a08f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada86d5c15e74dc6a6d7025a0b27dc803"><td class="memItemLeft" align="right" valign="top"><a id="ada86d5c15e74dc6a6d7025a0b27dc803"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>lastError</b></td></tr>
+<tr class="separator:ada86d5c15e74dc6a6d7025a0b27dc803"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_system_manager"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_system_manager')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_system_manager.html">SystemManager</a></td></tr>
 <tr class="memitem:ad626174d0b68bcf2b7e184f808f56fe0 inherit pro_attribs_class_system_manager"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system_manager.html#ad626174d0b68bcf2b7e184f808f56fe0">target</a></td></tr>
 <tr class="separator:ad626174d0b68bcf2b7e184f808f56fe0 inherit pro_attribs_class_system_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -219,8 +228,8 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_forklift.html" title="Forklift system manager class, inherits from SystemManager.">Forklift</a> system manager class, inherits from <a class="el" href="class_system_manager.html" title="Base class for a system manager.">SystemManager</a>. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a61dedc1e3558904c9c133d260852b31b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a61dedc1e3558904c9c133d260852b31b">&#9670;&nbsp;</a></span>Forklift()</h2>
+<a id="a4e1c758dad3b9b1e164fb8718d2e4a4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e1c758dad3b9b1e164fb8718d2e4a4a">&#9670;&nbsp;</a></span>Forklift()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -235,7 +244,25 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">pros::Motor *&#160;</td>
-          <td class="paramname"><em>forkliftMotor</em>&#160;</td>
+          <td class="paramname"><em>forkliftMotor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_p_i_d_info.html">PIDInfo</a>&#160;</td>
+          <td class="paramname"><em>constants</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>totalError</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>lastError</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -471,7 +498,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_forklift.html">Forklift</a></li>
-    <li class="footer">Generated on Thu Nov 25 2021 18:59:08 for VEX V5 Bootstrapped Project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Nov 26 2021 08:08:11 for VEX V5 Bootstrapped Project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
