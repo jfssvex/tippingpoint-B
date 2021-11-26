@@ -2,16 +2,15 @@
  * Implementation for the Intake system manager.
 */
 
-#include "include/systems/forklift.h"
-#include "include/systems/systemManager.h"
-#include "PID.h"
+#include "systems/forklift.h"
+#include "systems/systemManager.h"
 
-Forklift::Forklift(uint8_t defaultState, pros::Motor* forkliftMotor, PIDInfo constants, double totalError, double lastError) : SystemManager(defaultState) {
+Forklift::Forklift(uint8_t defaultState, pros::Motor* forkliftMotor, PIDInfo constants) : SystemManager(defaultState) {
     this->defaultState = defaultState;
     this->forkliftMotor = forkliftMotor;
+
     this->constants = constants;
-    this->totalError = totalError;
-    this->lastError = lastError;
+    this->pidController = new PIDController(0, this->constants, 10, 1);
 }
 
 void Forklift::goUp() {
@@ -38,23 +37,12 @@ void Forklift::setPower(int power) {
 // TODO: Add custom PID loop
 void Forklift::update() {
     if (manualPower == 0) {
-        // Retain position if manual power not being applied
-        this->forkliftMotor->move_absolute(this->target, 200);
+        // Retain position if manual power not being applied with custom PID loop
+        double speed = pidController->step(this->forkliftMotor->get_position());
+        this->forkliftMotor->move(speed);
     } else {
         // Update target to be current position
-        //this->target = this->forkliftMotor->get_position();
-        
-        // need way to get target
-        int currValue = this->forkliftMotor->get_position();
-        int currError = currValue - this->target;
-        this->totalError += currError;
-        int dError = currError - this->lastError;
-
-        int currSpeed = (this->constants.p * currError) + (this->constants.i * this->totalError) + (this->constants.d * dError);
-
-        this->forkliftMotor->move(currSpeed);
-
-        this->lastError = currError;
+        this->pidController->target = this->forkliftMotor->get_position();
     }
 }
 
