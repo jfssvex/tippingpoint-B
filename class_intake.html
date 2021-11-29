@@ -90,6 +90,7 @@ $(document).ready(function(){initNavTree('class_intake.html',''); initResizable(
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_intake-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Intake Class Reference</div>  </div>
@@ -112,8 +113,8 @@ Inheritance diagram for Intake:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a39827df4434fb83590b5d541e3dd072e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake.html#a39827df4434fb83590b5d541e3dd072e">Intake</a> (uint8_t <a class="el" href="class_system_manager.html#a5839d9ede630184ec6d2f39dd6866e4d">defaultState</a>)</td></tr>
-<tr class="separator:a39827df4434fb83590b5d541e3dd072e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a6db38467b99b27c7f744a5de754f1a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake.html#a5a6db38467b99b27c7f744a5de754f1a">Intake</a> (uint8_t <a class="el" href="class_system_manager.html#a5839d9ede630184ec6d2f39dd6866e4d">defaultState</a>, <a class="el" href="class_p_i_d_info.html">PIDInfo</a> constants)</td></tr>
+<tr class="separator:a5a6db38467b99b27c7f744a5de754f1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c379879ee68fa1e8a5a970c8321f494"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake.html#a2c379879ee68fa1e8a5a970c8321f494">setPower</a> (double newPower)</td></tr>
 <tr class="separator:a2c379879ee68fa1e8a5a970c8321f494"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af57df8bbfbd97d7412ca7fa392b4b840"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_intake.html#af57df8bbfbd97d7412ca7fa392b4b840">clockwise</a> (double newPower)</td></tr>
@@ -199,8 +200,14 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a555f9459e136da217a97a0fa1f926536 inherit pro_methods_class_system_manager"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system_manager.html#a555f9459e136da217a97a0fa1f926536">timedOut</a> (uint32_t timeout)</td></tr>
 <tr class="separator:a555f9459e136da217a97a0fa1f926536 inherit pro_methods_class_system_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a0f6097ebe42ab6b724ea36eaf4f94896"><td class="memItemLeft" align="right" valign="top"><a id="a0f6097ebe42ab6b724ea36eaf4f94896"></a>
+<a class="el" href="class_p_i_d_info.html">PIDInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><b>constants</b></td></tr>
+<tr class="separator:a0f6097ebe42ab6b724ea36eaf4f94896"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add55934fbfddd339d2906baceca071ee"><td class="memItemLeft" align="right" valign="top"><a id="add55934fbfddd339d2906baceca071ee"></a>
+<a class="el" href="class_p_i_d_controller.html">PIDController</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>intake_pidController</b></td></tr>
+<tr class="separator:add55934fbfddd339d2906baceca071ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_system_manager"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_system_manager')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_system_manager.html">SystemManager</a></td></tr>
 <tr class="memitem:ad626174d0b68bcf2b7e184f808f56fe0 inherit pro_attribs_class_system_manager"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system_manager.html#ad626174d0b68bcf2b7e184f808f56fe0">target</a></td></tr>
 <tr class="separator:ad626174d0b68bcf2b7e184f808f56fe0 inherit pro_attribs_class_system_manager"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -222,8 +229,8 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_intake.html" title="Intake system manager class, inherits from SystemManager.">Intake</a> system manager class, inherits from <a class="el" href="class_system_manager.html" title="Base class for a system manager.">SystemManager</a>. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a39827df4434fb83590b5d541e3dd072e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39827df4434fb83590b5d541e3dd072e">&#9670;&nbsp;</a></span>Intake()</h2>
+<a id="a5a6db38467b99b27c7f744a5de754f1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a6db38467b99b27c7f744a5de754f1a">&#9670;&nbsp;</a></span>Intake()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -232,8 +239,18 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">Intake::Intake </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>defaultState</em></td><td>)</td>
+          <td class="paramname"><em>defaultState</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="class_p_i_d_info.html">PIDInfo</a>&#160;</td>
+          <td class="paramname"><em>constants</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -513,7 +530,7 @@ Additional Inherited Members</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_intake.html">Intake</a></li>
-    <li class="footer">Generated on Fri Nov 26 2021 18:49:42 for VEX V5 Bootstrapped Project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Nov 29 2021 23:11:56 for VEX V5 Bootstrapped Project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

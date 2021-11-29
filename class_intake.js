@@ -1,6 +1,6 @@
 var class_intake =
 [
-    [ "Intake", "class_intake.html#a39827df4434fb83590b5d541e3dd072e", null ],
+    [ "Intake", "class_intake.html#a5a6db38467b99b27c7f744a5de754f1a", null ],
     [ "changeState", "class_intake.html#a4f28530a9b16c5819b539bd50cae3067", null ],
     [ "clockwise", "class_intake.html#af57df8bbfbd97d7412ca7fa392b4b840", null ],
     [ "control", "class_intake.html#a50fd3e4e3e6de23d91ec9441a1d54ddc", null ],
@@ -10,5 +10,7 @@ var class_intake =
     [ "stop", "class_intake.html#aa3093b638197b57b18ee9d519f4da68b", null ],
     [ "timedOut", "class_intake.html#a6f725bff73deb783c2f35cd087513bed", null ],
     [ "update", "class_intake.html#af7e009e05fcb3e7b2f41c489303182c3", null ],
+    [ "constants", "class_intake.html#a0f6097ebe42ab6b724ea36eaf4f94896", null ],
+    [ "intake_pidController", "class_intake.html#add55934fbfddd339d2906baceca071ee", null ],
     [ "intakeMotor", "class_intake.html#ab80c1f4c6579ae6a1d4ea0e7ee16bc7f", null ]
 ];
