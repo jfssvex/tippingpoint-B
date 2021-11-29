@@ -93,6 +93,7 @@ void myOpControl() {
                 break;
             }
         }
+        intake.update();
 
         // Forklift 1 control
         forklift1.control();

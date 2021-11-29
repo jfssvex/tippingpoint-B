@@ -31,7 +31,7 @@ class Intake: public SystemManager {
          * Constructor for the Intake class
          * @param defaultState The default state for the system.
         */
-        Intake(uint8_t defaultState);
+        Intake(uint8_t defaultState, PIDInfo constants);
 
         /**
          * Set the new power for the intake.
@@ -88,4 +88,8 @@ class Intake: public SystemManager {
          * @return True if the system state was changed before the time period, False if not.
         */
         bool timedOut(uint32_t timeout);
+
+        PIDInfo constants;
+
+        PIDController *intake_pidController;
 };

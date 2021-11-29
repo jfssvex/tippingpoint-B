@@ -4,14 +4,17 @@
 
 #include "systems/intake.h"
 #include "systems/systemManager.h"
+#include "PID.h"
 
 double abs(double x) {
     return x >= 0 ? x : -x;
 }
 
-Intake::Intake(uint8_t defaultState) : SystemManager(defaultState) {
+Intake::Intake(uint8_t defaultState, PIDInfo constants) : SystemManager(defaultState) {
     this->defaultState = defaultState;
     this->intakeMotor.set_brake_mode(MOTOR_BRAKE_HOLD);
+    this->constants = constants;
+    this->intake_pidController = new PIDController(0, this->constants, 10, 1);
 }
 
 
@@ -43,7 +46,8 @@ void Intake::stop() {
 void Intake::update() {
     // Update PID variables
     this->position = this->intakeMotor.get_position();
-    this->error = this->position - this->target;
+    // this->error = this->position - this->target;
+    double intake_speed = intake_pidController->step(this->position);
 
     switch(this->state) {
         case CLOCKWISE_STATE:

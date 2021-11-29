@@ -36,7 +36,7 @@ void Forklift::setPower(int power) {
     this->forkliftMotor->move(power);
 }
 
-// TODO: Add custom PID loop
+//TODO: tune PID constants
 void Forklift::update() {
     if (manualPower == 0) {
         // Retain position if manual power not being applied with custom PID loop
