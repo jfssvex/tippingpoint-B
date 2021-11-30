@@ -30,93 +30,33 @@ const float bOffset = -BACK_WHEEL_OFFSET; // Offset of the back tracking wheel f
 
 // Actual tracking function that runs in BG
 void tracking(void* parameter) {
-    // Assuming that there are 3 encoders
+    // Assuming that there is one IMU
     // Also, I don't know if this works
 
-    // Initialize variables
-    lLast = 0; // Last encoder value of left
-    rLast = 0; // Last encoder value of right
-    bLast = 0; // Last encoder value of back
-
     Vector2 globalPos(0, 0);
-
-    float left = 0; // Total distance travelled by left tracking wheel
-    float right = 0; // Total distance travelled by right tracking wheel
-    float lateral = 0; // Total distance travelled laterally (measured from back tracking wheel)
-    float angle = 0; // Current arc angle
-
-    // Reset encoders to 0 before starting
-    lEnc.reset();
-    rEnc.reset();
-    bEnc.reset();
 
     // Tracking loop
     while (true) {
         Vector2 localPos;
 
-        // Get encoder data
-        float lEncVal = lEnc.get_value();
-        float rEncVal = rEnc.get_value();
-        float bEncVal = bEnc.get_value();
+        // Get sensor values
+        pros::c::imu_accel_s_t accelerationData = myImu.get_accel();
 
-        // Calculate delta values
-        lDelta = lEncVal - lLast;
-        rDelta = rEncVal - rLast;
-        bDelta = bEncVal - bLast;
+        printf("Delta X: %f, Delta Y: %f", accelerationData.x, accelerationData.y);
 
-        // Calculate IRL distances from deltas
-        lDist = lDelta * TRACKING_WHEEL_DEGREE_TO_INCH;
-        rDist = rDelta * TRACKING_WHEEL_DEGREE_TO_INCH;
-        bDist = bDelta * TRACKING_WHEEL_DEGREE_TO_INCH;
-
-        // Update last values for next iter since we don't need to use last values for this iteration
-        lLast = lEncVal;
-        rLast = rEncVal;
-        bLast = bEncVal;
-
-        // Update total distance vars
-        left += lEncVal;
-        right += rEncVal;
-        lateral += bEncVal;
-
-        // Calculate new absolute orientation
-        float prevAngle = angle; // Previous angle, used for delta
-        angle = (left - right) / (lrOffset * 2.0f);
-
-        // Get angle delta
-        aDelta = angle - prevAngle;
-
-        // Calculate using different formulas based on if orientation change
-        float avgLRDelta = (lDist + rDist) / 2; // Average of delta distance travelled by left and right wheels
-        if (aDelta == 0.0f) {
-            // Set the local positions to the distances travelled since the angle didn't change
-            localPos = Vector2(bDist, avgLRDelta);
-        } else {
-            // Use the angle to calculate the local position since angle did change
-            localPos = Vector2(
-                2 * sin(angle / 2) * (bDist / aDelta + bOffset),
-                2 * sin(angle / 2) * (avgLRDelta / aDelta + lrOffset)
+        // Finally, update the global position (does not work well)
+        if (accelerationData.x < INFINITY || accelerationData.y < INFINITY) {
+            globalPos = Vector2(
+                globalPos.getX() + round(accelerationData.x * 10) / 10,
+                globalPos.getY() + round(accelerationData.y * 10) / 10
             );
         }
-
-        // Calculate the average orientation
-        float avgAngle = prevAngle + aDelta / 2;
-
-        // Calculate global offset https://www.mathsisfun.com/polar-cartesian-coordinates.html
-        float globalOffsetX = cos(avgAngle); // cos(θ) = x (i think)
-        float globalOffsetY = sin(avgAngle); // sin(θ) = y (i think)
-
-        // Finally, update the global position
-        globalPos = Vector2(
-            globalPos.getX() + (localPos.getY() * globalOffsetY) + (localPos.getX() * globalOffsetX),
-            globalPos.getY() + (localPos.getY() * globalOffsetX) - (localPos.getX() * globalOffsetY)
-        );
-
+        
         // Update tracking data
-        trackingData.update(globalPos.getX(), globalPos.getY(), angle);
+        trackingData.update(globalPos.getX(), globalPos.getY(), myImu.get_heading());
 
         // Debug print (can't use display so just throw to serial)
-        printf("X: %f, Y: %f, A: %f", 
+        printf("X: %f, Y: %f, A: %f\n", 
                 trackingData.getPos().getX(), 
                 trackingData.getPos().getY(), 
                 radToDeg(trackingData.getHeading()));

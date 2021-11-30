@@ -36,6 +36,9 @@ extern pros::ADIEncoder bEnc; // Back encoder
 extern pros::ADIEncoder lEnc; // Left encoder
 extern pros::ADIEncoder rEnc; // Right encoder
 
+// Other sensors
+extern pros::Imu myImu; // IMU sensor
+
 // System Managers
 extern Intake intake;
 extern Forklift forklift1;
