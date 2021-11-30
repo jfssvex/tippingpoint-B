@@ -9,6 +9,7 @@
 #include "main.h"
 #include "systemManager.h"
 #include "chassis.h"
+#include "control/PID.h"
 
 #define INTAKE_HOLD_SPEED 80
 
