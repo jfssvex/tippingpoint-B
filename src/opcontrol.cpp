@@ -78,7 +78,7 @@ void myOpControl() {
                 // Operator control
                 intake.control();
 
-                int intakeSpeed = 90; // Also can be 40
+                int intakeSpeed = 80; // Also can be 40
 
                 if (intakeUp) {
                     intake.setPower(intakeSpeed);

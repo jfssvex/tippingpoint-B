@@ -53,7 +53,7 @@ void initialize() {
 	
 	// Statistics display mode update
 	showStats = new bool(true);
-	pros::Task my_task(displayStatsUpdateTask, NULL, "Statistics Display Mode");
+	// pros::Task my_task(displayStatsUpdateTask, NULL, "Statistics Display Mode");
 }
 
 /**
