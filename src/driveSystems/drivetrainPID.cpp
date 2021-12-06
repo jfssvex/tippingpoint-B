@@ -24,18 +24,21 @@ void DrivetrainPID::move(Vector2 dir, double turn) {
     double velX = dir.getX();
     double velY = dir.getY();
 
-    // Scale to be between [-127, 127] if not
-    double scalar = 1;
-    if ((abs(velX) + abs(velY) + abs(turn)) > 1) {
-        scalar = abs(velX) + abs(velY) + abs(turn);
-    }
-
     // Calculate distance using pythagorean theorem and motor velocity
     double distance = dir.getMagnitude();
-    double motorVel = (distance - turn) / scalar * 127;
+
+    // Scale to be between [-127, 127] if not
+    double scalar = 1;
+    double maxInput = std::max(std::abs(distance + turn), std::abs(distance - turn));
+    if (maxInput > 1) {
+        scalar = maxInput;
+    }
+
+    double leftMotorVel = (distance + turn) / scalar * 127;
+    double rightMotorVel = (distance - turn) / scalar * 127;
 
     // Set motor vel
-    drivetrain->forward(motorVel);
+    driveTrain->tank(leftMotorVel, rightMotorVel);
 }
 
 void DrivetrainPID::moveToOrientation(Vector2 target, double angle) {

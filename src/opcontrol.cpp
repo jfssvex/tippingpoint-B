@@ -10,7 +10,7 @@
 */
 double joystickCubicDrive(int raw) {
     double scaledRaw = ((double)raw) / 127.0;
-    return pow(scaledRaw, 3) * 127;
+    return raw < 0 ? pow(scaledRaw, 2) * -127 : pow(scaledRaw, 2) * 127;
 }
 
 void myOpControl() {
@@ -27,8 +27,11 @@ void myOpControl() {
 
     while (true) {
         // Arcade drive controls
-        int forward = masterController.get_analog(ANALOG_LEFT_Y);
-        int yaw = masterController.get_analog(ANALOG_RIGHT_X);
+        // int forward = masterController.get_analog(ANALOG_LEFT_Y);
+        // int yaw = masterController.get_analog(ANALOG_RIGHT_X);
+
+        int left = masterController.get_analog(ANALOG_LEFT_Y);
+        int right = masterController.get_analog(ANALOG_RIGHT_Y);
 
         // Intake manual controls
         int intakeUp = masterController.get_digital(DIGITAL_L1);
@@ -47,7 +50,8 @@ void myOpControl() {
         int intakeMacroCCW = masterController.get_digital_new_press(DIGITAL_RIGHT);
 
         // Pass joystick values to drivetrain
-        driveTrain->arcade(forward, yaw, 0);
+        // driveTrain->arcade(forward, yaw, 0);
+        driveTrain->tank(joystickCubicDrive(left), joystickCubicDrive(right), 0);
 
         // Intake macro handler
         if (macroToggle != 0 && intakeMacroCCW) {

@@ -103,8 +103,8 @@ void tracking(void* parameter) {
         float avgAngle = prevAngle + aDelta / 2;
 
         // Calculate global offset https://www.mathsisfun.com/polar-cartesian-coordinates.html
-        float globalOffsetX = cos(avgAngle); // cos(θ) = x (i think)
-        float globalOffsetY = sin(avgAngle); // sin(θ) = y (i think)
+        float globalOffsetX = cos(avgAngle); // cos(θ) = x 
+        float globalOffsetY = sin(avgAngle); // sin(θ) = y 
 
         // Finally, update the global position
         globalPos = Vector2(
@@ -113,7 +113,7 @@ void tracking(void* parameter) {
         );
 
         // Update tracking data
-        trackingData.update(globalPos.getX(), globalPos.getY(), angle);
+        trackingData.update(globalPos.getX(), globalPos.getY(), degToRad(myImu.get_heading()));
 
         // Debug print (can't use display so just throw to serial)
         printf("X: %f, Y: %f, A: %f", 

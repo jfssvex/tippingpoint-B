@@ -6,3 +6,6 @@ DisplayController display = DisplayController();
 
 // Actual controller
 pros::Controller masterController (pros::E_CONTROLLER_MASTER);
+
+// IMU
+pros::Imu myImu(14);
