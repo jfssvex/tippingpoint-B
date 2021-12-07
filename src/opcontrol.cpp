@@ -27,15 +27,15 @@ void myOpControl() {
 
     while (true) {
         // Arcade drive controls
-        // int forward = masterController.get_analog(ANALOG_LEFT_Y);
-        // int yaw = masterController.get_analog(ANALOG_RIGHT_X);
+        int forward = masterController.get_analog(ANALOG_LEFT_Y);
+        int yaw = masterController.get_analog(ANALOG_RIGHT_X);
 
-        int left = masterController.get_analog(ANALOG_LEFT_Y);
-        int right = masterController.get_analog(ANALOG_RIGHT_Y);
+        // int left = masterController.get_analog(ANALOG_LEFT_Y);
+        // int right = masterController.get_analog(ANALOG_RIGHT_Y);
 
         // Brake controls for drifting???
-        // int brakeLeft = masterController.get_digital(DIGITAL_L2);
-        // int brakeRight = masterController.get_digital(DIGITAL_R2);
+        int brakeLeft = masterController.get_digital(DIGITAL_L2);
+        int brakeRight = masterController.get_digital(DIGITAL_R2);
 
         // Intake manual controls
         int intakeUp = masterController.get_digital(DIGITAL_L1);
@@ -55,8 +55,8 @@ void myOpControl() {
 
         // Pass joystick values to drivetrain
         // driveTrain->arcade(forward, yaw, 0);
-        // driveTrain->arcadeWithBrakes(forward, yaw, brakeLeft, brakeRight, 0);
-        driveTrain->tank(joystickCubicDrive(left), joystickCubicDrive(right), 0);
+        driveTrain->arcadeWithBrakes(forward, yaw, brakeLeft, brakeRight, 0);
+        // driveTrain->tank(joystickCubicDrive(left), joystickCubicDrive(right), 0);
 
         // Intake macro handler
         if (macroToggle != 0 && intakeMacroCCW) {

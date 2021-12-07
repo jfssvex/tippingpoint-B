@@ -52,7 +52,7 @@ void initialize() {
 	// display.setMode(DEBUG);
 	
 	// Statistics display mode update
-	// showStats = new bool(true);
+	showStats = new bool(true);
 
 	myImu.reset();
 
@@ -98,8 +98,7 @@ void competition_initialize() {
  * from where it left off.
  */
 void autonomous() {
-	// *showStats = false;
-	printf("HELLOOOOO????\n");
+	*showStats = false;
 	myAuton();
 }
 
@@ -117,6 +116,6 @@ void autonomous() {
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-	// *showStats = true;
+	*showStats = true;
 	myOpControl();
 }

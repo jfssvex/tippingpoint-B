@@ -73,6 +73,7 @@ static lv_obj_t* scr;
 // List object to store messages
 lv_obj_t* messageList;
 
+// Chart for PID Graph 
 lv_obj_t * chart;
 lv_chart_series_t * ser_err;
 lv_chart_series_t * ser_pow;
@@ -453,7 +454,7 @@ void DisplayController::setMode(DISPLAY_MODE mode) {
         case PID_GRAPH: {
             // Create the graph
             chart = lv_chart_create(lv_scr_act(), NULL);
-            lv_obj_set_size(chart, 200, 100);
+            lv_obj_set_size(chart, 480, 270);
             lv_obj_align(chart, NULL, LV_ALIGN_CENTER, 0, 0);
             lv_chart_set_type(chart, LV_CHART_TYPE_LINE); 
             lv_chart_set_point_count(chart, 100);
