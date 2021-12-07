@@ -113,7 +113,8 @@ void tracking(void* parameter) {
         );
 
         // Update tracking data
-        trackingData.update(globalPos.getX(), globalPos.getY(), degToRad(myImu.get_heading()));
+        // trackingData.update(globalPos.getX(), globalPos.getY(), degToRad(myImu.get_heading()));
+        trackingData.update(0, 0, degToRad(myImu.get_heading()));
 
         // Debug print (can't use display so just throw to serial)
         printf("X: %f, Y: %f, A: %f", 
