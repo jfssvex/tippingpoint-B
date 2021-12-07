@@ -2,6 +2,6 @@
 #include "globals.h"
 
 void myAuton() {
-    display.setMode(PID_GRAPH);
+    printf("???????CAN YOU SEE THIS???");
     driveTrainPID.rotateTo(degToRad(90)); // Rotate to 90 degrees
 }

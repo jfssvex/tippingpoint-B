@@ -20,6 +20,11 @@ enum AUTON_MODE {
     NONE
 };
 
+// Chart for PID Graph 
+extern lv_obj_t * chart;
+extern lv_chart_series_t * ser_err;
+extern lv_chart_series_t * ser_pow;
+
 /**
  * \brief Enum representing all possible log levels.
 */
