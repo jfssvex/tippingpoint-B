@@ -91,30 +91,15 @@ void DrivetrainPID::rotateTo(double target) {
         target = flipAngle(target);
     }
 
-    int i = -1;
     turnController->target = target;
     do {
         // Run PID step and move to angle
         move(Vector2(), turnController->step(trackingData.getHeading()));
         printf("STEP: %f", turnController->step(trackingData.getHeading()));
 
-        /*
-        // Get error value from pid controller
-        double err = driveTrainPID.getTurnController()->getError();
-        ser_err->points[++i % 100] = err;
-        printf("Turn PID Controller Error: %f\n", err);
-
-        // Get power
-        double speed = driveTrainPID.getTurnController()->step(err);
-        ser_pow->points[++i % 100] = speed;
-        printf("Turn PID Controller Speed: %f\n", speed);
-
-        lv_chart_refresh(chart);
-
-*/
         pros::delay(20);
     // } while (!turnController->isSettled() || pros::millis() - time <= 6000); // Break if settled or taking more than 3s
-    } while (!turnController->isSettled() || pros::millis() - time <= 6000); // ONLY DID THIS TO TEST WHETHER IT WORKS!!!! REMOVE LATER!!!
+    } while (true); // ONLY DID THIS TO TEST WHETHER IT WORKS!!!! REMOVE LATER!!!
 
     masterController.print(0, 0, "Done turning!");
 
