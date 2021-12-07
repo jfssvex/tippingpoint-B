@@ -27,5 +27,8 @@ var display_controller_8h =
     [ "formatString", "display_controller_8h.html#a3050e51504d5a6bfbc9ee08dfe9a2417", null ],
     [ "getAutonMode", "display_controller_8h.html#a1c690da20f920dce73b87082c560a993", null ],
     [ "setAutonMode", "display_controller_8h.html#a7aaeb6b7150b67a02a1e25f60334fbed", null ],
-    [ "updateFixedMessages", "display_controller_8h.html#a9e36c896a16a75fa1068c25791dc442a", null ]
+    [ "updateFixedMessages", "display_controller_8h.html#a9e36c896a16a75fa1068c25791dc442a", null ],
+    [ "chart", "display_controller_8h.html#aeebe20098200cb0796a6a0b671839abf", null ],
+    [ "ser_err", "display_controller_8h.html#ad56fc4030116d340127fea3e5c6d77ae", null ],
+    [ "ser_pow", "display_controller_8h.html#abb76696f4d334c9ca97c5a3d815a112b", null ]
 ];
