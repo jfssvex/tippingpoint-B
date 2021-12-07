@@ -121,6 +121,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a615098aca82ab14392fbc649f35a8f16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72c88064ecae340301f392f9f5697543"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skid_steer_drive.html#a72c88064ecae340301f392f9f5697543">arcade</a> (double forwardSpeed, double yaw, double threshold=0) override</td></tr>
 <tr class="separator:a72c88064ecae340301f392f9f5697543"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05990d147b5cfb3562408f6738ecab59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_skid_steer_drive.html#a05990d147b5cfb3562408f6738ecab59">arcadeWithBrakes</a> (double forwardSpeed, double yaw, bool brakeLeft, bool brakeRight, double threshold)</td></tr>
+<tr class="separator:a05990d147b5cfb3562408f6738ecab59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_drivetrain"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_drivetrain')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_drivetrain.html">Drivetrain</a></td></tr>
 <tr class="memitem:abfcc3eea7516b5f76422d39676adbd27 inherit pub_methods_class_drivetrain"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_drivetrain.html#abfcc3eea7516b5f76422d39676adbd27">Drivetrain</a> ()</td></tr>
 <tr class="separator:abfcc3eea7516b5f76422d39676adbd27 inherit pub_methods_class_drivetrain"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -227,6 +229,62 @@ Public Member Functions</h2></td></tr>
 </dl>
 
 <p>Implements <a class="el" href="class_drivetrain.html#a4f1fc1defaba96b6dc49ae1d74fbd87f">Drivetrain</a>.</p>
+
+</div>
+</div>
+<a id="a05990d147b5cfb3562408f6738ecab59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05990d147b5cfb3562408f6738ecab59">&#9670;&nbsp;</a></span>arcadeWithBrakes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SkidSteerDrive::arcadeWithBrakes </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>forwardSpeed</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>yaw</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>brakeLeft</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>brakeRight</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>threshold</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Drive robot in arcade drive controller layout, with braking abilities </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">forwardSpeed</td><td>Speed provided to move the chassis forward, in range [-127, 127] </td></tr>
+    <tr><td class="paramname">yaw</td><td>Speed provided to turn the chassis, in range [-127, 127] </td></tr>
+    <tr><td class="paramname">brakeLeft</td><td>Whether the left motors should be braked </td></tr>
+    <tr><td class="paramname">brakeRight</td><td>Whether the right motors should be braked </td></tr>
+    <tr><td class="paramname">threshold</td><td>Threshold of value before rounding to 0 </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -388,7 +446,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_skid_steer_drive.html">SkidSteerDrive</a></li>
-    <li class="footer">Generated on Tue Dec 7 2021 14:26:15 for VEX V5 Bootstrapped Project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Tue Dec 7 2021 19:12:54 for VEX V5 Bootstrapped Project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

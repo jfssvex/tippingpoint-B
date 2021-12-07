@@ -104,10 +104,11 @@ var NAVTREEINDEX0 =
 "class_p_i_d_info.html#acb32ee08e342487aaf46fe8f4cf58dd7":[1,0,7,0],
 "class_p_i_d_info.html#aff9b711239252cbe44095ce61b72d02d":[1,0,7,2],
 "class_skid_steer_drive.html":[1,0,8],
-"class_skid_steer_drive.html#a03934c875306951e9378b950a38a2232":[1,0,8,3],
-"class_skid_steer_drive.html#a205d15fcfa6db054303126f579bf6d43":[1,0,8,4],
-"class_skid_steer_drive.html#a615098aca82ab14392fbc649f35a8f16":[1,0,8,5],
-"class_skid_steer_drive.html#a67e4127f4fe1f5c72506e12f83d6b5b0":[1,0,8,2],
+"class_skid_steer_drive.html#a03934c875306951e9378b950a38a2232":[1,0,8,4],
+"class_skid_steer_drive.html#a05990d147b5cfb3562408f6738ecab59":[1,0,8,2],
+"class_skid_steer_drive.html#a205d15fcfa6db054303126f579bf6d43":[1,0,8,5],
+"class_skid_steer_drive.html#a615098aca82ab14392fbc649f35a8f16":[1,0,8,6],
+"class_skid_steer_drive.html#a67e4127f4fe1f5c72506e12f83d6b5b0":[1,0,8,3],
 "class_skid_steer_drive.html#a72c88064ecae340301f392f9f5697543":[1,0,8,1],
 "class_skid_steer_drive.html#a8a2f1143661514d95ab09e71d9cea080":[1,0,8,0],
 "class_system_manager.html":[1,0,9],
@@ -174,6 +175,7 @@ var NAVTREEINDEX0 =
 "display_controller_8h.html#aa694eadcc25ca533db97c79541ebf844a1155ee5305ebe5bb9407faa9d395ae93":[2,0,0,5,3,2],
 "display_controller_8h.html#aa694eadcc25ca533db97c79541ebf844a56417e944da7c3429008202353a7ceba":[2,0,0,5,3,4],
 "display_controller_8h.html#aa694eadcc25ca533db97c79541ebf844a8547ec939211e497427e395b924a77f1":[2,0,0,5,3,1],
+"display_controller_8h.html#aa694eadcc25ca533db97c79541ebf844ab60f976b38d1c21d4518af92cba6ab75":[2,0,0,5,3,5],
 "display_controller_8h.html#ab7cd853b964c2d6385b9659d12c5f5a8":[2,0,0,5,2],
 "display_controller_8h.html#ab7cd853b964c2d6385b9659d12c5f5a8a0f5229adc24510e9cc9ff4ae2e06d15f":[2,0,0,5,2,0],
 "display_controller_8h.html#ab7cd853b964c2d6385b9659d12c5f5a8a24cb630a5ef62d53cfebd6e575c236a5":[2,0,0,5,2,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX0 =
 "sd_read_util_8h.html#a374fa59d104914fec90d65b33fc60e79":[2,0,0,9,5],
 "sd_read_util_8h.html#a49ef2455c4758581cf7d37b8661d4d56":[2,0,0,9,3],
 "sd_read_util_8h.html#a52ede4fcd5ae876500323d2f2bf1050f":[2,0,0,9,2],
-"sd_read_util_8h.html#a86c5de194b0fd4ecafff57539b938b32":[2,0,0,9,1],
-"sd_read_util_8h_source.html":[2,0,0,9],
-"system_manager_8h.html":[2,0,0,2,2]
+"sd_read_util_8h.html#a86c5de194b0fd4ecafff57539b938b32":[2,0,0,9,1]
 };
