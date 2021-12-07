@@ -33,11 +33,12 @@ enum LOGGING_LEVEL {
  * \brief Enum representing all possible display modes.
 */
 enum DISPLAY_MODE {
-    SELECTOR, // The autonomous selector
-    CONFIRM,  // Shows the autonomous selected
-    MATCH,    // The mode to display during a match
-    DEBUG,    // The debug mode,
-    STATS     // Shows statistics on screen
+    SELECTOR,  // The autonomous selector
+    CONFIRM,   // Shows the autonomous selected
+    MATCH,     // The mode to display during a match
+    DEBUG,     // The debug mode,
+    STATS,     // Shows statistics on screen,
+    PID_GRAPH  // Graph representing error
 };
 
 /**

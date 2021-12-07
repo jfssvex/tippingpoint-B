@@ -56,7 +56,17 @@ class SkidSteerDrive : public Drivetrain {
         * @param threshold Threshold of value before rounding to 0
         */
         void arcade(double forwardSpeed, double yaw, double threshold = 0) override;
-    
+
+        /**
+        * Drive robot in arcade drive controller layout, with braking abilities
+        * @param forwardSpeed Speed provided to move the chassis forward, in range [-127, 127]
+        * @param yaw Speed provided to turn the chassis, in range [-127, 127]
+        * @param brakeLeft Whether the left motors should be braked
+        * @param brakeRight Whether the right motors should be braked
+        * @param threshold Threshold of value before rounding to 0
+        */
+        void arcadeWithBrakes(double forwardSpeed, double yaw, bool brakeLeft, bool brakeRight, double threshold);
+        
     private:
         /**
          * The top left motor of the drivetrain

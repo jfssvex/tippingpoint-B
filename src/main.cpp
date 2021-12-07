@@ -49,7 +49,7 @@ void initialize() {
 	// pros::lcd::register_btn1_cb(on_center_button);
 
 	// Set mode to debug
-	display.setMode(DEBUG);
+	// display.setMode(DEBUG);
 	
 	// Statistics display mode update
 	showStats = new bool(true);
@@ -98,7 +98,7 @@ void competition_initialize() {
  * from where it left off.
  */
 void autonomous() {
-	*showStats = true;
+	*showStats = false;
 	myAuton();
 }
 

@@ -95,9 +95,13 @@ void DrivetrainPID::rotateTo(double target) {
     do {
         // Run PID step and move to angle
         move(Vector2(), turnController->step(trackingData.getHeading()));
+        printf("STEP: %f", turnController->step(trackingData.getHeading()));
 
         pros::delay(20);
-    } while (!turnController->isSettled() || pros::millis() - time <= 3000); // Break if settled or taking more than 3s
+    // } while (!turnController->isSettled() || pros::millis() - time <= 6000); // Break if settled or taking more than 3s
+    } while (true); // ONLY DID THIS TO TEST WHETHER IT WORKS!!!! REMOVE LATER!!!
+
+    masterController.print(0, 0, "Done turning!");
 
     trackingData.setAngleModulusSuspend(false);
 }

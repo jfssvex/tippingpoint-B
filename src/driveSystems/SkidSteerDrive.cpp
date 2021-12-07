@@ -55,3 +55,15 @@ void SkidSteerDrive::arcade(double forwardSpeed, double yaw, double threshold) {
     this->tRight->move(forwardSpeed - yaw);
     this->bRight->move(forwardSpeed - yaw);
 }
+
+void SkidSteerDrive::arcadeWithBrakes(double forwardSpeed, double yaw, bool brakeLeft, bool brakeRight, double threshold) {
+    // Apply threshold
+    forwardSpeed = abs(forwardSpeed) < threshold ? 0 : forwardSpeed;
+    yaw = abs(yaw) < threshold ? 0 : yaw;
+
+    this->tLeft->move(brakeLeft ? 0 : forwardSpeed + yaw);
+    this->bLeft->move(brakeLeft ? 0 : forwardSpeed + yaw);
+
+    this->tRight->move(brakeRight ? 0 : forwardSpeed - yaw);
+    this->bRight->move(brakeRight ? 0 : forwardSpeed - yaw);
+}
