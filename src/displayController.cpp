@@ -202,26 +202,26 @@ std::string FixedDebugInfo::getLabel() {
 
 bool DisplayController::initialized = false;
 
-// void updatePIDGraph(void* parameter) {
-//     int i = -1;
+void updatePIDGraph(void* parameter) {
+    int i = -1;
 
-//     while (true) {
-//         // Get error value from pid controller
-//         double err = driveTrainPID.getTurnController()->getError();
-//         ser_err->points[++i % 100] = err;
-//         printf("Turn PID Controller Error: %f\n", err);
+    while (true) {
+        // Get error value from pid controller
+        double err = driveTrainPID.getTurnController()->getError();
+        ser_err->points[++i % 100] = err;
+        printf("Turn PID Controller Error: %f\n", err);
 
-//         // Get power
-//         double speed = driveTrainPID.getTurnController()->step(err);
-//         ser_pow->points[++i % 100] = speed;
-//         printf("Turn PID Controller Speed: %f\n", speed);
+        // Get power
+        double speed = driveTrainPID.getTurnController()->step(err);
+        ser_pow->points[++i % 100] = speed;
+        printf("Turn PID Controller Speed: %f\n", speed);
 
-//         lv_chart_refresh(chart);
+        lv_chart_refresh(chart);
 
-//         // This doesn't have to be quick
-//         pros::delay(250);
-//     }
-// }
+        // This doesn't have to be quick
+        pros::delay(250);
+    }
+}
 
 DisplayController::DisplayController() {
     // Don't initialize twice
@@ -468,7 +468,7 @@ void DisplayController::setMode(DISPLAY_MODE mode) {
             ser_pow = lv_chart_add_series(chart, LV_COLOR_GREEN);
 
             // // Create a task to continuously update the graph
-            // pros::Task updatePIDGraphTask(updatePIDGraph, (void*) "PROS", TASK_PRIORITY_DEFAULT, TASK_STACK_DEPTH_DEFAULT, "Graph Update");
+            pros::Task updatePIDGraphTask(updatePIDGraph, (void*) "PROS", TASK_PRIORITY_DEFAULT, TASK_STACK_DEPTH_DEFAULT, "Graph Update");
             break;
         }
 
