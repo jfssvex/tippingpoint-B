@@ -100,7 +100,7 @@ void DrivetrainPID::rotateTo(double target) {
         move(Vector2(), turnController->step(trackingData.getHeading()));
 
         pros::delay(20);
-     while (!turnController->isSettled() || pros::millis() - time <= 3000); // Break if settled or taking more than 3s
+    } while (!turnController->isSettled() || pros::millis() - time <= 3000); // Break if settled or taking more than 3s
 
     masterController.print(0, 0, "Done turning!");
 
