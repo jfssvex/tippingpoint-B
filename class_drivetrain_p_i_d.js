@@ -1,6 +1,6 @@
 var class_drivetrain_p_i_d =
 [
-    [ "DrivetrainPID", "class_drivetrain_p_i_d.html#a8be9fe371e6cb41df56ab181657aed09", null ],
+    [ "DrivetrainPID", "class_drivetrain_p_i_d.html#a8d9315a9c8915ac953ce91c3b9550f78", null ],
     [ "~DrivetrainPID", "class_drivetrain_p_i_d.html#aa082af05a9e58ac7519e0351cc70f441", null ],
     [ "getDriveController", "class_drivetrain_p_i_d.html#a7473ac8518fe003e0f05ca11380502f3", null ],
     [ "getTurnController", "class_drivetrain_p_i_d.html#a0f6155f37a0ef28ceb1f471646663378", null ],

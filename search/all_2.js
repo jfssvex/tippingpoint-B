@@ -11,6 +11,6 @@ var searchData=
   ['displaycontroller_2eh_22',['displayController.h',['../display_controller_8h.html',1,'']]],
   ['drivetrain_23',['Drivetrain',['../class_drivetrain.html#abfcc3eea7516b5f76422d39676adbd27',1,'Drivetrain::Drivetrain()'],['../class_drivetrain.html',1,'Drivetrain']]],
   ['drivetrain_2eh_24',['drivetrain.h',['../drivetrain_8h.html',1,'']]],
-  ['drivetrainpid_25',['DrivetrainPID',['../class_drivetrain_p_i_d.html#a8be9fe371e6cb41df56ab181657aed09',1,'DrivetrainPID::DrivetrainPID()'],['../class_drivetrain_p_i_d.html',1,'DrivetrainPID']]],
+  ['drivetrainpid_25',['DrivetrainPID',['../class_drivetrain_p_i_d.html#a8d9315a9c8915ac953ce91c3b9550f78',1,'DrivetrainPID::DrivetrainPID()'],['../class_drivetrain_p_i_d.html',1,'DrivetrainPID']]],
   ['drivetrainpid_2eh_26',['drivetrainPID.h',['../drivetrain_p_i_d_8h.html',1,'']]]
 ];
