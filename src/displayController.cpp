@@ -208,18 +208,18 @@ void updatePIDGraph(void* parameter) {
     while (true) {
         // Get error value from pid controller
         double err = driveTrainPID.getTurnController()->getError();
-        ser_err->points[++i % 100] = err;
+        lv_chart_set_next(chart, ser_err, err);
         printf("Turn PID Controller Error: %f\n", err);
 
+        /*
         // Get power
         double speed = driveTrainPID.getTurnController()->step(err);
-        ser_pow->points[++i % 100] = speed;
+        lv_chart_set_next(chart, ser_pow, speed);
         printf("Turn PID Controller Speed: %f\n", speed);
-
-        lv_chart_refresh(chart);
+        */
 
         // This doesn't have to be quick
-        pros::delay(250);
+        pros::delay(50);
     }
 }
 
@@ -453,21 +453,21 @@ void DisplayController::setMode(DISPLAY_MODE mode) {
         // PID graphing mode
         case PID_GRAPH: {
             // Create the graph
-            chart = lv_chart_create(lv_scr_act(), NULL);
-            lv_obj_set_size(chart, 480, 270);
+            chart = lv_chart_create(scr, NULL);
+            lv_obj_set_size(chart, LV_HOR_RES - 50, LV_VER_RES - 25);
             lv_obj_align(chart, NULL, LV_ALIGN_CENTER, 0, 0);
             lv_chart_set_type(chart, LV_CHART_TYPE_LINE); 
             lv_chart_set_point_count(chart, 100);
-            lv_chart_set_series_opa(chart, LV_OPA_70);                      /*Opacity of the data series*/
-            lv_chart_set_series_width(chart, 2);                                  /*Line width and point radious*/
+            lv_chart_set_series_opa(chart, LV_OPA_70);
+            lv_chart_set_series_width(chart, 2);
 
-            lv_chart_set_range(chart, 0, 2); // Fix this
+            lv_chart_set_range(chart, 0, 4); // Fix this
 
             /*Add two data series*/
             ser_err = lv_chart_add_series(chart, LV_COLOR_RED);
             ser_pow = lv_chart_add_series(chart, LV_COLOR_GREEN);
 
-            // // Create a task to continuously update the graph
+            // Create a task to continuously update the graph
             pros::Task updatePIDGraphTask(updatePIDGraph, (void*) "PROS", TASK_PRIORITY_DEFAULT, TASK_STACK_DEPTH_DEFAULT, "Graph Update");
             break;
         }

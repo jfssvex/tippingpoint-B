@@ -22,7 +22,8 @@ float bLast; // Last value of back tracking wheel
 
 // Constants and macros
 const float lrOffset = WHEELBASE / 2.0f; // Offset of the left / right tracking wheel from the center in terms of x axis
-const float bOffset = -BACK_WHEEL_OFFSET; // Offset of the back tracking wheel from the center in terms of y axis (negative because its in the back)
+// const float bOffset = -BACK_WHEEL_OFFSET; // Offset of the back tracking wheel from the center in terms of y axis (negative because its in the back)
+const float bOffset = 0; // Offset of the back tracking wheel, 0 because there is none
 
 // Conversion calculations
 #define DRIVE_DEGREE_TO_INCH (M_PI * DRIVE_WHEEL_DIAMETER / 360) 
@@ -36,48 +37,49 @@ void tracking(void* parameter) {
     // Initialize variables
     lLast = 0; // Last encoder value of left
     rLast = 0; // Last encoder value of right
-    bLast = 0; // Last encoder value of back
+    // bLast = 0; // Last encoder value of back
 
     Vector2 globalPos(0, 0);
 
     float left = 0; // Total distance travelled by left tracking wheel
     float right = 0; // Total distance travelled by right tracking wheel
-    float lateral = 0; // Total distance travelled laterally (measured from back tracking wheel)
+    // float lateral = 0; // Total distance travelled laterally (measured from back tracking wheel)
     float angle = 0; // Current arc angle
 
     // Reset encoders to 0 before starting
     lEnc.reset();
     rEnc.reset();
-    bEnc.reset();
+    // bEnc.reset();
 
     // Tracking loop
     while (true) {
         Vector2 localPos;
 
-        // Get encoder data
-        float lEncVal = lEnc.get_value();
-        float rEncVal = rEnc.get_value();
-        float bEncVal = bEnc.get_value();
+        // Get encoder data, directly fron wheels because no tracking wheels yet
+        float lEncVal = (tLeft.get_position() + bLeft.get_position()) / 2;
+        float rEncVal = (tRight.get_position() + bRight.get_position()) / 2;
+        // float bEncVal = bEnc.get_value();
 
         // Calculate delta values
         lDelta = lEncVal - lLast;
         rDelta = rEncVal - rLast;
-        bDelta = bEncVal - bLast;
+        // bDelta = bEncVal - bLast;
 
         // Calculate IRL distances from deltas
-        lDist = lDelta * TRACKING_WHEEL_DEGREE_TO_INCH;
-        rDist = rDelta * TRACKING_WHEEL_DEGREE_TO_INCH;
-        bDist = bDelta * TRACKING_WHEEL_DEGREE_TO_INCH;
+        lDist = lDelta * DRIVE_DEGREE_TO_INCH;
+        rDist = rDelta * DRIVE_DEGREE_TO_INCH;
+        // bDist = bDelta * TRACKING_WHEEL_DEGREE_TO_INCH;
+        bDist = 0;
 
         // Update last values for next iter since we don't need to use last values for this iteration
         lLast = lEncVal;
         rLast = rEncVal;
-        bLast = bEncVal;
+        // bLast = bEncVal;
 
         // Update total distance vars
         left += lEncVal;
         right += rEncVal;
-        lateral += bEncVal;
+        // lateral += bEncVal;
 
         // Calculate new absolute orientation
         float prevAngle = angle; // Previous angle, used for delta
@@ -113,8 +115,7 @@ void tracking(void* parameter) {
         );
 
         // Update tracking data
-        // trackingData.update(globalPos.getX(), globalPos.getY(), degToRad(myImu.get_heading()));
-        trackingData.update(0, 0, degToRad(myImu.get_rotation()));
+        trackingData.update(globalPos.getX(), globalPos.getY(), degToRad(myImu.get_rotation()));
         
         // Debug print (can't use display so just throw to serial)
         printf("X: %f, Y: %f, A: %f\n", 

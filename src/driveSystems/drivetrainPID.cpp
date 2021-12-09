@@ -7,9 +7,9 @@
 // Flips radian angle
 #define flipAngle(a)  (a > 0) ? (-2 * M_PI + a) : (2 * M_PI + a) 
 
-DrivetrainPID::DrivetrainPID(Drivetrain* drivetrain, PIDInfo driveConstants, PIDInfo turnConstants, double tolerance, double integralTolerance) {
-    this->driveController = new PIDController(0, driveConstants, tolerance, integralTolerance);
-    this->turnController = new PIDController(0, turnConstants, tolerance, integralTolerance);
+DrivetrainPID::DrivetrainPID(Drivetrain* drivetrain, PIDInfo driveConstants, PIDInfo turnConstants, double distTolerance, double distIntegralTolerance, double turnTolerance, double turnIntegralTolerance) {
+    this->driveController = new PIDController(0, driveConstants, distTolerance, distIntegralTolerance);
+    this->turnController = new PIDController(0, turnConstants, turnTolerance, turnIntegralTolerance);
     this->drivetrain = drivetrain;
 }
 
@@ -53,6 +53,9 @@ void DrivetrainPID::moveToPoint(Vector2 target) {
     // Turn to angle of point first (important in nonholonomic)
     this->rotateTo(target.getAngle());
 
+    // Get starting time
+    double time = pros::millis();
+
     this->driveController->target = 0; // Set target to 0 as loop will use delta as sense
 
     do {
@@ -67,7 +70,7 @@ void DrivetrainPID::moveToPoint(Vector2 target) {
         this->move(driveVec, 0);
 
         pros::delay(20);
-    } while (!this->driveController->isSettled());
+    } while (!this->driveController->isSettled() || pros::millis() - time <= 5000);
 }
 
 void DrivetrainPID::moveRelative(Vector2 offset, double aOffset) {
@@ -95,11 +98,9 @@ void DrivetrainPID::rotateTo(double target) {
     do {
         // Run PID step and move to angle
         move(Vector2(), turnController->step(trackingData.getHeading()));
-        printf("STEP: %f", turnController->step(trackingData.getHeading()));
 
         pros::delay(20);
-    // } while (!turnController->isSettled() || pros::millis() - time <= 6000); // Break if settled or taking more than 3s
-    } while (true); // ONLY DID THIS TO TEST WHETHER IT WORKS!!!! REMOVE LATER!!!
+    } while (!turnController->isSettled() || pros::millis() - time <= 3000); // Break if settled or taking more than 3s
 
     masterController.print(0, 0, "Done turning!");
 

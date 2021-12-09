@@ -25,13 +25,16 @@ void myOpControl() {
     // 0 -> Down, 1 -> Middle, 2 -> Up
     int forklift1State = 0;
 
+    bool drivetrainHold = false;
+
     while (true) {
         // Arcade drive controls
-        int forward = masterController.get_analog(ANALOG_LEFT_Y);
-        int yaw = masterController.get_analog(ANALOG_RIGHT_X);
+        // int forward = masterController.get_analog(ANALOG_LEFT_Y);
+        // int yaw = masterController.get_analog(ANALOG_RIGHT_X);
 
-        // int left = masterController.get_analog(ANALOG_LEFT_Y);
-        // int right = masterController.get_analog(ANALOG_RIGHT_Y);
+        // Tank drive controls
+        int left = masterController.get_analog(ANALOG_LEFT_Y);
+        int right = masterController.get_analog(ANALOG_RIGHT_Y);
 
         // Brake controls for drifting???
         int brakeLeft = masterController.get_digital(DIGITAL_L2);
@@ -49,14 +52,17 @@ void myOpControl() {
         int forklift2Up = masterController.get_digital(DIGITAL_X);
         int forklift2Down = masterController.get_digital(DIGITAL_B);
 
+        // Hold drivetrain macro
+        bool holdDrivetrainInput = masterController.get_digital_new_press(DIGITAL_Y);
+
         // Intake macro
         int intakeMacroCW = masterController.get_digital_new_press(DIGITAL_LEFT);
         int intakeMacroCCW = masterController.get_digital_new_press(DIGITAL_RIGHT);
 
         // Pass joystick values to drivetrain
         // driveTrain->arcade(forward, yaw, 0);
-        driveTrain->arcadeWithBrakes(forward, yaw, brakeLeft, brakeRight, 0);
-        // driveTrain->tank(joystickCubicDrive(left), joystickCubicDrive(right), 0);
+        // driveTrain->arcadeWithBrakes(forward, yaw, brakeLeft, brakeRight, 0);
+        driveTrain->tank(joystickCubicDrive(left), joystickCubicDrive(right), 0);
 
         // Intake macro handler
         if (macroToggle != 0 && intakeMacroCCW) {
@@ -72,6 +78,24 @@ void myOpControl() {
                 macroToggle = -1;
             }
         }
+
+        if (holdDrivetrainInput) {
+            drivetrainHold = !drivetrainHold;
+        }
+
+        if (drivetrainHold) {
+            tLeft.set_brake_mode(MOTOR_BRAKE_BRAKE);
+            tRight.set_brake_mode(MOTOR_BRAKE_BRAKE);
+            bLeft.set_brake_mode(MOTOR_BRAKE_BRAKE);
+            bRight.set_brake_mode(MOTOR_BRAKE_BRAKE);
+        } else {
+            tLeft.set_brake_mode(MOTOR_BRAKE_COAST);
+            tRight.set_brake_mode(MOTOR_BRAKE_COAST);
+            bLeft.set_brake_mode(MOTOR_BRAKE_COAST);
+            bRight.set_brake_mode(MOTOR_BRAKE_COAST);
+        }
+
+
 
         // Apply macro control to intake system
         switch (macroToggle) {
