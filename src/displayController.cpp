@@ -211,13 +211,15 @@ void updatePIDGraph(void* parameter) {
         lv_chart_set_next(chart, ser_err, err);
         printf("Turn PID Controller Error: %f\n", err);
 
+        /*
         // Get power
         double speed = driveTrainPID.getTurnController()->step(err);
         lv_chart_set_next(chart, ser_pow, speed);
         printf("Turn PID Controller Speed: %f\n", speed);
+        */
 
         // This doesn't have to be quick
-        pros::delay(100);
+        pros::delay(50);
     }
 }
 
