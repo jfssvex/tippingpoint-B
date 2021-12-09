@@ -31,7 +31,7 @@
 #define RENC_PORT_BOT 10
 
 // Robot dimensions in inches (TODO: Update to real dimensions)
-#define DRIVE_WHEEL_DIAMETER 3.25f
+#define DRIVE_WHEEL_DIAMETER 3.25f // ! MEASURE THIS!!!
 #define TRACKING_WHEEL_DIAMETER 2.75f
-#define WHEELBASE 10.25f
+#define WHEELBASE 10.25f // ! MEASURE THIS!!!
 #define BACK_WHEEL_OFFSET 5.0f
