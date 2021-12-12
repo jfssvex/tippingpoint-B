@@ -1,7 +1,7 @@
 #include "main.h"
 #include "globals.h"
 #include "macros.h"
-#include "intake.h" //for intake motor, maint. mode
+#include "systems/intake.h" //for intake motor, maint. mode
 
 /**
  * \brief Scale joystick output to cubic graph
