@@ -9,6 +9,8 @@
 // Get a digital press, makes it short form for the utility
 #define getDigitalPress(KEY) masterController.get_digital(KEY)
 
+#define getNewDigitalPress(KEY) masterController.get_digital_new_press(KEY)
+
 // For maintainance utility
 #define getLeftJoystick() thresholdJoystick(left, threshold)
 
@@ -27,6 +29,7 @@ void myOpControl() {
     // Enable all systems
     intake.enable();
     forklift1.enable();
+    forklift2.enable();
 
     // 0 -> nothing, 1 -> clockwise, -1 -> counter clockwise
     int macroToggle = 0;
@@ -48,7 +51,7 @@ void myOpControl() {
 
     while (true) {
         //on and off
-        if (getDigitalPress(DIGITAL_A)) {
+        if (getNewDigitalPress(DIGITAL_A)) {
             maintenanceToggle = !maintenanceToggle;
         }
 
