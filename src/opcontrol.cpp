@@ -1,7 +1,16 @@
 #include "main.h"
 #include "globals.h"
 #include "macros.h"
-#include "systems/intake.h" //for intake motor, maint. mode
+#include "systems/intake.h"
+
+// Thresholds a joystick value
+#define thresholdJoystick(joystickVal, threshold) abs(joystickVal) > threshold ? joystickVal : 0
+
+// Get a digital press, makes it short form for the utility
+#define getDigitalPress(KEY) masterController.get_digital(KEY)
+
+// For maintainance utility
+#define getLeftJoystick() thresholdJoystick(left, threshold)
 
 /**
  * \brief Scale joystick output to cubic graph
@@ -12,14 +21,6 @@
 double joystickCubicDrive(int raw) {
     double scaledRaw = ((double)raw) / 127.0;
     return raw < 0 ? pow(scaledRaw, 2) * -127 : pow(scaledRaw, 2) * 127;
-}
-
-void toggleThrottle(int joystickValue, double threshold, int* motorSpeedVariable) {
-    if (abs(joystickValue) > threshold) {
-        *motorSpeedVariable = joystickValue;
-    } else {
-        *motorSpeedVariable = 0;
-    }
 }
 
 void myOpControl() {
@@ -43,15 +44,14 @@ void myOpControl() {
     int bLeftSpeed = 0;
     int bRightSpeed = 0;
 
-    while (true) {
-        //MAINTENANCE MODE STUFF *make proper names for everything
-        int a = masterController.get_digital_new_press(DIGITAL_A); // maybe change this to just get_digital in future
-        int maintToggle = 0;
+    int maintenanceToggle = 0;
 
+    while (true) {
         //on and off
-        if (a) {
-            maintToggle = !maintToggle;
+        if (getDigitalPress(DIGITAL_A)) {
+            maintenanceToggle = !maintenanceToggle;
         }
+
         // Arcade drive controls
         // int forward = masterController.get_analog(ANALOG_LEFT_Y);
         // int yaw = masterController.get_analog(ANALOG_RIGHT_X);
@@ -88,36 +88,46 @@ void myOpControl() {
 
         double threshold = 0;
 
-        if (maintToggle) { 
-        // while the special button is pressed for any motor, and while left joystick
-        // is moved, motor speed is toggled
-        // only holding the button makes that motor run at current saved speed
-            printf("Toggle on!!!");
-            if (intakeMacroCW) { //left key for forklift 1 motor
-                toggleThrottle(left, threshold, &fspeed);
-                forklift1.setPower(fspeed);
-            } else if (intakeMacroCCW) { //right key for forklift 2 motor
-                toggleThrottle(left, threshold, &fspeed);
-                forklift2.setPower(fspeed);
-            } else if (forklift1Up) { //up key for intake motor
-                toggleThrottle(left, threshold, &ispeed);
-                intake.setPower(ispeed);
-            } else if (intakeUp) { // L1 for tleft motor
-                toggleThrottle(left, threshold, &tLeftSpeed);
-                tLeft.move(tLeftSpeed);
-            } else if (intakeDown) {// R1 for tRight motor
-                toggleThrottle(left, threshold, &tRightSpeed);
-                tRight.move(tRightSpeed);
-            } else if (brakeLeft) { // L2 for bLeft motor
-                toggleThrottle(left, threshold, &bLeftSpeed);
-                bLeft.move(bLeftSpeed);
-            } else if (brakeRight) {// R2 for bRight motor
-                toggleThrottle(left, threshold, &bRightSpeed);
-                bRight.move(bRightSpeed);
+        if (maintenanceToggle) { 
+            // while the special button is pressed for any motor, and while left joystick
+            // is moved, motor speed is toggled
+            // only holding the button makes that motor run at current saved speed
+            
+            // left key for forklift 1 motor
+            if (getDigitalPress(DIGITAL_LEFT)) { 
+                forklift1.setPower(getLeftJoystick());
             }
-        }
-        
-        else {
+            
+            // right key for forklift 2 motor
+            if (getDigitalPress(DIGITAL_RIGHT)) { 
+                forklift2.setPower(getLeftJoystick());
+            }
+
+            // up key for intake motor
+            if (getDigitalPress(DIGITAL_UP)) { 
+                intake.setPower(getLeftJoystick());
+            }
+
+            // L1 for tleft motor
+            if (getDigitalPress(DIGITAL_L1)) { 
+                tLeft.move(getLeftJoystick());
+            }
+
+            // R1 for tRight motor
+            if (getDigitalPress(DIGITAL_R2)) {
+                tRight.move(getLeftJoystick());
+            }
+
+            // L2 for bLeft motor
+            if (getDigitalPress(DIGITAL_L2)) { 
+                bLeft.move(getLeftJoystick());
+            }
+
+            // R2 for bRight motor
+            if (getDigitalPress(DIGITAL_R2)) {
+                bRight.move(getLeftJoystick());
+            }
+        } else {
             // Pass joystick values to drivetrain
             // driveTrain->arcade(forward, yaw, 0);
             // driveTrain->arcadeWithBrakes(forward, yaw, brakeLeft, brakeRight, 0);
