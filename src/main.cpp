@@ -62,7 +62,7 @@ void initialize() {
 	}
 	*/
 	
-  	// pros::Task my_task(displayStatsUpdateTask, NULL, "Statistics Display Mode");
+  	pros::Task my_task(displayStatsUpdateTask, NULL, "Statistics Display Mode");
 	pros::Task myTracking(tracking, NULL, "tracking");
 }
 

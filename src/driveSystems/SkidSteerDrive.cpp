@@ -8,6 +8,11 @@ SkidSteerDrive::SkidSteerDrive(pros::Motor *tLeft, pros::Motor *tRight, pros::Mo
     this->tRight = tRight;
     this->bLeft = bLeft;
     this->bRight = bRight;
+
+    allMotors.push_back(tLeft);
+    allMotors.push_back(tRight);
+    allMotors.push_back(bLeft);
+    allMotors.push_back(bRight);
 }
 
 void SkidSteerDrive::forward(double speed) {

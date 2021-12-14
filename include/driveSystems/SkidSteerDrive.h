@@ -67,6 +67,7 @@ class SkidSteerDrive : public Drivetrain {
         */
         void arcadeWithBrakes(double forwardSpeed, double yaw, bool brakeLeft, bool brakeRight, double threshold);
         
+        std::vector<pros::Motor*> allMotors;
     private:
         /**
          * The top left motor of the drivetrain

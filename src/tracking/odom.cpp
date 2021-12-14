@@ -39,16 +39,23 @@ void tracking(void* parameter) {
     rLast = 0; // Last encoder value of right
     // bLast = 0; // Last encoder value of back
 
-    Vector2 globalPos(0, 0);
+    Vector2 globalPos(trackingData.getPos());
 
     float left = 0; // Total distance travelled by left tracking wheel
     float right = 0; // Total distance travelled by right tracking wheel
     // float lateral = 0; // Total distance travelled laterally (measured from back tracking wheel)
     float angle = 0; // Current arc angle
 
+    uint32_t printTime = pros::millis();
+
+    // Reset all motor positions
+    for (pros::Motor* tmp : driveTrain->allMotors) {
+        tmp->tare_position();
+    }
+
     // Reset encoders to 0 before starting
-    lEnc.reset();
-    rEnc.reset();
+    // lEnc.reset();
+    // rEnc.reset();
     // bEnc.reset();
 
     // Tracking loop
@@ -83,7 +90,7 @@ void tracking(void* parameter) {
 
         // Calculate new absolute orientation
         float prevAngle = angle; // Previous angle, used for delta
-        angle = (left - right) / (lrOffset * 2.0f);
+        angle = (right - left) / (lrOffset * 2.0f);
 
         // Get angle delta
         aDelta = angle - prevAngle;
@@ -96,13 +103,13 @@ void tracking(void* parameter) {
         } else {
             // Use the angle to calculate the local position since angle did change
             localPos = Vector2(
-                2 * sin(angle / 2) * (bDist / aDelta + bOffset),
-                2 * sin(angle / 2) * (avgLRDelta / aDelta + lrOffset)
+                2 * sin(angle / 2) * (bDist / aDelta - bOffset),
+                2 * sin(angle / 2) * (avgLRDelta / aDelta - lrOffset)
             );
         }
 
         // Calculate the average orientation
-        float avgAngle = prevAngle + aDelta / 2;
+        float avgAngle = -(prevAngle + aDelta / 2);
 
         // Calculate global offset https://www.mathsisfun.com/polar-cartesian-coordinates.html
         float globalOffsetX = cos(avgAngle); // cos(θ) = x 
@@ -115,14 +122,18 @@ void tracking(void* parameter) {
         );
 
         // Update tracking data
-        trackingData.update(globalPos.getX(), globalPos.getY(), degToRad(myImu.get_rotation()));
+        // trackingData.update(globalPos.getX(), globalPos.getY(), degToRad(myImu.get_rotation()));
+        trackingData.update(globalPos.getX(), globalPos.getY(), globalPos.getAngle() + aDelta);
+
+        // Debug print
+        if (pros::millis() - printTime > 75) {
+            // Only print every 75ms to reduce lag
+            printf("X: %f, Y: %f, A: %f\n", 
+                    trackingData.getPos().getX(), 
+                    trackingData.getPos().getY(), 
+                    radToDeg(trackingData.getHeading()));
+        }
         
-        // Debug print (can't use display so just throw to serial)
-        printf("X: %f, Y: %f, A: %f\n", 
-                trackingData.getPos().getX(), 
-                trackingData.getPos().getY(), 
-                radToDeg(trackingData.getHeading()));
-        
-        pros::delay(10); // Max of 10ms
+        pros::delay(5); // Max of 10ms
     }
 }
