@@ -54,11 +54,13 @@ void initialize() {
 	// Statistics display mode update
 	showStats = new bool(true);
 
+	/*
 	myImu.reset();
 
 	while (myImu.is_calibrating()) {
 		pros::delay(10);
 	}
+	*/
 	
   	// pros::Task my_task(displayStatsUpdateTask, NULL, "Statistics Display Mode");
 	pros::Task myTracking(tracking, NULL, "tracking");

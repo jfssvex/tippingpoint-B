@@ -14,9 +14,11 @@ double joystickCubicDrive(int raw) {
     return raw < 0 ? pow(scaledRaw, 2) * -127 : pow(scaledRaw, 2) * 127;
 }
 
-int toggleThrottle(int joystickValue, double threshold, int motorSpeedVariable) {
+void toggleThrottle(int joystickValue, double threshold, int* motorSpeedVariable) {
     if (abs(joystickValue) > threshold) {
-        motorSpeedVariable = joystickValue;
+        *motorSpeedVariable = joystickValue;
+    } else {
+        *motorSpeedVariable = 0;
     }
 }
 
@@ -81,7 +83,7 @@ void myOpControl() {
         int intakeMacroCW = masterController.get_digital_new_press(DIGITAL_LEFT);
         int intakeMacroCCW = masterController.get_digital_new_press(DIGITAL_RIGHT);
         
-        int forkliftSpeed = 127;
+        int forkliftSpeed = 100;
         int intakeSpeed = 80; // Also can be 40
 
         double threshold = 0;
@@ -90,26 +92,27 @@ void myOpControl() {
         // while the special button is pressed for any motor, and while left joystick
         // is moved, motor speed is toggled
         // only holding the button makes that motor run at current saved speed
+            printf("Toggle on!!!");
             if (intakeMacroCW) { //left key for forklift 1 motor
-                toggleThrottle(left, threshold, fspeed);
+                toggleThrottle(left, threshold, &fspeed);
                 forklift1.setPower(fspeed);
             } else if (intakeMacroCCW) { //right key for forklift 2 motor
-                toggleThrottle(left, threshold, fspeed);
+                toggleThrottle(left, threshold, &fspeed);
                 forklift2.setPower(fspeed);
             } else if (forklift1Up) { //up key for intake motor
-                toggleThrottle(left, threshold, ispeed);
+                toggleThrottle(left, threshold, &ispeed);
                 intake.setPower(ispeed);
             } else if (intakeUp) { // L1 for tleft motor
-                toggleThrottle(left, threshold, tLeftSpeed);
+                toggleThrottle(left, threshold, &tLeftSpeed);
                 tLeft.move(tLeftSpeed);
             } else if (intakeDown) {// R1 for tRight motor
-                toggleThrottle(left, threshold, tRightSpeed);
+                toggleThrottle(left, threshold, &tRightSpeed);
                 tRight.move(tRightSpeed);
             } else if (brakeLeft) { // L2 for bLeft motor
-                toggleThrottle(left, threshold, bLeftSpeed);
+                toggleThrottle(left, threshold, &bLeftSpeed);
                 bLeft.move(bLeftSpeed);
             } else if (brakeRight) {// R2 for bRight motor
-                toggleThrottle(left, threshold, bRightSpeed);
+                toggleThrottle(left, threshold, &bRightSpeed);
                 bRight.move(bRightSpeed);
             }
         }
