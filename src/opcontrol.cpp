@@ -29,6 +29,7 @@ void myOpControl() {
     // Enable all systems
     intake.enable();
     forklift1.enable();
+    forklift2.enable();
 
     // 0 -> nothing, 1 -> clockwise, -1 -> counter clockwise
     int macroToggle = 0;
