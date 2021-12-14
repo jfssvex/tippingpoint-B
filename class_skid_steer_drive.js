@@ -6,5 +6,6 @@ var class_skid_steer_drive =
     [ "forward", "class_skid_steer_drive.html#a67e4127f4fe1f5c72506e12f83d6b5b0", null ],
     [ "rotate", "class_skid_steer_drive.html#a03934c875306951e9378b950a38a2232", null ],
     [ "stop", "class_skid_steer_drive.html#a205d15fcfa6db054303126f579bf6d43", null ],
-    [ "tank", "class_skid_steer_drive.html#a615098aca82ab14392fbc649f35a8f16", null ]
+    [ "tank", "class_skid_steer_drive.html#a615098aca82ab14392fbc649f35a8f16", null ],
+    [ "allMotors", "class_skid_steer_drive.html#ac896096b8d5acfdfadfe67006697c3c9", null ]
 ];
