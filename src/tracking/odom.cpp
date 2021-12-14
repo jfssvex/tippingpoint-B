@@ -50,7 +50,8 @@ void tracking(void* parameter) {
 
     // Reset all motor positions
     for (pros::Motor* tmp : driveTrain->allMotors) {
-        tmp->tare_position();
+        printf("Error? %d", tmp->tare_position());
+        printf("Motor Pos: %f", tmp->get_position());
     }
 
     // Reset encoders to 0 before starting
@@ -132,6 +133,7 @@ void tracking(void* parameter) {
                     trackingData.getPos().getX(), 
                     trackingData.getPos().getY(), 
                     radToDeg(trackingData.getHeading()));
+            printTime = pros::millis();
         }
         
         pros::delay(5); // Max of 10ms

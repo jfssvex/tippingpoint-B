@@ -148,6 +148,7 @@ void myOpControl() {
                 }
             }
 
+            // Drivetrain hold macro
             if (holdDrivetrainInput) {
                 drivetrainHold = !drivetrainHold;
             }
@@ -163,8 +164,6 @@ void myOpControl() {
                 bLeft.set_brake_mode(MOTOR_BRAKE_COAST);
                 bRight.set_brake_mode(MOTOR_BRAKE_COAST);
             }
-
-
 
             // Apply macro control to intake system
             switch (macroToggle) {
@@ -225,5 +224,5 @@ void myOpControl() {
             
         }
         pros::delay(10);
-    } // close while    
+    }
 }
