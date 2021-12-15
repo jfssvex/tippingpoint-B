@@ -29,6 +29,8 @@ const float bOffset = 0; // Offset of the back tracking wheel, 0 because there i
 #define DRIVE_DEGREE_TO_INCH (M_PI * DRIVE_WHEEL_DIAMETER / 360) 
 #define TRACKING_WHEEL_DEGREE_TO_INCH (M_PI * TRACKING_WHEEL_DIAMETER / 360)
 
+bool printTracking = true;
+
 // Actual tracking function that runs in BG
 void tracking(void* parameter) {
     // Assuming that there are 3 encoders
@@ -48,10 +50,12 @@ void tracking(void* parameter) {
 
     uint32_t printTime = pros::millis();
 
+    /*
     // Reset all motor positions
     for (pros::Motor* tmp : driveTrain->allMotors) {
         tmp->tare_position();
     }
+    */
 
     // Reset encoders to 0 before starting
     // lEnc.reset();
@@ -103,12 +107,13 @@ void tracking(void* parameter) {
             // Use the angle to calculate the local position since angle did change
             localPos = Vector2(
                 2 * sin(aDelta / 2) * (bDist / aDelta - bOffset),
-                2 * sin(aDelta / 2) * (avgLRDelta / aDelta - lrOffset)
+                2 * sin(aDelta / 2) * (rDist / aDelta - lrOffset)
             );
         }
 
         // Calculate the average orientation
-        float avgAngle = -(prevAngle + (aDelta / 2));
+        // If any issues arise, try changing aDelta to aDelta/2
+        float avgAngle = -(prevAngle + (aDelta));
 
         // Calculate global offset https://www.mathsisfun.com/polar-cartesian-coordinates.html
         float globalOffsetX = cos(avgAngle); // cos(θ) = x 
@@ -116,8 +121,8 @@ void tracking(void* parameter) {
 
         // Finally, update the global position
         globalPos = Vector2(
-            globalPos.getX() + (localPos.getY() * globalOffsetY) + (localPos.getX() * globalOffsetX),
-            globalPos.getY() + (localPos.getY() * globalOffsetX) - (localPos.getX() * globalOffsetY)
+            trackingData.getPos().getX() + (localPos.getY() * globalOffsetY) + (localPos.getX() * globalOffsetX),
+            trackingData.getPos().getY() + (localPos.getY() * globalOffsetX) - (localPos.getX() * globalOffsetY)
         );
 
         // Update tracking data
@@ -125,7 +130,7 @@ void tracking(void* parameter) {
         trackingData.update(globalPos, trackingData.getHeading() + aDelta);
 
         // Debug print
-        if (pros::millis() - printTime > 75) {
+        if (pros::millis() - printTime > 75 && printTracking) {
             // Only print every 75ms to reduce lag
             printf("X: %f, Y: %f, A: %f\n", 
                     trackingData.getPos().getX(), 
