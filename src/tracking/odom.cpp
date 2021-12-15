@@ -83,9 +83,9 @@ void tracking(void* param) {
 
 		// If theres an arc
 		if(aDelta) {
-			localY = ((rDist / aDelta) - lrOffset * sin(aDelta/2.0f)) * 2.0f;
+			localY = ((rDist / aDelta - lrOffset) * sin(aDelta/2.0f)) * 2.0f;
 
-			localX = ((bDist / aDelta) - BACK_WHEEL_OFFSET * sin(aDelta/2.0f)) * 2.0f;
+			localX = ((bDist / aDelta - BACK_WHEEL_OFFSET) * sin(aDelta/2.0f)) * 2.0f;
 		}
 		// If no arc
 		else {
@@ -106,9 +106,6 @@ void tracking(void* param) {
 		trackingData.update(trackingData.getPos().getX() + dX, trackingData.getPos().getY() +dY, trackingData.getHeading() + aDelta);
 
 		// Print debug
-		pros::lcd::print(1, "X: %f, Y: %f", trackingData.getPos().getX(), trackingData.getPos().getY());
-		pros::lcd::print(2, "A: %f", trackingData.getHeading()*180/M_PI);
-
 		if(pros::millis() - printTime > 50) {
 			printf("X: %f, Y: %f, A: %f\n", trackingData.getPos().getX(), trackingData.getPos().getY(), radToDeg(trackingData.getHeading()));
 			printTime = pros::millis();
