@@ -1,0 +1,493 @@
+
+
+
+         _+=+_
+      .-`  .  `-.          8888888b.  8888888b.   .d88888b.   .d8888b.
+   _+`     "     `+_       888   Y88b 888   Y88b d88P" "Y88b d88P  Y88b
+  \\\sssssssssssss///      888    888 888    888 888     888 Y88b.
+     .ss\  *  /ss.         888   d88P 888   d88P 888     888  "Y888b.
+ .+bm  .s  *  s.  md+.     8888888P"  8888888P"  888     888     "Y88b.
+.hMMMMs .  *  . sMMMMh.    888        888 T88b   888     888       "888
+ `\hMMMb \ | / dMMMh:      888        888  T88b  Y88b. .d88P Y88b  d88P
+   -SNMNo  -  oNMNs-       888        888   T88b  "Y88888P"   "Y8888P"
+     `+dMh\./dMd/
+        `:yNy:`                      Powered by PROS for VEX V5
+           "                Copyright (c) Purdue University ACM SIGBots
+Version:        3.4.0     Platform:  V1.1.0 (b8)     Uptime:    0.000 s
+Compiled:   Dec 15 2021 15:36:16     Directory:  ics/VEX/tippingpoint-B
+
+
+X: 0.000000, Y: 0.000000, A: 0.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 0.000000 R 0.000000
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 0.000000, A: 0.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 0.000000 R 0.000000
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 0.000000, A: 0.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 0.000000 R 0.000000
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 0.045379, A: 90.000000
+Deltas: L 0.045379 R 0.045379
+!!! Distance: L 0.045379 R 0.045379
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.045379
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 0.045379, A: 90.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 0.045379 R 0.045379
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 0.136136, A: 90.000000
+Deltas: L 0.090757 R 0.090757
+!!! Distance: L 0.136136 R 0.136136
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.090757
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 0.136136, A: 90.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 0.136136 R 0.136136
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 0.272271, A: 90.000000
+Deltas: L 0.136136 R 0.136136
+!!! Distance: L 0.272271 R 0.272271
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.136136
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 0.272271, A: 90.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 0.272271 R 0.272271
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 0.419752, A: 90.000000
+Deltas: L 0.147480 R 0.147480
+!!! Distance: L 0.419752 R 0.419752
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.147480
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 0.419752, A: 90.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 0.419752 R 0.419752
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 0.578577, A: 90.000000
+Deltas: L 0.158825 R 0.158825
+!!! Distance: L 0.578577 R 0.578577
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.158825
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 0.578577, A: 90.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 0.578577 R 0.578577
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 0.737402, A: 90.000000
+Deltas: L 0.158825 R 0.158825
+!!! Distance: L 0.737402 R 0.737402
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.158825
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 0.737402, A: 90.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 0.737402 R 0.737402
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 0.907571, A: 90.000000
+Deltas: L 0.170170 R 0.170170
+!!! Distance: L 0.907571 R 0.907571
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.170170
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 0.907571, A: 90.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 0.907571 R 0.907571
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 1.077741, A: 90.000000
+Deltas: L 0.170170 R 0.170170
+!!! Distance: L 1.077741 R 1.077741
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.170170
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 1.077741, A: 90.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 1.077741 R 1.077741
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 1.247910, A: 90.000000
+Deltas: L 0.170170 R 0.170170
+!!! Distance: L 1.247910 R 1.247910
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.170170
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 1.247910, A: 90.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 1.247910 R 1.247910
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 1.429425, A: 90.000000
+Deltas: L 0.181514 R 0.181514
+!!! Distance: L 1.429425 R 1.429425
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.181514
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 1.429425, A: 90.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 1.429425 R 1.429425
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 1.599594, A: 90.000000
+Deltas: L 0.170170 R 0.170170
+!!! Distance: L 1.599594 R 1.599594
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.170170
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 1.599594, A: 90.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 1.599594 R 1.599594
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 1.781108, A: 90.000000
+Deltas: L 0.181514 R 0.181514
+!!! Distance: L 1.781108 R 1.781108
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.181514
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 1.781108, A: 90.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 1.781108 R 1.781108
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 1.962623, A: 90.000000
+Deltas: L 0.181514 R 0.181514
+!!! Distance: L 1.962623 R 1.962623
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.181514
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 1.962623, A: 90.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 1.962623 R 1.962623
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 2.144137, A: 90.000000
+Deltas: L 0.181514 R 0.181514
+!!! Distance: L 2.144137 R 2.144137
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.181514
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 2.144137, A: 90.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 2.144137 R 2.144137
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 2.325651, A: 90.000000
+Deltas: L 0.181514 R 0.181514
+!!! Distance: L 2.325651 R 2.325651
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.181514
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 2.325651, A: 90.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 2.325651 R 2.325651
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 2.507165, A: 90.000000
+Deltas: L 0.181514 R 0.181514
+!!! Distance: L 2.507165 R 2.507165
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.181514
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 2.507165, A: 90.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 2.507165 R 2.507165
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 2.688680, A: 90.000000
+Deltas: L 0.181514 R 0.181514
+!!! Distance: L 2.688680 R 2.688680
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.181514
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 2.688680, A: 90.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 2.688680 R 2.688680
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 2.870194, A: 90.000000
+Deltas: L 0.181514 R 0.181514
+!!! Distance: L 2.870194 R 2.870194
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.181514
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 2.870194, A: 90.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 2.870194 R 2.870194
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 3.051708, A: 90.000000
+Deltas: L 0.181514 R 0.181514
+!!! Distance: L 3.051708 R 3.051708
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.181514
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 3.051708, A: 90.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 3.051708 R 3.051708
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 3.233222, A: 90.000000
+Deltas: L 0.181514 R 0.181514
+!!! Distance: L 3.233222 R 3.233222
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.181514
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 3.233222, A: 90.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 3.233222 R 3.233222
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 3.414737, A: 90.000000
+Deltas: L 0.181514 R 0.181514
+!!! Distance: L 3.414737 R 3.414737
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.181514
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 3.414737, A: 90.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 3.414737 R 3.414737
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 3.596251, A: 90.000000
+Deltas: L 0.181514 R 0.181514
+!!! Distance: L 3.596251 R 3.596251
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.181514
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 3.596251, A: 90.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 3.596251 R 3.596251
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 3.789110, A: 90.000000
+Deltas: L 0.192859 R 0.192859
+!!! Distance: L 3.789110 R 3.789110
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.192859
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 3.789110, A: 90.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 3.789110 R 3.789110
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 3.970624, A: 90.000000
+Deltas: L 0.181514 R 0.181514
+!!! Distance: L 3.970624 R 3.970624
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.181514
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 3.970624, A: 90.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 3.970624 R 3.970624
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 4.152138, A: 90.000000
+Deltas: L 0.181514 R 0.181514
+!!! Distance: L 4.152138 R 4.152138
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.181514
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 4.152138, A: 90.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 4.152138 R 4.152138
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 4.435754, A: 90.000000
+Deltas: L 0.283616 R 0.283616
+!!! Distance: L 4.435754 R 4.435754
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.283616
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 4.435754, A: 90.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 4.435754 R 4.435754
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 4.617269, A: 90.000000
+Deltas: L 0.181515 R 0.181515
+!!! Distance: L 4.617269 R 4.617269
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.181515
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 4.617269, A: 90.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 4.617269 R 4.617269
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 4.787438, A: 90.000000
+Deltas: L 0.170170 R 0.170170
+!!! Distance: L 4.787438 R 4.787438
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.170170
+Added amount to pos: 0.000000 0.000000
+
+
+X: 0.000000, Y: 4.787438, A: 90.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 4.787438 R 4.787438
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+WARNING - pros.serial.terminal.terminal:stop - Stopping terminal
+WARNING - pros.serial.terminal.terminal:reader - Connection to /dev/cu.usbmodem1203 broken

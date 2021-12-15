@@ -1,0 +1,913 @@
+
+
+
+         _+=+_
+      .-`  .  `-.          8888888b.  8888888b.   .d88888b.   .d8888b.
+   _+`     "     `+_       888   Y88b 888   Y88b d88P" "Y88b d88P  Y88b
+  \\\sssssssssssss///      888    888 888    888 888     888 Y88b.
+     .ss\  *  /ss.         888   d88P 888   d88P 888     888  "Y888b.
+ .+bm  .s  *  s.  md+.     8888888P"  8888888P"  888     888     "Y88b.
+.hMMMMs .  *  . sMMMMh.    888        888 T88b   888     888       "888
+ `\hMMMb \ | / dMMMh:      888        888  T88b  Y88b. .d88P Y88b  d88P
+   -SNMNo  -  oNMNs-       888        888   T88b  "Y88888P"   "Y8888P"
+     `+dMh\./dMd/
+        `:yNy:`                      Powered by PROS for VEX V5
+           "                Copyright (c) Purdue University ACM SIGBots
+Version:        3.4.0     Platform:  V1.1.0 (b8)     Uptime:    0.000 s
+Compiled:   Dec 15 2021 16:31:58     Directory:  ics/VEX/tippingpoint-B
+
+
+PI: 3.141593
+angle: 0.000000
+X: 0.000000, Y: 0.000000, A: 0.000000
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 0.000000 R 0.000000
+Global offsets: 1.000000 -0.000000
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.000405
+X: 0.000001, Y: 0.002836, A: -0.011607
+Deltas: L 0.005672 R 0.005672
+!!! Distance: L 0.005672 R 0.000000
+Global offsets: 1.000000 0.000203
+Local pos: 0.000000 0.002836
+Added amount to pos: 0.000001 0.000000
+
+
+angle: -0.000405
+X: 0.000001, Y: 0.002836, A: 0.011607
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 0.005672 R 0.000000
+Global offsets: 1.000000 0.000405
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.001621
+X: 0.000012, Y: 0.014181, A: -0.020893
+Deltas: L 0.017017 R 0.017017
+!!! Distance: L 0.022689 R 0.000000
+Global offsets: 0.999999 0.001013
+Local pos: 0.000000 0.011345
+Added amount to pos: 0.000011 0.000000
+
+
+angle: -0.001621
+X: 0.000012, Y: 0.014181, A: 0.048750
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 0.022689 R 0.000000
+Global offsets: 0.999999 0.001621
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.005267
+X: 0.000139, Y: 0.051051, A: -0.052877
+Deltas: L 0.051051 R 0.051051
+!!! Distance: L 0.073740 R 0.000000
+Global offsets: 0.999994 0.003444
+Local pos: 0.000000 0.036870
+Added amount to pos: 0.000127 0.000000
+
+
+angle: -0.005267
+X: 0.000139, Y: 0.051051, A: 0.156052
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 0.073740 R 0.000000
+Global offsets: 0.999986 0.005267
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.010129
+X: 0.000685, Y: 0.121952, A: 0.043189
+Deltas: L 0.068068 R 0.068068
+!!! Distance: L 0.141808 R 0.000000
+Global offsets: 0.999970 0.007698
+Local pos: 0.000000 0.070904
+Added amount to pos: 0.000546 0.000000
+
+
+angle: -0.010129
+X: 0.000685, Y: 0.121952, A: 0.321761
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 0.141808 R 0.000000
+Global offsets: 0.999949 0.010129
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.015396
+X: 0.002060, Y: 0.229716, A: 0.212081
+Deltas: L 0.073740 R 0.073740
+!!! Distance: L 0.215548 R 0.000000
+Global offsets: 0.999919 0.012762
+Local pos: 0.000000 0.107773
+Added amount to pos: 0.001375 0.000000
+
+
+angle: -0.015396
+X: 0.002060, Y: 0.229716, A: 0.513866
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 0.215548 R 0.000000
+Global offsets: 0.999881 0.015396
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.021069
+X: 0.004749, Y: 0.377170, A: 0.396387
+Deltas: L 0.079412 R 0.079412
+!!! Distance: L 0.294961 R 0.000000
+Global offsets: 0.999834 0.018231
+Local pos: 0.000000 0.147478
+Added amount to pos: 0.002689 0.000000
+
+
+angle: -0.021069
+X: 0.004749, Y: 0.377170, A: 0.721387
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 0.294961 R 0.000000
+Global offsets: 0.999778 0.021067
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.027146
+X: 0.009329, Y: 0.567131, A: 0.594225
+Deltas: L 0.085085 R 0.085085
+!!! Distance: L 0.380045 R 0.000000
+Global offsets: 0.999709 0.024105
+Local pos: 0.000000 0.190017
+Added amount to pos: 0.004580 0.000000
+
+
+angle: -0.027146
+X: 0.009329, Y: 0.567131, A: 0.942439
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 0.380045 R 0.000000
+Global offsets: 0.999632 0.027143
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.032818
+X: 0.016216, Y: 0.796747, A: 0.840956
+Deltas: L 0.079413 R 0.079413
+!!! Distance: L 0.459458 R 0.000000
+Global offsets: 0.999551 0.029978
+Local pos: 0.000000 0.229719
+Added amount to pos: 0.006886 0.000000
+
+
+angle: -0.032818
+X: 0.016216, Y: 0.796747, A: 1.165956
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 0.459458 R 0.000000
+Global offsets: 0.999462 0.032813
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.038896
+X: 0.025976, Y: 1.068826, A: 1.043990
+Deltas: L 0.085085 R 0.085085
+!!! Distance: L 0.544543 R 0.000000
+Global offsets: 0.999357 0.035849
+Local pos: 0.000000 0.272254
+Added amount to pos: 0.009760 0.000000
+
+
+angle: -0.038896
+X: 0.025976, Y: 1.068826, A: 1.392204
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 0.544543 R 0.000000
+Global offsets: 0.999244 0.038886
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.044973
+X: 0.039173, Y: 1.383336, A: 1.273826
+Deltas: L 0.085085 R 0.085085
+!!! Distance: L 0.629628 R 0.000000
+Global offsets: 0.999121 0.041922
+Local pos: 0.000000 0.314787
+Added amount to pos: 0.013197 0.000000
+
+
+angle: -0.044973
+X: 0.039173, Y: 1.383336, A: 1.622041
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 0.629628 R 0.000000
+Global offsets: 0.998989 0.044958
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.051051
+X: 0.056322, Y: 1.740242, A: 1.505474
+Deltas: L 0.085085 R 0.085085
+!!! Distance: L 0.714712 R 0.000000
+Global offsets: 0.998848 0.047994
+Local pos: 0.000000 0.357317
+Added amount to pos: 0.017149 0.000000
+
+
+angle: -0.051051
+X: 0.056322, Y: 1.740242, A: 1.853688
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 0.714712 R 0.000000
+Global offsets: 0.998697 0.051029
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.057534
+X: 0.078173, Y: 2.142328, A: 1.718359
+Deltas: L 0.090757 R 0.090757
+!!! Distance: L 0.805469 R 0.000000
+Global offsets: 0.998527 0.054266
+Local pos: 0.000000 0.402679
+Added amount to pos: 0.021852 0.000000
+
+
+angle: -0.057534
+X: 0.078173, Y: 2.142328, A: 2.089787
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 0.805469 R 0.000000
+Global offsets: 0.998345 0.057502
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.063611
+X: 0.105124, Y: 2.586713, A: 1.978997
+Deltas: L 0.085085 R 0.085085
+!!! Distance: L 0.890554 R 0.000000
+Global offsets: 0.998166 0.060535
+Local pos: 0.000000 0.445202
+Added amount to pos: 0.026950 0.000000
+
+
+angle: -0.063611
+X: 0.105124, Y: 2.586713, A: 2.327211
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 0.890554 R 0.000000
+Global offsets: 0.997978 0.063568
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.070094
+X: 0.137894, Y: 3.076173, A: 2.195221
+Deltas: L 0.090757 R 0.090757
+!!! Distance: L 0.981311 R 0.000000
+Global offsets: 0.997766 0.066803
+Local pos: 0.000000 0.490555
+Added amount to pos: 0.032770 0.000000
+
+
+angle: -0.070094
+X: 0.137894, Y: 3.076173, A: 2.566650
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 0.981311 R 0.000000
+Global offsets: 0.997544 0.070036
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.076171
+X: 0.176844, Y: 3.607817, A: 2.457999
+Deltas: L 0.085085 R 0.085085
+!!! Distance: L 1.066396 R 0.000000
+Global offsets: 0.997327 0.073067
+Local pos: 0.000000 0.533069
+Added amount to pos: 0.038950 0.000000
+
+
+angle: -0.076171
+X: 0.176844, Y: 3.607817, A: 2.806213
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 1.066396 R 0.000000
+Global offsets: 0.997100 0.076098
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.082654
+X: 0.222729, Y: 4.184406, A: 2.675452
+Deltas: L 0.090757 R 0.090757
+!!! Distance: L 1.157153 R 0.000000
+Global offsets: 0.996848 0.079329
+Local pos: 0.000000 0.578412
+Added amount to pos: 0.045885 0.000000
+
+
+angle: -0.082654
+X: 0.222729, Y: 4.184406, A: 3.046880
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 1.157153 R 0.000000
+Global offsets: 0.996586 0.082560
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.089136
+X: 0.276240, Y: 4.805855, A: 2.918305
+Deltas: L 0.090757 R 0.090757
+!!! Distance: L 1.247910 R 0.000000
+Global offsets: 0.996313 0.085790
+Local pos: 0.000000 0.623749
+Added amount to pos: 0.053511 0.000000
+
+
+angle: -0.089136
+X: 0.276240, Y: 4.805855, A: 3.289733
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 1.247910 R 0.000000
+Global offsets: 0.996030 0.089018
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.095214
+X: 0.337564, Y: 5.469273, A: 3.183609
+Deltas: L 0.085085 R 0.085085
+!!! Distance: L 1.332995 R 0.000000
+Global offsets: 0.995755 0.092045
+Local pos: 0.000000 0.666246
+Added amount to pos: 0.061324 0.000000
+
+
+angle: -0.095214
+X: 0.337564, Y: 5.469273, A: 3.531823
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 1.332995 R 0.000000
+Global offsets: 0.995471 0.095070
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.101697
+X: 0.407509, Y: 6.177396, A: 3.402776
+Deltas: L 0.090757 R 0.090757
+!!! Distance: L 1.423752 R 0.000000
+Global offsets: 0.995157 0.098296
+Local pos: 0.000000 0.711569
+Added amount to pos: 0.069945 0.000000
+
+
+angle: -0.101697
+X: 0.407509, Y: 6.177396, A: 3.774205
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 1.423752 R 0.000000
+Global offsets: 0.994833 0.101521
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.108179
+X: 0.486789, Y: 6.930118, A: 3.646574
+Deltas: L 0.090757 R 0.090757
+!!! Distance: L 1.514509 R 0.000000
+Global offsets: 0.994499 0.104745
+Local pos: 0.000000 0.756886
+Added amount to pos: 0.079280 0.000000
+
+
+angle: -0.108179
+X: 0.486789, Y: 6.930118, A: 4.018002
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 1.514509 R 0.000000
+Global offsets: 0.994154 0.107968
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.114662
+X: 0.575985, Y: 7.727337, A: 3.891439
+Deltas: L 0.090757 R 0.090757
+!!! Distance: L 1.605266 R 0.000000
+Global offsets: 0.993799 0.111190
+Local pos: 0.000000 0.802194
+Added amount to pos: 0.089196 0.000000
+
+
+angle: -0.114662
+X: 0.575985, Y: 7.727337, A: 4.262867
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 1.605266 R 0.000000
+Global offsets: 0.993434 0.114411
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.120739
+X: 0.675173, Y: 8.566156, A: 4.158447
+Deltas: L 0.085085 R 0.085085
+!!! Distance: L 1.690351 R 0.000000
+Global offsets: 0.993081 0.117429
+Local pos: 0.000000 0.844662
+Added amount to pos: 0.099188 0.000000
+
+
+angle: -0.120739
+X: 0.675173, Y: 8.566156, A: 4.506661
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 1.690351 R 0.000000
+Global offsets: 0.992720 0.120446
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.127222
+X: 0.785228, Y: 9.449278, A: 4.378892
+Deltas: L 0.090757 R 0.090757
+!!! Distance: L 1.781108 R 0.000000
+Global offsets: 0.992324 0.123663
+Local pos: 0.000000 0.889954
+Added amount to pos: 0.110055 0.000000
+
+
+angle: -0.127222
+X: 0.785228, Y: 9.449278, A: 4.750321
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 1.781108 R 0.000000
+Global offsets: 0.991918 0.126879
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.133705
+X: 0.906896, Y: 10.376566, A: 4.623443
+Deltas: L 0.090757 R 0.090757
+!!! Distance: L 1.871866 R 0.000000
+Global offsets: 0.991502 0.130094
+Local pos: 0.000000 0.935236
+Added amount to pos: 0.121668 0.000000
+
+
+angle: -0.133705
+X: 0.906896, Y: 10.376566, A: 4.994871
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 1.871866 R 0.000000
+Global offsets: 0.991075 0.133307
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.140187
+X: 1.040753, Y: 11.347894, A: 4.868700
+Deltas: L 0.090757 R 0.090757
+!!! Distance: L 1.962623 R 0.000000
+Global offsets: 0.990638 0.136518
+Local pos: 0.000000 0.980508
+Added amount to pos: 0.133857 0.000000
+
+
+angle: -0.140187
+X: 1.040753, Y: 11.347894, A: 5.240128
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 1.962623 R 0.000000
+Global offsets: 0.990190 0.139729
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.146670
+X: 1.187374, Y: 12.363131, A: 5.114520
+Deltas: L 0.090757 R 0.090757
+!!! Distance: L 2.053380 R 0.000000
+Global offsets: 0.989732 0.142937
+Local pos: 0.000000 1.025770
+Added amount to pos: 0.146621 0.000000
+
+
+angle: -0.146670
+X: 1.187374, Y: 12.363131, A: 5.485949
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 2.053380 R 0.000000
+Global offsets: 0.989263 0.146145
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.152747
+X: 1.346695, Y: 13.419376, A: 5.382490
+Deltas: L 0.085085 R 0.085085
+!!! Distance: L 2.138465 R 0.000000
+Global offsets: 0.988815 0.149150
+Local pos: 0.000000 1.068193
+Added amount to pos: 0.159321 0.000000
+
+
+angle: -0.152747
+X: 1.346695, Y: 13.419376, A: 5.730705
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 2.138465 R 0.000000
+Global offsets: 0.988357 0.152154
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.159230
+X: 1.519675, Y: 14.519291, A: 5.603732
+Deltas: L 0.090757 R 0.090757
+!!! Distance: L 2.229222 R 0.000000
+Global offsets: 0.987858 0.155357
+Local pos: 0.000000 1.113434
+Added amount to pos: 0.172980 0.000000
+
+
+angle: -0.159230
+X: 1.519675, Y: 14.519291, A: 5.975160
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 2.229222 R 0.000000
+Global offsets: 0.987350 0.158558
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.165713
+X: 1.707098, Y: 15.662695, A: 5.848759
+Deltas: L 0.090757 R 0.090757
+!!! Distance: L 2.319979 R 0.000000
+Global offsets: 0.986831 0.161758
+Local pos: 0.000000 1.158663
+Added amount to pos: 0.187423 0.000000
+
+
+angle: -0.165713
+X: 1.707098, Y: 15.662695, A: 6.220189
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 2.319979 R 0.000000
+Global offsets: 0.986301 0.164955
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.171385
+X: 1.908103, Y: 16.843943, A: 6.137985
+Deltas: L 0.079412 R 0.079412
+!!! Distance: L 2.399392 R 0.000000
+Global offsets: 0.985829 0.167752
+Local pos: 0.000000 1.198228
+Added amount to pos: 0.201005 0.000000
+
+
+angle: -0.171385
+X: 1.908103, Y: 16.843943, A: 6.462985
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 2.399392 R 0.000000
+Global offsets: 0.985349 0.170547
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.177463
+X: 2.123399, Y: 18.065728, A: 6.355426
+Deltas: L 0.085085 R 0.085085
+!!! Distance: L 2.484477 R 0.000000
+Global offsets: 0.984827 0.173541
+Local pos: 0.000000 1.240609
+Added amount to pos: 0.215296 0.000000
+
+
+angle: -0.177463
+X: 2.123399, Y: 18.065728, A: 6.703641
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 2.484477 R 0.000000
+Global offsets: 0.984295 0.176533
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.183540
+X: 2.353723, Y: 19.327863, A: 6.595005
+Deltas: L 0.085085 R 0.085085
+!!! Distance: L 2.569561 R 0.000000
+Global offsets: 0.983754 0.179523
+Local pos: 0.000000 1.282978
+Added amount to pos: 0.230324 0.000000
+
+
+angle: -0.183540
+X: 2.353723, Y: 19.327863, A: 6.943220
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 2.569561 R 0.000000
+Global offsets: 0.983204 0.182511
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.189618
+X: 2.599570, Y: 20.630196, A: 6.833661
+Deltas: L 0.085085 R 0.085085
+!!! Distance: L 2.654646 R 0.000000
+Global offsets: 0.982645 0.185498
+Local pos: 0.000000 1.325336
+Added amount to pos: 0.245847 0.000000
+
+
+angle: -0.189618
+X: 2.599570, Y: 20.630196, A: 7.181876
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 2.654646 R 0.000000
+Global offsets: 0.982076 0.188483
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.195695
+X: 2.861436, Y: 21.972574, A: 7.071522
+Deltas: L 0.085085 R 0.085085
+!!! Distance: L 2.739731 R 0.000000
+Global offsets: 0.981499 0.191467
+Local pos: 0.000000 1.367681
+Added amount to pos: 0.261865 0.000000
+
+
+angle: -0.195695
+X: 2.861436, Y: 21.972574, A: 7.419736
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 2.739731 R 0.000000
+Global offsets: 0.980913 0.194448
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.202178
+X: 3.140650, Y: 23.357544, A: 7.286616
+Deltas: L 0.090757 R 0.090757
+!!! Distance: L 2.830489 R 0.000000
+Global offsets: 0.980277 0.197627
+Local pos: 0.000000 1.412835
+Added amount to pos: 0.279214 0.000000
+
+
+angle: -0.202178
+X: 3.140650, Y: 23.357544, A: 7.658046
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 2.830489 R 0.000000
+Global offsets: 0.979632 0.200803
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.208255
+X: 3.437180, Y: 24.782164, A: 7.548088
+Deltas: L 0.085085 R 0.085085
+!!! Distance: L 2.915574 R 0.000000
+Global offsets: 0.979017 0.203779
+Local pos: 0.000000 1.455154
+Added amount to pos: 0.296530 0.000000
+
+
+angle: -0.208255
+X: 3.437180, Y: 24.782164, A: 7.896303
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 2.915574 R 0.000000
+Global offsets: 0.978393 0.206753
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.214333
+X: 3.751235, Y: 26.246321, A: 7.785655
+Deltas: L 0.085085 R 0.085085
+!!! Distance: L 3.000659 R 0.000000
+Global offsets: 0.977760 0.209725
+Local pos: 0.000000 1.497459
+Added amount to pos: 0.314055 0.000000
+
+
+angle: -0.214333
+X: 3.751235, Y: 26.246321, A: 8.133869
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 3.000659 R 0.000000
+Global offsets: 0.977119 0.212695
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.220815
+X: 4.084216, Y: 27.752522, A: 8.000445
+Deltas: L 0.090757 R 0.090757
+!!! Distance: L 3.091416 R 0.000000
+Global offsets: 0.976424 0.215862
+Local pos: 0.000000 1.542569
+Added amount to pos: 0.332981 0.000000
+
+
+angle: -0.220815
+X: 4.084216, Y: 27.752522, A: 8.371874
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 3.091416 R 0.000000
+Global offsets: 0.975719 0.219025
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.226893
+X: 4.436035, Y: 29.297825, A: 8.261642
+Deltas: L 0.085085 R 0.085085
+!!! Distance: L 3.176501 R 0.000000
+Global offsets: 0.975049 0.221989
+Local pos: 0.000000 1.584846
+Added amount to pos: 0.351819 0.000000
+
+
+angle: -0.226893
+X: 4.436035, Y: 29.297825, A: 8.609857
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 3.176501 R 0.000000
+Global offsets: 0.974370 0.224951
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.232970
+X: 4.806871, Y: 30.882110, A: 8.499011
+Deltas: L 0.085085 R 0.085085
+!!! Distance: L 3.261585 R 0.000000
+Global offsets: 0.973682 0.227911
+Local pos: 0.000000 1.627107
+Added amount to pos: 0.370836 0.000000
+
+
+angle: -0.232970
+X: 4.806871, Y: 30.882110, A: 8.847225
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 3.261585 R 0.000000
+Global offsets: 0.972985 0.230869
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.239453
+X: 5.198194, Y: 32.507846, A: 8.713586
+Deltas: L 0.090757 R 0.090757
+!!! Distance: L 3.352343 R 0.000000
+Global offsets: 0.972231 0.234021
+Local pos: 0.000000 1.672170
+Added amount to pos: 0.391323 0.000000
+
+
+angle: -0.239453
+X: 5.198194, Y: 32.507846, A: 9.085016
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 3.352343 R 0.000000
+Global offsets: 0.971468 0.237171
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.245936
+X: 5.610873, Y: 34.174735, A: 8.952318
+Deltas: L 0.090757 R 0.090757
+!!! Distance: L 3.443100 R 0.000000
+Global offsets: 0.970694 0.240319
+Local pos: 0.000000 1.717215
+Added amount to pos: 0.412679 0.000000
+
+
+angle: -0.245936
+X: 5.610873, Y: 34.174735, A: 9.323748
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 3.443100 R 0.000000
+Global offsets: 0.969910 0.243464
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.252013
+X: 6.044414, Y: 35.879912, A: 9.214181
+Deltas: L 0.085085 R 0.085085
+!!! Distance: L 3.528185 R 0.000000
+Global offsets: 0.969166 0.246410
+Local pos: 0.000000 1.759428
+Added amount to pos: 0.433541 0.000000
+
+
+angle: -0.252013
+X: 6.044414, Y: 35.879912, A: 9.562396
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 3.528185 R 0.000000
+Global offsets: 0.968412 0.249354
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.258091
+X: 6.498956, Y: 37.623255, A: 9.452216
+Deltas: L 0.085085 R 0.085085
+!!! Distance: L 3.613270 R 0.000000
+Global offsets: 0.967650 0.252296
+Local pos: 0.000000 1.801625
+Added amount to pos: 0.454542 0.000000
+
+
+angle: -0.258091
+X: 6.498956, Y: 37.623255, A: 9.800431
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 3.613270 R 0.000000
+Global offsets: 0.966879 0.255235
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.264573
+X: 6.976062, Y: 39.407173, A: 9.667364
+Deltas: L 0.090757 R 0.090757
+!!! Distance: L 3.704027 R 0.000000
+Global offsets: 0.966047 0.258368
+Local pos: 0.000000 1.846617
+Added amount to pos: 0.477106 0.000000
+
+
+angle: -0.264573
+X: 6.976062, Y: 39.407173, A: 10.038793
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 3.704027 R 0.000000
+Global offsets: 0.965204 0.261498
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.271056
+X: 7.476623, Y: 41.231330, A: 9.906536
+Deltas: L 0.090757 R 0.090757
+!!! Distance: L 3.794784 R 0.000000
+Global offsets: 0.964351 0.264625
+Local pos: 0.000000 1.891589
+Added amount to pos: 0.500561 0.000000
+
+
+angle: -0.271056
+X: 7.476623, Y: 41.231330, A: 10.277965
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 3.794784 R 0.000000
+Global offsets: 0.963489 0.267749
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.277539
+X: 8.001175, Y: 43.095475, A: 10.146438
+Deltas: L 0.090757 R 0.090757
+!!! Distance: L 3.885541 R 0.000000
+Global offsets: 0.962616 0.270871
+Local pos: 0.000000 1.936542
+Added amount to pos: 0.524552 0.000000
+
+
+angle: -0.277539
+X: 8.001175, Y: 43.095475, A: 10.517867
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 3.885541 R 0.000000
+Global offsets: 0.961733 0.273989
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.283616
+X: 8.549089, Y: 44.996766, A: 10.409389
+Deltas: L 0.085085 R 0.085085
+!!! Distance: L 3.970626 R 0.000000
+Global offsets: 0.960896 0.276911
+Local pos: 0.000000 1.978666
+Added amount to pos: 0.547913 0.000000
+
+
+angle: -0.283616
+X: 8.549089, Y: 44.996766, A: 10.757602
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 3.970626 R 0.000000
+Global offsets: 0.960050 0.279829
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+angle: -0.290099
+X: 9.121639, Y: 46.937657, A: 10.626080
+Deltas: L 0.090757 R 0.090757
+!!! Distance: L 4.061383 R 0.000000
+Global offsets: 0.959138 0.282940
+Local pos: 0.000000 2.023579
+Added amount to pos: 0.572550 0.000000
+
+
+angle: -0.290099
+X: 9.121639, Y: 46.937657, A: 10.997510
+Deltas: L 0.000000 R 0.000000
+!!! Distance: L 4.061383 R 0.000000
+Global offsets: 0.958216 0.286047
+Local pos: 0.000000 0.000000
+Added amount to pos: 0.000000 0.000000
+
+
+WARNING - pros.serial.terminal.terminal:stop - Stopping terminal
+WARNING - pros.serial.terminal.terminal:reader - Connection to /dev/cu.usbmodem1203 broken

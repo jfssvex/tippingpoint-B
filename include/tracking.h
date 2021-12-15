@@ -23,6 +23,8 @@ double radToDeg(double r);
 */
 double degToRad(double d);
 
+extern bool printTracking;
+
 /**
  * \brief Class object to represent a vector within a 2 dimensional space
 */

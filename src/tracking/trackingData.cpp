@@ -2,7 +2,8 @@
 #include <math.h>
 
 TrackingData::TrackingData(double x, double y, double h) {
-    this->heading = h;
+	this->pos = Vector2(x, y);
+    this->heading = fmod(h, 2 * M_PI);
 }
 
 double TrackingData::getHeading() {

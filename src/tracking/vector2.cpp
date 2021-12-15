@@ -13,11 +13,11 @@ Vector2::Vector2() {
 
 double Vector2::getMagnitude() {
     // Use pythagorean theorem
-    return sqrt(pow(this->x, 2) + pow(this->y, 2));
+    return sqrt(x*x + y*y);
 }
 
 double Vector2::getAngle() {
-    return atan2(this->y, this->x);
+    return atan2(y, x);
 }
 
 Vector2 Vector2::normalize() {

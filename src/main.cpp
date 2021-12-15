@@ -119,5 +119,6 @@ void autonomous() {
  */
 void opcontrol() {
 	*showStats = true;
-	myOpControl();
+	// myOpControl();
+	myAuton();
 }
