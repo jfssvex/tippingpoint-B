@@ -50,8 +50,7 @@ void tracking(void* parameter) {
 
     // Reset all motor positions
     for (pros::Motor* tmp : driveTrain->allMotors) {
-        printf("Error? %d", tmp->tare_position());
-        printf("Motor Pos: %f", tmp->get_position());
+        tmp->tare_position();
     }
 
     // Reset encoders to 0 before starting
@@ -85,9 +84,9 @@ void tracking(void* parameter) {
         // bLast = bEncVal;
 
         // Update total distance vars
-        left += lEncVal;
-        right += rEncVal;
-        // lateral += bEncVal;
+        left += lDist;
+        right += rDist;
+        // lateral += bDist;
 
         // Calculate new absolute orientation
         float prevAngle = angle; // Previous angle, used for delta
