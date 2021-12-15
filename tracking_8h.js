@@ -7,5 +7,6 @@ var tracking_8h =
     [ "rotateVector", "tracking_8h.html#a687d576e8a1282fde1ca01ecbd7acd4e", null ],
     [ "toGlobalCoordinates", "tracking_8h.html#a65926f594730c373d1e08b675465e07b", null ],
     [ "toLocalCoordinates", "tracking_8h.html#ae7a15e553eda3f2b75579c9dcdf69276", null ],
-    [ "tracking", "tracking_8h.html#af84bdd0ecb717e7da53837699a768280", null ]
+    [ "tracking", "tracking_8h.html#af84bdd0ecb717e7da53837699a768280", null ],
+    [ "printTracking", "tracking_8h.html#a2568df35a3dc971c35833adab51b1ab3", null ]
 ];
