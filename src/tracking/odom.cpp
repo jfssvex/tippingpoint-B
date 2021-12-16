@@ -2,6 +2,7 @@
 #include "main.h"
 #include "globals.h"
 #include "chassis.h"
+#include "serialLogUtil.h"
 #include <math.h>
 
 // Encoder deltas
@@ -133,10 +134,23 @@ void tracking(void* parameter) {
         // Debug print
         if (pros::millis() - printTime > 75 && printTracking) {
             // Only print every 75ms to reduce lag
-            printf("X: %f, Y: %f, A: %f\n", 
+            // Printed with green color!
+
+            /*
+            printf("\e[32;mX: %f, Y: %f, A: %f\n\033[0", 
                     trackingData.getPos().getX(), 
                     trackingData.getPos().getY(), 
-                    radToDeg(trackingData.getHeading()));
+                    radToDeg(trackingData.getHeading())
+                );
+            */
+
+            colorPrintf("X: %f, Y: %f, A: %f\n", 
+                GREEN,
+                trackingData.getPos().getX(), 
+                trackingData.getPos().getY(), 
+                radToDeg(trackingData.getHeading())
+            );
+            
             printTime = pros::millis();
         }
         
