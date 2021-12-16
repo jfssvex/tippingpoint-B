@@ -8,6 +8,8 @@
  * by the E-Bots Pilons, found here: https://thepilons.ca/wp-content/uploads/2018/10/Tracking.pdf
 */
 
+#include "odomDebug/odomDebug.hpp"
+
 #ifndef _TRACKING_H_
 #define _TRACKING_H_
 
@@ -24,6 +26,7 @@ double radToDeg(double r);
 double degToRad(double d);
 
 extern bool printTracking;
+extern OdomDebug odomDebugDisplay;
 
 /**
  * \brief Class object to represent a vector within a 2 dimensional space
@@ -186,5 +189,10 @@ Vector2 toGlobalCoordinates(Vector2 vec);
  * @param param Placeholder parameter required for PROs tasks
 */
 void tracking(void* param);
+
+/**
+ * Resets all of the values in odometry
+*/
+void odomResetData();
 
 #endif

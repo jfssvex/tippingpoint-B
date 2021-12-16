@@ -5,10 +5,6 @@
 #include "systems/intake.h"
 #include "systems/systemManager.h"
 
-double abs(double x) {
-    return x >= 0 ? x : -x;
-}
-
 Intake::Intake(uint8_t defaultState, PIDInfo constants) : SystemManager(defaultState) {
     this->defaultState = defaultState;
     this->intakeMotor.set_brake_mode(MOTOR_BRAKE_HOLD);
