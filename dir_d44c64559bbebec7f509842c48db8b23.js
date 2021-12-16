@@ -10,5 +10,6 @@ var dir_d44c64559bbebec7f509842c48db8b23 =
     [ "macros.h", "macros_8h_source.html", null ],
     [ "main.h", "main_8h.html", "main_8h" ],
     [ "sdReadUtil.h", "sd_read_util_8h.html", "sd_read_util_8h" ],
+    [ "serialLogUtil.h", "serial_log_util_8h_source.html", null ],
     [ "tracking.h", "tracking_8h.html", "tracking_8h" ]
 ];
