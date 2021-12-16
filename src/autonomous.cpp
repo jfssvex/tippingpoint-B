@@ -10,7 +10,7 @@ void myAuton() {
    
     printTracking = true;
 
-    // driveTrain->forward(64);
+    driveTrain->forward(64);
     pros::delay(20000);
     driveTrain->forward(0);
 

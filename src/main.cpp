@@ -54,13 +54,19 @@ void initialize() {
 	// Statistics display mode update
 	showStats = new bool(true);
 
-	/*
+	display.setMode(DEBUG);
+	display.logMessage("Calibrating IMU...");
+
 	myImu.reset();
 
 	while (myImu.is_calibrating()) {
 		pros::delay(10);
 	}
-	*/
+
+	display.logMessage("IMU reset!");
+	pros::delay(250);
+	
+	display.clearScreen();
 	
   	pros::Task my_task(displayStatsUpdateTask, NULL, "Statistics Display Mode");
 	pros::Task myTracking(tracking, NULL, "tracking");
@@ -119,5 +125,6 @@ void autonomous() {
  */
 void opcontrol() {
 	*showStats = true;
-	myOpControl();
+	// myOpControl();
+	myAuton();
 }

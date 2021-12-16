@@ -67,8 +67,8 @@ void tracking(void* parameter) {
         Vector2 localPos;
 
         // Get encoder data, directly fron wheels because no tracking wheels yet
-        float lEncVal = bLeft.get_position();
-        float rEncVal = 0;
+        float lEncVal = (tLeft.get_position() + bLeft.get_position());
+        float rEncVal = (tRight.get_position() + bRight.get_position());
         float bEncVal = 0;
 
         // Calculate delta values
@@ -93,7 +93,8 @@ void tracking(void* parameter) {
 
         // Calculate new absolute orientation
         float prevAngle = angle; // Previous angle, used for delta
-        angle = (right - left) / (lrOffset * 2.0f);
+        // angle = (right - left) / (lrOffset * 2.0f);
+        angle = myImu.get_rotation(); // Using IMU, maybe not the best idea but meh
 
         // Get angle delta
         aDelta = angle - prevAngle;
@@ -113,7 +114,7 @@ void tracking(void* parameter) {
 
         // Calculate the average orientation
         // If any issues arise, try changing aDelta to aDelta/2
-        float avgAngle = -(prevAngle + (aDelta));
+        float avgAngle = -(prevAngle + (aDelta))/2;
 
         // Calculate global offset https://www.mathsisfun.com/polar-cartesian-coordinates.html
         float globalOffsetX = cos(avgAngle); // cos(θ) = x 
