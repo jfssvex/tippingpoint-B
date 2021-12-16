@@ -5,9 +5,11 @@ void myAuton() {
     /*
     driveTrainPID.rotateTo(degToRad(90)); // Rotate to 90 degrees
     pros::delay(200);
-    driveTrainPID.moveToPoint(Vector2( 1, 0 ));
     */
-   
+    driveTrainPID.moveToPoint(Vector2( 0, 4 ));
+    
+
+   /*
     printTracking = true;
 
     driveTrain->forward(64);
@@ -17,4 +19,5 @@ void myAuton() {
     pros::delay(500);
 
     printTracking = false;
+    */
 }

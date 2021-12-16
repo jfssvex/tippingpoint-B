@@ -51,12 +51,11 @@ void tracking(void* parameter) {
 
     uint32_t printTime = pros::millis();
 
-    /*
     // Reset all motor positions
     for (pros::Motor* tmp : driveTrain->allMotors) {
         tmp->tare_position();
     }
-    */
+    
 
     // Reset encoders to 0 before starting
     // lEnc.reset();
@@ -71,6 +70,8 @@ void tracking(void* parameter) {
         float lEncVal = (tLeft.get_position() + bLeft.get_position());
         float rEncVal = (tRight.get_position() + bRight.get_position());
         float bEncVal = 0;
+
+        colorPrintf("L: %f R: %f\n", RED, lEncVal, rEncVal);
 
         // Calculate delta values
         lDelta = lEncVal - lLast;
@@ -94,8 +95,8 @@ void tracking(void* parameter) {
 
         // Calculate new absolute orientation
         float prevAngle = angle; // Previous angle, used for delta
-        // angle = (right - left) / (lrOffset * 2.0f);
-        angle = myImu.get_rotation(); // Using IMU, maybe not the best idea but meh
+        angle = (left - right) / WHEELBASE;
+        // angle = myImu.get_rotation(); // Using IMU, maybe not the best idea but meh
 
         // Get angle delta
         aDelta = angle - prevAngle;
@@ -115,7 +116,7 @@ void tracking(void* parameter) {
 
         // Calculate the average orientation
         // If any issues arise, try changing aDelta to aDelta/2
-        float avgAngle = -(prevAngle + (aDelta))/2;
+        float avgAngle = -(prevAngle + (aDelta / 2));
 
         // Calculate global offset https://www.mathsisfun.com/polar-cartesian-coordinates.html
         float globalOffsetX = cos(avgAngle); // cos(θ) = x 
@@ -134,23 +135,13 @@ void tracking(void* parameter) {
         // Debug print
         if (pros::millis() - printTime > 75 && printTracking) {
             // Only print every 75ms to reduce lag
-            // Printed with green color!
-
-            /*
-            printf("\e[32;mX: %f, Y: %f, A: %f\n\033[0", 
-                    trackingData.getPos().getX(), 
-                    trackingData.getPos().getY(), 
-                    radToDeg(trackingData.getHeading())
-                );
-            */
-
             colorPrintf("X: %f, Y: %f, A: %f\n", 
                 GREEN,
                 trackingData.getPos().getX(), 
                 trackingData.getPos().getY(), 
                 radToDeg(trackingData.getHeading())
             );
-            
+
             printTime = pros::millis();
         }
         
