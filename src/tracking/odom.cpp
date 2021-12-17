@@ -67,8 +67,8 @@ void tracking(void* parameter) {
         Vector2 localPos;
 
         // Get encoder data, directly fron wheels because no tracking wheels yet
-        float lEncVal = (tLeft.get_position() + bLeft.get_position());
-        float rEncVal = (tRight.get_position() + bRight.get_position());
+        float lEncVal = (tLeft.get_position() + bLeft.get_position()) / 2;
+        float rEncVal = (tRight.get_position() + bRight.get_position()) / 2;
         float bEncVal = 0;
 
         colorPrintf("L: %f R: %f\n", RED, lEncVal, rEncVal);
@@ -95,8 +95,7 @@ void tracking(void* parameter) {
 
         // Calculate new absolute orientation
         float prevAngle = angle; // Previous angle, used for delta
-        angle = (left - right) / WHEELBASE;
-        // angle = myImu.get_rotation(); // Using IMU, maybe not the best idea but meh
+        angle = (right - left) / WHEELBASE;
 
         // Get angle delta
         aDelta = angle - prevAngle;
