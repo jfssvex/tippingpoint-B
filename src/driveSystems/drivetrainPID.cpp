@@ -7,6 +7,8 @@
 // Flips radian angle
 #define flipAngle(a)  (a > 0) ? (-2 * M_PI + a) : (2 * M_PI + a) 
 
+#define VECTOR_LENGTH(vec) sqrt(pow(vec.getX(), 2) + pow(vec.getY(), 2))
+
 DrivetrainPID::DrivetrainPID(Drivetrain* drivetrain, PIDInfo driveConstants, PIDInfo turnConstants, double distTolerance, double distIntegralTolerance, double turnTolerance, double turnIntegralTolerance) {
     this->driveController = new PIDController(0, driveConstants, distTolerance, distIntegralTolerance);
     this->turnController = new PIDController(0, turnConstants, turnTolerance, turnIntegralTolerance);
@@ -21,21 +23,23 @@ DrivetrainPID::~DrivetrainPID() {
 
 void DrivetrainPID::move(Vector2 dir, double turn) {
     dir = toLocalCoordinates(dir);
-    double velX = dir.getX();
-    double velY = dir.getY();
 
     // Calculate distance using pythagorean theorem and motor velocity
     double distance = dir.getMagnitude();
 
-    // Scale to be between [-127, 127] if not
-    double scalar = 1;
-    double maxInput = std::max(std::abs(distance + turn), std::abs(distance - turn));
-    if (maxInput > 1) {
-        scalar = maxInput;
+    // Get outputs for each side 
+    double leftOutput = distance + turn;
+    double rightOutput = distance - turn;
+
+    // Scale to be between [-1, 1] if not
+    double scalar = std::max(std::abs(leftOutput), std::abs(rightOutput));
+    if (scalar > 1) {
+        leftOutput /= scalar;
+        rightOutput /= scalar;
     }
 
-    double leftMotorVel = (distance + turn) / scalar * 127;
-    double rightMotorVel = (distance - turn) / scalar * 127;
+    double leftMotorVel = leftOutput * 127;
+    double rightMotorVel = rightOutput * 127;
 
     // Set motor vel
     driveTrain->tank(leftMotorVel, rightMotorVel);
@@ -51,26 +55,31 @@ void DrivetrainPID::moveToOrientation(Vector2 target, double angle) {
 
 void DrivetrainPID::moveToPoint(Vector2 target) {
     // Turn to angle of point first (important in nonholonomic)
-    this->rotateTo(target.getAngle());
+    this->rotateTo((target - trackingData.getPos()).getAngle());
 
     // Get starting time
     double time = pros::millis();
 
+    this->driveController->reset();
     this->driveController->target = 0; // Set target to 0 as loop will use delta as sense
 
     do {
-        Vector2 delta = target - trackingData.getPos();
+        double deltaDist = VECTOR_LENGTH(target) - VECTOR_LENGTH(trackingData.getPos());
+        // Vector2 delta = target - trackingData.getPos(); // This could also work buts it's very finicky in the simulator
 
         // Flip positivity since we're using the delta as the sense
-        float vel = -(this->driveController->step(delta.getMagnitude()));
+        float vel = -(this->driveController->step(deltaDist));
 
-        // Rotate the vector to restore direction since it only points left or right as of now
-        Vector2 driveVec = rotateVector(Vector2(vel, 0), delta.getAngle());
+        // No need to include angle data since it's already at angle needed to move to position
+        this->move({ 0, vel }, 0);
 
-        this->move(driveVec, 0);
+        if (pros::millis() - time <= 5000) {
+            // Taking too long, something might be going wrong
+            break;
+        }
 
         pros::delay(20);
-    } while (!this->driveController->isSettled() || pros::millis() - time <= 5000);
+    } while (!this->driveController->isSettled());
 }
 
 void DrivetrainPID::moveRelative(Vector2 offset, double aOffset) {
@@ -100,9 +109,7 @@ void DrivetrainPID::rotateTo(double target) {
         move(Vector2(), turnController->step(trackingData.getHeading()));
 
         pros::delay(20);
-    } while (!turnController->isSettled() || pros::millis() - time <= 3000); // Break if settled or taking more than 3s
-
-    masterController.print(0, 0, "Done turning!");
+    } while (!turnController->isSettled() && pros::millis() - time <= 3000); // Break if settled or taking more than 3s
 
     trackingData.setAngleModulusSuspend(false);
 }
