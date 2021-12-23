@@ -44,6 +44,9 @@ class Vector2 {
         */
         Vector2();
 
+        Vector2(const Vector2 &v1);
+
+        Vector2& operator= (const Vector2 &v1);
 
         /**
          * Returns the x value of the vector

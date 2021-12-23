@@ -5,15 +5,22 @@
 Vector2::Vector2(double x, double y) {
     std::atomic_init(&this->x, x);
     std::atomic_init(&this->y, y);
-    // this->x = x;
-    // this->y = y;
 }
 
 Vector2::Vector2() {
     std::atomic_init(&this->x, 0);
     std::atomic_init(&this->y, 0);
-    // this->x = 0;
-    // this->y = 0;
+}
+
+Vector2::Vector2(const Vector2 &v1) {
+    std::atomic_store(&this->x, std::atomic_load(&v1.x));
+    std::atomic_store(&this->y, std::atomic_load(&v1.y));
+}
+
+Vector2& Vector2::operator= (const Vector2 &v1) {
+    std::atomic_store(&this->x, std::atomic_load(&v1.x));
+    std::atomic_store(&this->y, std::atomic_load(&v1.y));
+    return *this;
 }
 
 double Vector2::getMagnitude() {
