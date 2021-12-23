@@ -108,8 +108,8 @@ void tracking(void* parameter) {
     
 
     // Reset encoders to 0 before starting
-    // lEnc.reset();
-    // rEnc.reset();
+    lEnc.reset();
+    rEnc.reset();
     // bEnc.reset();
 
     OdomDebug odomDebugDisplay(lv_scr_act(), LV_COLOR_ORANGE);
@@ -124,6 +124,8 @@ void tracking(void* parameter) {
         // Get encoder data, directly fron wheels because no tracking wheels yet
         float lEncVal = (tLeft.get_position() + bLeft.get_position()) / 2;
         float rEncVal = (tRight.get_position() + bRight.get_position()) / 2;
+        // float lEncVal = (lEnc.get_value());
+        // float rEncVal = (rEnc.get_value());
         float bEncVal = 0;
 
         colorPrintf("L: %f R: %f\n", RED, lEncVal, rEncVal);
