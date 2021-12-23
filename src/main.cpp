@@ -2,7 +2,7 @@
 #include "tracking.h"
 #include "globals.h"
 
-bool* showStats;
+bool* showStats; //may need to convert to atomic as well
 
 /**
  * A callback function for LLEMU's center button.

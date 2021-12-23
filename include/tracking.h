@@ -48,12 +48,12 @@ class Vector2 {
         /**
          * Returns the x value of the vector
         */
-        double getX() { return this->x; };
+        double getX() { return std::atomic_load(&this->x); };
 
         /**
          * Returns the y value of the vector
         */
-        double getY() { return this->y; };
+        double getY() { return std::atomic_load(&this->y); };
 
 
         /**
