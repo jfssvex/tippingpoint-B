@@ -4,7 +4,7 @@
 
 TrackingData::TrackingData(double x, double y, double h) {
 	this->pos = Vector2(x, y);
-    std::atomic_store(&this->heading, fmod(h, 2 * M_PI));
+    std::atomic_init(&this->heading, fmod(h, 2 * M_PI));
 }
 
 double TrackingData::getHeading() {
