@@ -8,6 +8,8 @@
  * by the E-Bots Pilons, found here: https://thepilons.ca/wp-content/uploads/2018/10/Tracking.pdf
 */
 
+#include <atomic>
+
 #ifndef _TRACKING_H_
 #define _TRACKING_H_
 
@@ -90,11 +92,11 @@ class Vector2 {
         /**
          * The x value of the vector
         */
-        double x;
+        std::atomic<double> x;
         /**
          * The y value of the vector
         */
-        double y;
+        std::atomic<double> y;
 };
 
 /**
@@ -156,7 +158,7 @@ class TrackingData {
         /**
          * Current heading (angle) of the robot
         */
-        double heading;
+        std::atomic<double> heading;
         
         // Whether the angle modulus task should be suspended
         bool suspendModulus;
