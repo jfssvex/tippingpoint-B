@@ -2,6 +2,7 @@
 #include "control/PID.h"
 #include "tracking.h"
 #include "globals.h"
+#include "serialLogUtil.h"
 #include <math.h>
 
 // Flips radian angle
@@ -98,15 +99,20 @@ void DrivetrainPID::rotateTo(double target) {
     // Get starting time
     double time = pros::millis();
 
+    /*
     // Turn the other way if it's more efficient
     if (abs(target - trackingData.getHeading()) > degToRad(180)) {
         target = flipAngle(target);
     }
+    */
 
+    // turnController->reset();
     turnController->target = target;
     do {
         // Run PID step and move to angle
         move(Vector2(), turnController->step(trackingData.getHeading()));
+        colorPrintf("Turn vel: %f\n", RED, turnController->step(trackingData.getHeading()));
+        colorPrintf("Turn pos: %f\n\n", RED, trackingData.getHeading());
 
         pros::delay(20);
     } while (!turnController->isSettled() && pros::millis() - time <= 3000); // Break if settled or taking more than 3s

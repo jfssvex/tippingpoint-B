@@ -128,7 +128,7 @@ void tracking(void* parameter) {
         // float rEncVal = (rEnc.get_value());
         float bEncVal = 0;
 
-        colorPrintf("L: %f R: %f\n", RED, lEncVal, rEncVal);
+        // colorPrintf("L: %f R: %f\n", RED, lEncVal, rEncVal);
 
         // Calculate delta values
         lDelta = lEncVal - lLast;
