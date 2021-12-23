@@ -433,6 +433,7 @@ void DisplayController::setMode(DISPLAY_MODE mode) {
             sprintf(batteryString, "Battery: %2.0f%%", pros::battery::get_capacity());
             renderLabel(batteryString, 20, 10, scr);
 
+            /*
             // Tracking data
             char trackingString[100];
             sprintf(trackingString, "X: %f\nY: %f\nA: %f\n", trackingData.getPos().getX(), trackingData.getPos().getY(), radToDeg(trackingData.getHeading()));
@@ -443,10 +444,10 @@ void DisplayController::setMode(DISPLAY_MODE mode) {
             sprintf(myIntakeSpeed, "Intake: %f", intake.getPower()); 
             renderLabel(myIntakeSpeed, 20, 60, scr);
 
-            char forklift1Pos[50];
-            sprintf(myIntakeSpeed, "Forklift1: %f", forklift1Motor->get_position()); 
-            renderLabel(myIntakeSpeed, 20, 120, scr);
             */
+            char forklift1Pos[50];
+            sprintf(forklift1Pos, "Forklift1: %f", forklift1.getPosition()); 
+            renderLabel(forklift1Pos, 20, 120, scr);
             break;
         }
 
