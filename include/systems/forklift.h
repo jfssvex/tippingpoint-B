@@ -92,5 +92,5 @@ class Forklift: public SystemManager {
         PIDController *pidController;
 
         // Potentiometer
-        pros::ADIDigitalIn *potentiometer;
+        pros::ADIAnalogIn *potentiometer;
 };

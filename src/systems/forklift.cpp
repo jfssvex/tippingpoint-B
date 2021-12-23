@@ -13,9 +13,11 @@ Forklift::Forklift(uint8_t defaultState, pros::Motor* forkliftMotor, PIDInfo con
     this->constants = constants;
     this->pidController = new PIDController(0, this->constants, 10, 1);
 
-    this->potentiometer = new pros::ADIDigitalIn(POT_PORT);
+    this->potentiometer = new pros::ADIAnalogIn(POT_PORT);
 
     forkliftMotor->set_brake_mode(MOTOR_BRAKE_HOLD);
+
+    // potentiometer->calibrate();
 }
 
 Forklift::~Forklift() {
@@ -54,7 +56,8 @@ void Forklift::update() {
     if (manualPower == 0) {
         // Retain position if manual power not being applied with custom PID loop
         double speed = pidController->step(this->position);
-        this->forkliftMotor->move(speed);
+        colorPrintf("Forklift vel: %f\n\n", RED, speed);
+        // this->forkliftMotor->move(speed);
     } else {
         // Update target to be current position
         this->pidController->target = this->position;
