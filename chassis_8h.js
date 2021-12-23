@@ -10,6 +10,8 @@ var chassis_8h =
     [ "INTAKE_PORT", "chassis_8h.html#a8f9d4303e16d8050148539e2cf90fabe", null ],
     [ "LENC_PORT_BOT", "chassis_8h.html#acb7b0cb2d24fc1de3ccc8b3c2785483a", null ],
     [ "LENC_PORT_TOP", "chassis_8h.html#a66e81a87b6efa348a9cb65f16d4c89f7", null ],
+    [ "POT_PORT_1", "chassis_8h.html#af44830c25f1a460f705d81cb46febb19", null ],
+    [ "POT_PORT_2", "chassis_8h.html#aa184d4d591ad59188cd42b76cff6fd0e", null ],
     [ "RENC_PORT_BOT", "chassis_8h.html#a6dca4111f5a1dcf08970cfa04e3eeac3", null ],
     [ "RENC_PORT_TOP", "chassis_8h.html#abbc8fa61d0e3a62e06847e02031256c0", null ],
     [ "TL_PORT", "chassis_8h.html#adc8e220c800167f4eb8d5f6e9507dd6a", null ],

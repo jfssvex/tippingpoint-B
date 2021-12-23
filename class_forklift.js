@@ -1,6 +1,7 @@
 var class_forklift =
 [
-    [ "Forklift", "class_forklift.html#a246ce671cc936b16697de027d419c73a", null ],
+    [ "Forklift", "class_forklift.html#aec0dca687d00c5d3e10a7f98ca276605", null ],
+    [ "~Forklift", "class_forklift.html#afbe781d5a52a4b1795bd02303afd6151", null ],
     [ "changeState", "class_forklift.html#a4109ab040e4d7fe2f02d736dc86f65ee", null ],
     [ "control", "class_forklift.html#a0484be0bb64f74ba083485ee47c54f33", null ],
     [ "fullReset", "class_forklift.html#af507744530c1d6338d84704da97d4970", null ],
@@ -12,5 +13,6 @@ var class_forklift =
     [ "constants", "class_forklift.html#af45fa4638b7a71a1c06be8122708d8f0", null ],
     [ "forkliftMotor", "class_forklift.html#a2951092e2ce6a8c025b41c453e6019e4", null ],
     [ "manualPower", "class_forklift.html#aabdbfb6db4bc8e468e1b72bd205b3155", null ],
-    [ "pidController", "class_forklift.html#ad9feb742444d0e17085f731c77313986", null ]
+    [ "pidController", "class_forklift.html#ad9feb742444d0e17085f731c77313986", null ],
+    [ "potentiometer", "class_forklift.html#a8991e45cd9524a790bede97f212fff25", null ]
 ];
