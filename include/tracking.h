@@ -45,9 +45,19 @@ class Vector2 {
          * Initializes the Vector2 class with default values (0, 0)
         */
         Vector2();
-
+        
+        /**
+         * @brief Copy constructor for Vector2
+         * 
+         * @param v1 Object to copy from
+         */
         Vector2(const Vector2 &v1);
 
+        /**
+         * @brief Override for equal operator
+         * 
+         * @param v1 Object to copy values from
+         */
         Vector2& operator= (const Vector2 &v1);
 
         /**
