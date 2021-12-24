@@ -8,6 +8,7 @@
  * by the E-Bots Pilons, found here: https://thepilons.ca/wp-content/uploads/2018/10/Tracking.pdf
 */
 
+#include <atomic>
 #include "odomDebug/odomDebug.hpp"
 
 #ifndef _TRACKING_H_
@@ -44,17 +45,30 @@ class Vector2 {
          * Initializes the Vector2 class with default values (0, 0)
         */
         Vector2();
+        
+        /**
+         * @brief Copy constructor for Vector2
+         * 
+         * @param v1 Object to copy from
+         */
+        Vector2(const Vector2 &v1);
 
+        /**
+         * @brief Override for equal operator
+         * 
+         * @param v1 Object to copy values from
+         */
+        Vector2& operator= (const Vector2 &v1);
 
         /**
          * Returns the x value of the vector
         */
-        double getX() { return this->x; };
+        double getX() { return std::atomic_load(&this->x); };
 
         /**
          * Returns the y value of the vector
         */
-        double getY() { return this->y; };
+        double getY() { return std::atomic_load(&this->y); };
 
 
         /**
@@ -93,11 +107,11 @@ class Vector2 {
         /**
          * The x value of the vector
         */
-        double x;
+        std::atomic<double> x;
         /**
          * The y value of the vector
         */
-        double y;
+        std::atomic<double> y;
 };
 
 /**
@@ -159,7 +173,7 @@ class TrackingData {
         /**
          * Current heading (angle) of the robot
         */
-        double heading;
+        std::atomic<double> heading;
         
         // Whether the angle modulus task should be suspended
         bool suspendModulus;

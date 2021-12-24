@@ -3,7 +3,7 @@
 #include "globals.h"
 #include "odomDebug/odomDebug.hpp"
 
-bool* showStats;
+bool* showStats; //may need to convert to atomic as well
 
 /**
  * A callback function for LLEMU's center button.
