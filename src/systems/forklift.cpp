@@ -4,15 +4,26 @@
 
 #include "systems/forklift.h"
 #include "systems/systemManager.h"
+#include "serialLogUtil.h"
 
-Forklift::Forklift(uint8_t defaultState, pros::Motor* forkliftMotor, PIDInfo constants) : SystemManager(defaultState) {
+Forklift::Forklift(uint8_t defaultState, pros::Motor* forkliftMotor, PIDInfo constants, uint8_t POT_PORT) : SystemManager(defaultState) {
     this->defaultState = defaultState;
     this->forkliftMotor = forkliftMotor;
 
     this->constants = constants;
     this->pidController = new PIDController(0, this->constants, 10, 1);
 
+    this->potentiometer = new pros::ADIAnalogIn(POT_PORT);
+
     forkliftMotor->set_brake_mode(MOTOR_BRAKE_HOLD);
+
+    // potentiometer->calibrate();
+}
+
+Forklift::~Forklift() {
+    delete this->pidController;
+    delete this->potentiometer;
+    delete this->forkliftMotor;
 }
 
 void Forklift::goUp() {
@@ -38,13 +49,18 @@ void Forklift::setPower(int power) {
 
 //TODO: tune PID constants
 void Forklift::update() {
+    this->position = this->potentiometer->get_value();
+
+    colorPrintf("FORKLIFT POS: %f\n", BLUE, position);
+
     if (manualPower == 0) {
         // Retain position if manual power not being applied with custom PID loop
-        double speed = pidController->step(this->forkliftMotor->get_position());
-        this->forkliftMotor->move(speed);
+        double speed = pidController->step(this->position);
+        colorPrintf("Forklift vel: %f\n\n", RED, speed);
+        // this->forkliftMotor->move(speed);
     } else {
         // Update target to be current position
-        this->pidController->target = this->forkliftMotor->get_position();
+        this->pidController->target = this->position;
     }
 }
 

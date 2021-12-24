@@ -30,6 +30,10 @@
 #define LENC_PORT_BOT 'B'
 #define RENC_PORT_BOT 'D'
 
+// Potentiometer pins
+#define POT_PORT_1 'E'
+#define POT_PORT_2 'F'
+
 // Robot dimensions in inches (TODO: Update to real dimensions)
 #define DRIVE_WHEEL_DIAMETER 3.25f
 #define TRACKING_WHEEL_DIAMETER 2.75f

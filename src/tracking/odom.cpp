@@ -129,8 +129,6 @@ void tracking(void* parameter) {
         // Get encoder data, directly fron wheels because no tracking wheels yet
         float lEncVal = (tLeft.get_position() + bLeft.get_position()) / 2;
         float rEncVal = (tRight.get_position() + bRight.get_position()) / 2;
-        // float lEncVal = (lEnc.get_value());
-        // float rEncVal = (rEnc.get_value());
         float bEncVal = 0;
 
         // colorPrintf("L: %f R: %f\n", RED, lEncVal, rEncVal);
