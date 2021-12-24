@@ -30,7 +30,15 @@ class Forklift: public SystemManager {
          * Constructor for the Forklift class
          * @param defaultState The default state for the system.
         */
-        Forklift(uint8_t defaultState, pros::Motor* forkliftMotor, PIDInfo constants, uint8_t POT_PORT);
+        Forklift(
+            uint8_t defaultState, 
+            pros::Motor* forkliftMotor, 
+            PIDInfo constants, 
+            uint8_t POT_PORT,
+            double downPos,
+            double middlePos,
+            double upPos
+        );
 
         /**
          * Destructor for Forklift class
@@ -98,4 +106,10 @@ class Forklift: public SystemManager {
 
         // Potentiometer
         pros::ADIAnalogIn *potentiometer;
+
+        // Forklift constants
+        double downPos;
+        double middlePos;
+        double upPos;
+
 };

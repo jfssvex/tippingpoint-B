@@ -2,14 +2,15 @@
 #include "globals.h"
 
 void myAuton() {
-    tLeft.set_brake_mode(MOTOR_BRAKE_BRAKE);
-    tRight.set_brake_mode(MOTOR_BRAKE_BRAKE);
-    bLeft.set_brake_mode(MOTOR_BRAKE_BRAKE);
-    bRight.set_brake_mode(MOTOR_BRAKE_BRAKE);
+    // forklift1.goDown();
+    // forklift2.goDown();
 
-    driveTrainPID.moveToPoint(Vector2( 25, 20 ));
+    // forklift2.goUp();
+    
+
+    // driveTrainPID.moveToPoint(Vector2( 25, 20 ));
     // pros::delay(250);
-    driveTrainPID.rotateTo(degToRad(0)); // Rotate to 90 degrees
+    // driveTrainPID.rotateTo(degToRad(0)); // Rotate to 90 degrees
     // driveTrainPID.moveToPoint(Vector2( 0, 0 ));
 
     

@@ -6,7 +6,7 @@
 #include "systems/systemManager.h"
 #include "serialLogUtil.h"
 
-Forklift::Forklift(uint8_t defaultState, pros::Motor* forkliftMotor, PIDInfo constants, uint8_t POT_PORT) : SystemManager(defaultState) {
+Forklift::Forklift(uint8_t defaultState, pros::Motor* forkliftMotor, PIDInfo constants, uint8_t POT_PORT, double downPos, double middlePos, double upPos) : SystemManager(defaultState) {
     this->defaultState = defaultState;
     this->forkliftMotor = forkliftMotor;
 
@@ -14,6 +14,10 @@ Forklift::Forklift(uint8_t defaultState, pros::Motor* forkliftMotor, PIDInfo con
     this->pidController = new PIDController(0, this->constants, 10, 1);
 
     this->potentiometer = new pros::ADIAnalogIn(POT_PORT);
+
+    this->downPos = downPos;
+    this->middlePos = middlePos;
+    this->upPos = upPos;
 
     forkliftMotor->set_brake_mode(MOTOR_BRAKE_HOLD);
 
@@ -56,17 +60,23 @@ void Forklift::setPower(int power) {
 void Forklift::update() {
     this->position = this->potentiometer->get_value();
 
-    colorPrintf("FORKLIFT POS: %f\n", BLUE, position);
+    if (target == 0) {
+        target = position;
+    }
 
+    
     if (manualPower == 0) {
         // Retain position if manual power not being applied with custom PID loop
         double speed = pidController->step(this->position);
-        colorPrintf("Forklift vel: %f\n\n", RED, speed);
-        // this->forkliftMotor->move(speed);
+        this->forkliftMotor->move(speed / 32);
     } else {
         // Update target to be current position
         this->pidController->target = this->position;
     }
+
+    colorPrintf("Forklift err: %f\n", BLUE, pidController->getError());
+    colorPrintf("Forklift target: %f\n", RED, target);
+    colorPrintf("Forklift sense: %f\n\n", RED, position);
 }
 
 bool Forklift::changeState(uint8_t newState) {
@@ -80,19 +90,20 @@ bool Forklift::changeState(uint8_t newState) {
     switch(newState) {
         case UP_STATE: {
             // Set forklift motor to hold at up position
-            this->position = 540;
+            this->forkliftMotor->set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+            this->target = upPos;
             break;
         }
         case MIDDLE_STATE: {
             // Set forklift motor to hold at middle position
             this->forkliftMotor->set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-            this->position = 300;
+            this->target = middlePos;
             break;
         }
         case DOWN_STATE: {
             // Set forklift motor to hold at down position
             this->forkliftMotor->set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-            this->position = 0;
+            this->target = downPos;
             break;
         }
         case DISABLED_STATE: {
@@ -106,6 +117,8 @@ bool Forklift::changeState(uint8_t newState) {
             break;
         }
     }
+
+    colorPrintf("NEW TARGET: %f\n", GREEN, target);
 
     return true;
 }

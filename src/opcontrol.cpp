@@ -29,11 +29,6 @@ double joystickCubicDrive(int raw) {
 }
 
 void myOpControl() {
-    // Enable all systems
-    intake.enable();
-    forklift1.enable();
-    forklift2.enable();
-
     // 0 -> nothing, 1 -> clockwise, -1 -> counter clockwise
     int macroToggle = 0;
 
@@ -198,7 +193,6 @@ void myOpControl() {
             } else {
                 intake.setPower(0);
             }
-            break;
 
             // Forklift 1 control
             forklift1.control();
@@ -221,7 +215,6 @@ void myOpControl() {
             } else {
                 forklift2.setPower(0);
             }
-            
         }
         pros::delay(10);
     }

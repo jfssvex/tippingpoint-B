@@ -2,6 +2,11 @@
 #include "globals.h"
 
 void updateSystemManagers(void* param) {
+    // Enable all systems
+    intake.enable();
+    forklift1.enable();
+    forklift2.enable();
+    
     while (true) {
         // Update all system managers
 

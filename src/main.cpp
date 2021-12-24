@@ -55,7 +55,7 @@ void initialize() {
 	// Statistics display mode update
 	// showStats = new bool(true);
 
-	display.setMode(DEBUG);
+	// display.setMode(DEBUG);
 
 	/*
 	display.logMessage("Calibrating IMU...");
@@ -66,17 +66,6 @@ void initialize() {
 	display.logMessage("IMU reset!");
 	*/
 
-	display.logMessage("Calibrating forklift 1...");
-	forklift1.calibrate();
-
-	display.logMessage("Calibrating forklift 2...");
-	forklift2.calibrate();
-
-	display.logMessage("All calibrated!");
-
-	pros::delay(250);
-	
-	display.clearScreen();
 
   	// pros::Task my_task(displayStatsUpdateTask, NULL, "Statistics Display Mode");
 	pros::Task myTracking(tracking, NULL, "Tracking");
