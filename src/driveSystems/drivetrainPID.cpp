@@ -83,12 +83,12 @@ void DrivetrainPID::moveToPoint(Vector2 target) {
         }
 
         // Flip positivity since we're using the delta as the sense
-        // Divide by 4 because i am testing and don't want the robot to crash and die
         float vel = -(this->driveController->step(deltaDist));
         colorPrintf("Dist err: %f\nDist vel: %f\n\n", BLUE, deltaDist, vel);
 
         // No need to include angle data since it's already at angle needed to move to position
-        this->move({ 0, vel / 2 }, 0);
+        // Any issues? Divide vel by 2
+        this->move({ 0, vel }, 0);
 
 
         if (pros::millis() - time >= 1500) {
