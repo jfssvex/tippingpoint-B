@@ -6,6 +6,7 @@ var annotated_dup =
     [ "FixedDebugInfo", "class_fixed_debug_info.html", "class_fixed_debug_info" ],
     [ "Forklift", "class_forklift.html", "class_forklift" ],
     [ "Intake", "class_intake.html", "class_intake" ],
+    [ "OdomDebug", "class_odom_debug.html", "class_odom_debug" ],
     [ "PIDController", "class_p_i_d_controller.html", "class_p_i_d_controller" ],
     [ "PIDInfo", "class_p_i_d_info.html", "class_p_i_d_info" ],
     [ "SkidSteerDrive", "class_skid_steer_drive.html", "class_skid_steer_drive" ],
