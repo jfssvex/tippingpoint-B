@@ -47,6 +47,11 @@ void myOpControl() {
 
     int maintenanceToggle = 0;
 
+    // Set system managers to control mode
+    intake.control();
+    forklift1.control();
+    forklift2.control();
+
     while (true) {
         //on and off
         if (getNewDigitalPress(DIGITAL_A)) {
@@ -183,9 +188,6 @@ void myOpControl() {
                 }
             }
 
-            // Operator control
-            intake.control();
-
             if (intakeUp) {
                 intake.setPower(intakeSpeed);
             } else if (intakeDown) {
@@ -194,9 +196,6 @@ void myOpControl() {
                 intake.setPower(0);
             }
 
-            // Forklift 1 control
-            forklift1.control();
-
             if (forklift1Up) {
                 forklift1.setPower(forkliftSpeed);
             } else if (forklift1Down) {
@@ -204,9 +203,6 @@ void myOpControl() {
             } else {
                 forklift1.setPower(0);
             }
-
-            // Forklift 2 control
-            forklift2.control();
 
             if (forklift2Up) {
                 forklift2.setPower(forkliftSpeed);
