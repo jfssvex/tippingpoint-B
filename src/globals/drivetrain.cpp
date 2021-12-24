@@ -12,7 +12,7 @@ DrivetrainPID driveTrainPID(
     driveConstants, 
     turnConstants, 
     0.7,  // Inches
-    3,    // Inches
-    degToRad(2), // Radians
+    1,    // Inches
+    degToRad(0), // Radians
     0.3   // Radians
 );
