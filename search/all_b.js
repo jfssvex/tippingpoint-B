@@ -6,5 +6,5 @@ var searchData=
   ['operator_2a_77',['operator*',['../class_vector2.html#a9b046398cf70251b0e1aaecf7d43ca51',1,'Vector2']]],
   ['operator_2b_78',['operator+',['../class_vector2.html#a63e74f57546a0537d6fc8eed7ea1ddc9',1,'Vector2']]],
   ['operator_2d_79',['operator-',['../class_vector2.html#a0feca9ade3edd654f44ab6073ba3f15f',1,'Vector2']]],
-  ['operator_3d_80',['operator=',['../class_system_manager.html#aa7937d597ed0bd51774f20ed8c5cb97b',1,'SystemManager']]]
+  ['operator_3d_80',['operator=',['../class_system_manager.html#aa7937d597ed0bd51774f20ed8c5cb97b',1,'SystemManager::operator=()'],['../class_vector2.html#a039d4814448d33615495af6fba273b57',1,'Vector2::operator=()']]]
 ];
