@@ -2,6 +2,7 @@ var class_forklift =
 [
     [ "Forklift", "class_forklift.html#aec0dca687d00c5d3e10a7f98ca276605", null ],
     [ "~Forklift", "class_forklift.html#afbe781d5a52a4b1795bd02303afd6151", null ],
+    [ "calibrate", "class_forklift.html#a8379a05df501a69bf8761155a6c12e9a", null ],
     [ "changeState", "class_forklift.html#a4109ab040e4d7fe2f02d736dc86f65ee", null ],
     [ "control", "class_forklift.html#a0484be0bb64f74ba083485ee47c54f33", null ],
     [ "fullReset", "class_forklift.html#af507744530c1d6338d84704da97d4970", null ],

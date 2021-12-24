@@ -86,7 +86,8 @@ $(document).ready(function(){initNavTree('system_manager_8h.html',''); initResiz
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">systemManager.h File Reference</div>  </div>
 </div><!--header-->
@@ -103,16 +104,50 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_system_manager.html">SystemManager</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for a system manager.  <a href="class_system_manager.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a1dde2bd48e7bcb50ee0f243303910938"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="system_manager_8h.html#a1dde2bd48e7bcb50ee0f243303910938">updateSystemManagers</a> (void *param)</td></tr>
+<tr class="memdesc:a1dde2bd48e7bcb50ee0f243303910938"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update function for all system managers, runs in separate task / thread.  <a href="system_manager_8h.html#a1dde2bd48e7bcb50ee0f243303910938">More...</a><br /></td></tr>
+<tr class="separator:a1dde2bd48e7bcb50ee0f243303910938"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains headers for the <a class="el" href="class_system_manager.html" title="Base class for a system manager.">SystemManager</a> abstract class. </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a1dde2bd48e7bcb50ee0f243303910938"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dde2bd48e7bcb50ee0f243303910938">&#9670;&nbsp;</a></span>updateSystemManagers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void updateSystemManagers </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>param</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Update function for all system managers, runs in separate task / thread. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">param</td><td>You can ignore this. </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>for (<a class="el" href="class_system_manager.html" title="Base class for a system manager.">SystemManager</a>&amp; sysMan : systemManagers) { sysMan.update(); }</p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_3c04bc290434a2bfff240c0777e37105.html">systems</a></li><li class="navelem"><a class="el" href="system_manager_8h.html">systemManager.h</a></li>
-    <li class="footer">Generated on Fri Dec 24 2021 04:28:27 for VEX V5 Bootstrapped Project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Fri Dec 24 2021 05:01:09 for VEX V5 Bootstrapped Project by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
