@@ -105,6 +105,11 @@ void tracking(void* parameter) {
     for (pros::Motor* tmp : driveTrain->allMotors) {
         tmp->tare_position();
     }
+
+    tLeft.set_zero_position(0);
+    tRight.set_zero_position(0);
+    bLeft.set_zero_position(0);
+    bRight.set_zero_position(0);
     
 
     // Reset encoders to 0 before starting
@@ -194,12 +199,15 @@ void tracking(void* parameter) {
         // Debug print
         if (pros::millis() - printTime > 75 && printTracking) {
             // Only print every 75ms to reduce lag
+
+            /*
             colorPrintf("X: %f, Y: %f, A: %f\n", 
                 GREEN,
                 trackingData.getPos().getX(), 
                 trackingData.getPos().getY(), 
                 radToDeg(trackingData.getHeading())
             );
+            */
 
             printTime = pros::millis();
         }

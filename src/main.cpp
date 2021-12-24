@@ -54,8 +54,7 @@ void initialize() {
 	
 	// Statistics display mode update
 	// showStats = new bool(true);
-
-	/*
+/*
 	display.setMode(DEBUG);
 	display.logMessage("Calibrating IMU...");
 
@@ -68,11 +67,11 @@ void initialize() {
 	
 
 	display.logMessage("IMU reset!");
+	
 	pros::delay(250);
 	
 	display.clearScreen();
-	*/
-
+*/
   	// pros::Task my_task(displayStatsUpdateTask, NULL, "Statistics Display Mode");
 	pros::Task myTracking(tracking, NULL, "tracking");
 }
@@ -96,7 +95,7 @@ void disabled() {}
 void competition_initialize() {
 	// Enable auton selecton
 	// display.setMode(SELECTOR);
-	*showStats = true;
+	// *showStats = true;
 }
 
 /**

@@ -56,7 +56,14 @@ void DrivetrainPID::moveToOrientation(Vector2 target, double angle) {
 
 void DrivetrainPID::moveToPoint(Vector2 target) {
     // Turn to angle of point first (important in nonholonomic)
-    this->rotateTo((target - trackingData.getPos()).getAngle());
+    Vector2 displacement = (target - trackingData.getPos());
+
+    colorPrintf("Current position: %f %f\n", BLUE, trackingData.getPos().getX(), trackingData.getPos().getY());
+    colorPrintf("Desired position: %f %f\n", BLUE, target.getX(), target.getY());
+    colorPrintf("Displacement: %f %f\n", BLUE, displacement.getX(), displacement.getY());
+    colorPrintf("\n\n\n----- ANGLE TO TURN TO: %f -----\n\n\n", BLUE, radToDeg(displacement.getAngle()));
+
+    this->rotateTo(-displacement.getAngle());
 
     // Get starting time
     double time = pros::millis();
@@ -67,20 +74,32 @@ void DrivetrainPID::moveToPoint(Vector2 target) {
     do {
         double deltaDist = VECTOR_LENGTH(target) - VECTOR_LENGTH(trackingData.getPos());
         // Vector2 delta = target - trackingData.getPos(); // This could also work buts it's very finicky in the simulator
+        // double deltaDist = delta.getMagnitude();
+        // double deltaDist = target.getX() - trackingData.getPos().getY();
+        colorPrintf("Delta distance: %f\n", GREEN, deltaDist);
+
+        if (deltaDist < 0.2) {
+            deltaDist = 0;
+        }
 
         // Flip positivity since we're using the delta as the sense
+        // Divide by 4 because i am testing and don't want the robot to crash and die
         float vel = -(this->driveController->step(deltaDist));
+        colorPrintf("Dist err: %f\nDist vel: %f\n\n", BLUE, deltaDist, vel);
 
         // No need to include angle data since it's already at angle needed to move to position
-        this->move({ 0, vel }, 0);
+        this->move({ 0, vel / 2 }, 0);
 
-        if (pros::millis() - time <= 5000) {
+
+        if (pros::millis() - time >= 1500) {
             // Taking too long, something might be going wrong
             break;
         }
 
         pros::delay(20);
     } while (!this->driveController->isSettled());
+
+    move({}, 0);
 }
 
 void DrivetrainPID::moveRelative(Vector2 offset, double aOffset) {
@@ -96,26 +115,25 @@ void DrivetrainPID::rotateTo(double target) {
     // Stop applying modulo to angle to prevent issues
     trackingData.setAngleModulusSuspend(true);
 
+    // target = radToDeg(target);
+
     // Get starting time
     double time = pros::millis();
 
-    /*
     // Turn the other way if it's more efficient
     if (abs(target - trackingData.getHeading()) > degToRad(180)) {
         target = flipAngle(target);
     }
-    */
 
     // turnController->reset();
     turnController->target = target;
     do {
         // Run PID step and move to angle
-        move(Vector2(), turnController->step(trackingData.getHeading()));
-        colorPrintf("Turn vel: %f\n", RED, turnController->step(trackingData.getHeading()));
-        colorPrintf("Turn pos: %f\n\n", RED, trackingData.getHeading());
+        move(Vector2(), -turnController->step(trackingData.getHeading()));
 
         pros::delay(20);
     } while (!turnController->isSettled() && pros::millis() - time <= 3000); // Break if settled or taking more than 3s
 
+    move({}, 0);
     trackingData.setAngleModulusSuspend(false);
 }
