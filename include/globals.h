@@ -44,6 +44,8 @@ extern Intake intake;
 extern Forklift forklift1;
 extern Forklift forklift2;
 
+// extern std::vector<SystemManager> systemManagers;
+
 // Drivetrain
 extern SkidSteerDrive* driveTrain;
 extern DrivetrainPID driveTrainPID;

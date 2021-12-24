@@ -79,7 +79,8 @@ void initialize() {
 	display.clearScreen();
 
   	// pros::Task my_task(displayStatsUpdateTask, NULL, "Statistics Display Mode");
-	pros::Task myTracking(tracking, NULL, "tracking");
+	pros::Task myTracking(tracking, NULL, "Tracking");
+	pros::Task sysManUpdate(updateSystemManagers, NULL, "System Managers Update");
 }
 
 /**

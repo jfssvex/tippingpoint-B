@@ -153,3 +153,9 @@ class SystemManager {
         */
         bool timedOut(uint32_t timeout);
 };
+
+/**
+ * @brief Update function for all system managers, runs in separate task / thread
+ * @param param You can ignore this.
+ */
+void updateSystemManagers(void* param);

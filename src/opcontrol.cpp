@@ -14,6 +14,9 @@
 // For maintainance utility
 #define getLeftJoystick() thresholdJoystick(left, threshold)
 
+// Speed at which the drivetrain should go forward, TODO finetune this
+const int DRIVETRAIN_FORWARD_SPEED = 35; 
+
 /**
  * \brief Scale joystick output to cubic graph
  * 
@@ -56,8 +59,8 @@ void myOpControl() {
         }
 
         // Arcade drive controls
-        // int forward = masterController.get_analog(ANALOG_LEFT_Y);
-        // int yaw = masterController.get_analog(ANALOG_RIGHT_X);
+        int forward = masterController.get_analog(ANALOG_LEFT_Y);
+        int yaw = masterController.get_analog(ANALOG_RIGHT_X);
 
         // Tank drive controls
         int left = masterController.get_analog(ANALOG_LEFT_Y);
@@ -168,34 +171,34 @@ void myOpControl() {
                 bRight.set_brake_mode(MOTOR_BRAKE_COAST);
             }
 
-            // Apply macro control to intake system
+            // Apply macro control to drivetrain
+            // Go forward / backward at specific speed while allowing
+            // turning on right joystick X axis
             switch (macroToggle) {
                 case 1: {
-                    startIntakeSmoothMove(false, false);
+                    driveTrain->arcade(DRIVETRAIN_FORWARD_SPEED, yaw);
                     break;
                 }
                 case -1: {
-                    startIntakeSmoothMove(true, true);
-                    break;
-                }
-                case 0: {
-                    // Operator control
-                    intake.control();
-
-                    if (intakeUp) {
-                        intake.setPower(intakeSpeed);
-                    } else if (intakeDown) {
-                        intake.setPower(-intakeSpeed);
-                    } else {
-                        intake.setPower(0);
-                    }
+                    driveTrain->arcade(-DRIVETRAIN_FORWARD_SPEED, yaw);
                     break;
                 }
                 default: {
                     break;
                 }
             }
-            intake.update();
+
+            // Operator control
+            intake.control();
+
+            if (intakeUp) {
+                intake.setPower(intakeSpeed);
+            } else if (intakeDown) {
+                intake.setPower(-intakeSpeed);
+            } else {
+                intake.setPower(0);
+            }
+            break;
 
             // Forklift 1 control
             forklift1.control();
@@ -208,9 +211,6 @@ void myOpControl() {
                 forklift1.setPower(0);
             }
 
-            // Run update funcs on sysmans
-            forklift1.update();
-
             // Forklift 2 control
             forklift2.control();
 
@@ -221,9 +221,6 @@ void myOpControl() {
             } else {
                 forklift2.setPower(0);
             }
-
-            // Run update funcs on sysmans
-            forklift2.update();
             
         }
         pros::delay(10);

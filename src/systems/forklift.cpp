@@ -80,20 +80,19 @@ bool Forklift::changeState(uint8_t newState) {
     switch(newState) {
         case UP_STATE: {
             // Set forklift motor to hold at up position
-            this->forkliftMotor->set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-            this->forkliftMotor->move_absolute(540, 200);
+            this->position = 540;
             break;
         }
         case MIDDLE_STATE: {
             // Set forklift motor to hold at middle position
             this->forkliftMotor->set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-            this->forkliftMotor->move_absolute(300, 200); 
+            this->position = 300;
             break;
         }
         case DOWN_STATE: {
             // Set forklift motor to hold at down position
             this->forkliftMotor->set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-            this->forkliftMotor->move_absolute(0, 200);
+            this->position = 0;
             break;
         }
         case DISABLED_STATE: {
