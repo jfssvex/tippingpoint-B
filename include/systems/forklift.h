@@ -54,6 +54,11 @@ class Forklift: public SystemManager {
         void goDown();
 
         /**
+         * Bring the forklift down
+        */
+        void calibrate();
+
+        /**
          * Set the power of the forklift motor
         */
         void setPower(int power);

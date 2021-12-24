@@ -42,6 +42,11 @@ void Forklift::control() {
     this->changeState(OPERATOR_OVERRIDE);
 }
 
+void Forklift::calibrate() {
+    this->potentiometer->calibrate();
+    this->forkliftMotor->tare_position();
+}
+
 void Forklift::setPower(int power) {
     manualPower = power;
     this->forkliftMotor->move(power);
