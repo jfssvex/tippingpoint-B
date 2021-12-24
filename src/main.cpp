@@ -1,6 +1,7 @@
 #include "main.h"
 #include "tracking.h"
 #include "globals.h"
+#include "odomDebug/odomDebug.hpp"
 
 bool* showStats; //may need to convert to atomic as well
 
@@ -52,9 +53,8 @@ void initialize() {
 	// display.setMode(DEBUG);
 	
 	// Statistics display mode update
-	showStats = new bool(true);
-
-	/*
+	// showStats = new bool(true);
+/*
 	display.setMode(DEBUG);
 	display.logMessage("Calibrating IMU...");
 
@@ -67,12 +67,12 @@ void initialize() {
 	
 
 	display.logMessage("IMU reset!");
+	
 	pros::delay(250);
 	
 	display.clearScreen();
-	*/
-
-  	pros::Task my_task(displayStatsUpdateTask, NULL, "Statistics Display Mode");
+*/
+  	// pros::Task my_task(displayStatsUpdateTask, NULL, "Statistics Display Mode");
 	pros::Task myTracking(tracking, NULL, "tracking");
 }
 
@@ -94,8 +94,8 @@ void disabled() {}
  */
 void competition_initialize() {
 	// Enable auton selecton
-	display.setMode(SELECTOR);
-	*showStats = true;
+	// display.setMode(SELECTOR);
+	// *showStats = true;
 }
 
 /**
@@ -110,7 +110,7 @@ void competition_initialize() {
  * from where it left off.
  */
 void autonomous() {
-	*showStats = false;
+	// *showStats = false;
 	myAuton();
 }
 
@@ -128,7 +128,7 @@ void autonomous() {
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-	*showStats = true;
+	// *showStats = true;
 	myOpControl();
 	// myAuton();
 }

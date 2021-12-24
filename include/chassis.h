@@ -23,12 +23,16 @@
 
 // Encoder pin numbers
 #define BENC_PORT_TOP 5
-#define LENC_PORT_TOP 6
-#define RENC_PORT_TOP 7
+#define LENC_PORT_TOP 'A'
+#define RENC_PORT_TOP 'C'
 
 #define BENC_PORT_BOT 8
-#define LENC_PORT_BOT 9
-#define RENC_PORT_BOT 10
+#define LENC_PORT_BOT 'B'
+#define RENC_PORT_BOT 'D'
+
+// Potentiometer pins
+#define POT_PORT_1 'E'
+#define POT_PORT_2 'F'
 
 // Robot dimensions in inches (TODO: Update to real dimensions)
 #define DRIVE_WHEEL_DIAMETER 3.25f

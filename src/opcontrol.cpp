@@ -56,8 +56,8 @@ void myOpControl() {
         }
 
         // Arcade drive controls
-        int forward = masterController.get_analog(ANALOG_LEFT_Y);
-        int yaw = masterController.get_analog(ANALOG_RIGHT_X);
+        // int forward = masterController.get_analog(ANALOG_LEFT_Y);
+        // int yaw = masterController.get_analog(ANALOG_RIGHT_X);
 
         // Tank drive controls
         int left = masterController.get_analog(ANALOG_LEFT_Y);
@@ -132,9 +132,9 @@ void myOpControl() {
             }
         } else {
             // Pass joystick values to drivetrain
-            driveTrain->arcade(forward, yaw, 0);
+            // driveTrain->arcade(forward, yaw, 0);
             // driveTrain->arcadeWithBrakes(forward, yaw, brakeLeft, brakeRight, 0);
-            // driveTrain->tank(joystickCubicDrive(left), joystickCubicDrive(right), threshold);
+            driveTrain->tank(joystickCubicDrive(left), joystickCubicDrive(right), threshold);
 
             // Intake macro handler
             if (macroToggle != 0 && intakeMacroCCW) {
