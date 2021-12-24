@@ -11,7 +11,7 @@ Forklift::Forklift(uint8_t defaultState, pros::Motor* forkliftMotor, PIDInfo con
     this->forkliftMotor = forkliftMotor;
 
     this->constants = constants;
-    this->pidController = new PIDController(0, this->constants, 10, 1);
+    this->pidController = new PIDController(0, this->constants, 0, 1); // No tolerance, always keep running
 
     this->potentiometer = new pros::ADIAnalogIn(POT_PORT);
 
@@ -56,19 +56,22 @@ void Forklift::setPower(int power) {
     this->forkliftMotor->move(power);
 }
 
+int scaleMotorPIDOutput(double inp) {
+    if (abs(inp) > 127) {
+        int inpNeg = inp < 0 ? -1 : 1;
+        return 127 * inpNeg;
+    }
+    return floor(inp);
+}
+
 //TODO: tune PID constants
 void Forklift::update() {
-    this->position = this->potentiometer->get_value();
+    this->position = this->potentiometer->get_value();    
 
-    if (target == 0) {
-        target = position;
-    }
-
-    
     if (manualPower == 0) {
         // Retain position if manual power not being applied with custom PID loop
         double speed = pidController->step(this->position);
-        this->forkliftMotor->move(speed / 32);
+        this->forkliftMotor->move(scaleMotorPIDOutput(speed));
     } else {
         // Update target to be current position
         this->pidController->target = this->position;
@@ -113,7 +116,13 @@ bool Forklift::changeState(uint8_t newState) {
             break;
         }
         case OPERATOR_OVERRIDE: {
-            this->forkliftMotor->set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+            // Only temporarily set to coast
+            // TODO: Set back to hold
+            this->forkliftMotor->set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
+
+            // Set target to current position since user will be controlling anyways
+            this->target = this->potentiometer->get_value();
+
             break;
         }
     }

@@ -69,7 +69,7 @@ void initialize() {
 
   	// pros::Task my_task(displayStatsUpdateTask, NULL, "Statistics Display Mode");
 	pros::Task myTracking(tracking, NULL, "Tracking");
-	pros::Task sysManUpdate(updateSystemManagers, NULL, "System Managers Update");
+	// pros::Task sysManUpdate(updateSystemManagers, NULL, "System Managers Update");
 }
 
 /**

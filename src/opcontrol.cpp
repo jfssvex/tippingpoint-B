@@ -212,6 +212,12 @@ void myOpControl() {
                 forklift2.setPower(0);
             }
         }
+
+        // Update sysmans (temporarily here to check if issue relies in task)
+        intake.update();
+        forklift1.update();
+        forklift2.update();
+        
         pros::delay(10);
     }
 }
