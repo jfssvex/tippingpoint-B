@@ -54,7 +54,7 @@ void DrivetrainPID::moveToOrientation(Vector2 target, double angle) {
     this->rotateTo(angle);
 }
 
-void DrivetrainPID::moveToPoint(Vector2 target) {
+void DrivetrainPID::moveToPoint(Vector2 target, bool backwards) {
     // Turn to angle of point first (important in nonholonomic)
     Vector2 displacement = (target - trackingData.getPos());
 
@@ -62,8 +62,14 @@ void DrivetrainPID::moveToPoint(Vector2 target) {
     colorPrintf("Desired position: %f %f\n", BLUE, target.getX(), target.getY());
     colorPrintf("Displacement: %f %f\n", BLUE, displacement.getX(), displacement.getY());
     colorPrintf("\n\n\n----- ANGLE TO TURN TO: %f -----\n\n\n", BLUE, radToDeg(displacement.getAngle()));
+    
+    if (backwards) {
+        this->rotateTo(-displacement.getAngle() + degToRad(180) + degToRad(90));
+    } else {
+        this->rotateTo(-displacement.getAngle() + degToRad(90));
+    }
 
-    this->rotateTo(-displacement.getAngle());
+    pros::delay(500);
 
     // Get starting time
     double time = pros::millis();
@@ -73,22 +79,32 @@ void DrivetrainPID::moveToPoint(Vector2 target) {
 
     do {
         double deltaDist = VECTOR_LENGTH(target) - VECTOR_LENGTH(trackingData.getPos());
+
+        if (backwards) {
+            // deltaDist *= -1;
+        }
+
         // Vector2 delta = target - trackingData.getPos(); // This could also work buts it's very finicky in the simulator
         // double deltaDist = delta.getMagnitude();
         // double deltaDist = target.getX() - trackingData.getPos().getY();
         colorPrintf("Delta distance: %f\n", GREEN, deltaDist);
 
-        if (deltaDist < 0.2) {
+        if (abs(deltaDist) < 0.2) {
             deltaDist = 0;
-        }
+        } 
 
         // Flip positivity since we're using the delta as the sense
         float vel = -(this->driveController->step(deltaDist));
+
+        if (backwards) {
+            // vel *= -1;
+        }
+
         colorPrintf("Dist err: %f\nDist vel: %f\n\n", BLUE, deltaDist, vel);
 
         // No need to include angle data since it's already at angle needed to move to position
         // Any issues? Divide vel by 2
-        this->move({ 0, vel }, 0);
+        this->move({ 0, vel / 4 }, 0);
 
 
         if (pros::millis() - time >= 1500) {

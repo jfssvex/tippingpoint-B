@@ -51,7 +51,7 @@ class DrivetrainPID {
          * Move to a specific point on the field
          * @param target The position to reach as a Vector2
         */ 
-        void moveToPoint(Vector2 target);
+        void moveToPoint(Vector2 target, bool backwards = false);
 
         /**
          * Move and turn to a specific point and orientation relative to the bot's current

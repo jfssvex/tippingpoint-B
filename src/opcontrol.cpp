@@ -47,10 +47,17 @@ void myOpControl() {
 
     int maintenanceToggle = 0;
 
+    intake.enable();
+    forklift1.enable();
+    forklift2.enable();
+
     // Set system managers to control mode
     intake.control();
     forklift1.control();
     forklift2.control();
+
+    forklift1.goDown();
+    forklift2.goDown();
 
     while (true) {
         //on and off
@@ -205,19 +212,14 @@ void myOpControl() {
             }
 
             if (forklift2Up) {
-                forklift2.setPower(forkliftSpeed);
-            } else if (forklift2Down) {
                 forklift2.setPower(-forkliftSpeed);
+            } else if (forklift2Down) {
+                forklift2.setPower(forkliftSpeed);
             } else {
                 forklift2.setPower(0);
             }
         }
 
-        // Update sysmans (temporarily here to check if issue relies in task)
-        intake.update();
-        forklift1.update();
-        forklift2.update();
-        
-        pros::delay(10);
+        pros::delay(20);
     }
 }
