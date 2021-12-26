@@ -3,6 +3,8 @@
 
 void myAuton() {
     // trackingData.update({0, 20}, 0);
+    chassis->setState({0_in, 0_in, 0_deg});
+
     forklift1.enable();
     forklift2.enable();
     intake.enable();
@@ -32,35 +34,35 @@ void myAuton() {
 
     // forklift2.goUp();
 
-    // forklift1.goMiddle();
-    // forklift2.goDown();
-
-    forklift1.goUp();
-    forklift2.goUp();
-
-    // driveTrainPID.moveToPoint(Vector2( 0, 15 ));
-    // driveTrainPID.moveToPoint(Vector2( 0, 0 ), false);
-
-    // // Wait for it to reach okay tolerance levels
-    // do {
-    //     // printf("Error: %f\n", forklift2.getError());
-    //     pros::delay(10);
-    // } while (abs(forklift2.getError()) > 40);
-
+    // forklift1.goUp();
     // forklift2.goUp();
 
-    // // Wait for it to reach okay tolerance levels
-    // do {
-    //     // printf("Error: %f\n", forklift2.getError());
-    //     pros::delay(10);
-    // } while (abs(forklift2.getError()) > 40);
+    forklift1.goMiddle();
+    forklift2.goDown();
 
+    // chassis->driveToPoint({ 0_ft, 15_in });
+    chassis->moveDistance(1.5_ft);
 
+    // Wait for it to reach okay tolerance levels
+    do {
+        // printf("Error: %f\n", forklift2.getError());
+        pros::delay(10);
+    } while (abs(forklift2.getError()) > 40);
 
-    // pros::delay(250);
-    // driveTrainPID.rotateTo(degToRad(0)); // Rotate to 90 degrees
-    // driveTrainPID.moveToPoint(Vector2( 0, 0 ));
+    printf("Forklift 2 error: %f\n", abs(forklift2.getError()));
 
+    forklift2.goUp();
+
+    // Wait for it to reach okay tolerance levels
+    do {
+        // printf("Error: %f\n", forklift2.getError());
+        pros::delay(10);
+    } while (abs(forklift2.getError()) > 40);
+
+    // chassis->driveToPoint({ 0_ft, 0_ft }, true);
+    chassis->moveDistance(-1.5_ft);
+
+    forklift2.goDown();
     
 
    /*

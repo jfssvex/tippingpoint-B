@@ -48,7 +48,7 @@ extern Forklift forklift2;
 
 // Drivetrain
 extern SkidSteerDrive* driveTrain;
-extern DrivetrainPID driveTrainPID;
+// extern DrivetrainPID driveTrainPID;
 
 // Odometry tracking
 extern TrackingData trackingData;
@@ -58,3 +58,6 @@ extern DisplayController display;
 
 // Actual controller
 extern pros::Controller masterController;
+
+// Okapi chassis
+extern std::shared_ptr<OdomChassisController> chassis;
