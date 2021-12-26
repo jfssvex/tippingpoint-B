@@ -192,7 +192,8 @@ void tracking(void* parameter) {
         trackingData.update(globalPos, trackingData.getHeading() + aDelta);
 
         // Update odom debug display data
-        odomDebugDisplay.setData({ trackingData.getPos().getX(), trackingData.getPos().getY(), trackingData.getHeading() }, { lEncVal, rEncVal });
+        // odomDebugDisplay.setData({ trackingData.getPos().getX(), trackingData.getPos().getY(), trackingData.getHeading() }, { lEncVal, rEncVal });
+        odomDebugDisplay.setData({ chassis->getOdometry()->getState().x.convert(inch), chassis->getOdometry()->getState().y.convert(inch), chassis->getOdometry()->getState().theta.convert(radian) }, { lEncVal, rEncVal });
 
         // Debug print
         if (pros::millis() - printTime > 75 && printTracking) {
