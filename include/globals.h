@@ -48,7 +48,7 @@ extern Forklift forklift2;
 
 // Drivetrain
 extern SkidSteerDrive* driveTrain;
-// extern DrivetrainPID driveTrainPID;
+extern DrivetrainPID driveTrainPID;
 
 // Odometry tracking
 extern TrackingData trackingData;
