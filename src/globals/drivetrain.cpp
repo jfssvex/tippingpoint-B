@@ -2,7 +2,7 @@
 #include "chassis.h"
 
 // PID Gain Constants
-PIDInfo driveConstants(0.2, 0.000001, 0.1);
+PIDInfo driveConstants(0.2, 0, 0);
 PIDInfo turnConstants(1, 0, 0);
 
 // Definitions

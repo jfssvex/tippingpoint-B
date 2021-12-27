@@ -2,7 +2,7 @@
 #include "globals.h"
 
 void myAuton() {
-    // trackingData.update({0, 20}, 0);
+    trackingData.update({0, 0}, 0);
     forklift1.enable();
     forklift2.enable();
     intake.enable();
@@ -38,7 +38,7 @@ void myAuton() {
     forklift1.goUp();
     forklift2.goUp();
 
-    // driveTrainPID.moveToPoint(Vector2( 0, 15 ));
+    driveTrainPID.moveToPoint(Vector2( 0, 24 ));
     // driveTrainPID.moveToPoint(Vector2( 0, 0 ), false);
 
     // // Wait for it to reach okay tolerance levels
