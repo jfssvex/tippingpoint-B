@@ -101,6 +101,7 @@ void tracking(void* parameter) {
 
     uint32_t printTime = pros::millis();
 
+    /*
     // Reset all motor positions
     for (pros::Motor* tmp : driveTrain->allMotors) {
         tmp->tare_position();
@@ -110,6 +111,8 @@ void tracking(void* parameter) {
     tRight.set_zero_position(0);
     bLeft.set_zero_position(0);
     bRight.set_zero_position(0);
+
+    */
     
 
     // Reset encoders to 0 before starting
