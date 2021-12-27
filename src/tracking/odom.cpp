@@ -204,14 +204,14 @@ void tracking(void* parameter) {
         if (pros::millis() - printTime > 75 && printTracking) {
             // Only print every 75ms to reduce lag
 
-            /*
+            
             colorPrintf("X: %f, Y: %f, A: %f\n", 
                 GREEN,
                 trackingData.getPos().getX(), 
                 trackingData.getPos().getY(), 
                 radToDeg(trackingData.getHeading())
             );
-            */
+            
 
             printTime = pros::millis();
         }
