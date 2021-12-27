@@ -1,5 +1,6 @@
 #include "main.h"
 #include "globals.h"
+#include "macros.h"
 
 void myAuton() {
     // trackingData.update({0, 20}, 0);
@@ -60,9 +61,29 @@ void myAuton() {
         pros::delay(10);
     } while (abs(forklift2.getError()) > 40);
 
+    forklift2.goUp();
+
     chassis->driveToPoint({ 0_ft, 0_ft }, true);
 
-    forklift2.goDown();
+    // Wait for it to reach okay tolerance levels
+    do {
+        // printf("Error: %f\n", forklift2.getError());
+        pros::delay(10);
+    } while (abs(forklift2.getError()) > 40);
+
+    // chassis->turnToAngle(90_deg);
+
+    startIntakeSmoothMove(false, false);
+    intake.counterClockwise(80);
+
+    pros::delay(5000);
+
+    driveTrainPID.move({}, 0);
+    intake.stop();
+
+    chassis->driveToPoint({ 0_ft, 0_ft }, true);
+
+    
     
 
    /*

@@ -66,7 +66,7 @@ int scaleMotorPIDOutput(double inp) {
 
 //TODO: tune PID constants
 void Forklift::update() {
-    this->position = this->potentiometer->get_value();    
+    this->position = this->potentiometer->get_value_calibrated();    
 
     if (manualPower == 0) {
         // Retain position if manual power not being applied with custom PID loop
