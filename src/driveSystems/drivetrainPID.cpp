@@ -10,6 +10,8 @@
 
 #define VECTOR_LENGTH(vec) sqrt(pow(vec.getX(), 2) + pow(vec.getY(), 2))
 
+#define inchToCm(inch) inch*2.54
+
 DrivetrainPID::DrivetrainPID(Drivetrain* drivetrain, PIDInfo driveConstants, PIDInfo turnConstants, double distTolerance, double distIntegralTolerance, double turnTolerance, double turnIntegralTolerance) {
     this->driveController = new PIDController(0, driveConstants, distTolerance, distIntegralTolerance);
     this->turnController = new PIDController(0, turnConstants, turnTolerance, turnIntegralTolerance);
@@ -152,4 +154,80 @@ void DrivetrainPID::rotateTo(double target) {
 
     move({}, 0);
     trackingData.setAngleModulusSuspend(false);
+}
+
+double dot(double x1, double y1, double x2, double y2) {
+    return (x1 * x2) + (y1 * y2);
+}
+
+Vector2 closest(Vector2 current, Vector2 target) {
+    Vector2 head(sin(current.getAngle()), cos(current.getAngle()));
+    
+    Vector2 n = head.normalize();
+    Vector2 v = target - current;
+    double d = dot(v.getX(), v.getY(), n.getX(), n.getY());
+    return current + (n * d);
+}
+
+double rollAngle180(double angle) {
+    angle = radToDeg(angle);
+    double newAngle = angle - 360 * std::floor((angle + 180.0) * (1.0 / 360.0));
+    return degToRad(newAngle);
+}
+
+double rollAngle90(double angle) {
+  angle = rollAngle180(angle);
+  if (abs(angle) > degToRad(90)) {
+    angle += degToRad(180);
+    angle = rollAngle180(angle);
+  }
+  return angle;
+}
+
+void DrivetrainPID::experimentalMoveToPoint(Vector2 target) {
+    driveController->reset();
+    turnController->reset();
+
+    double angleErr = 0, distanceErr = 0;
+
+    do {
+        Vector2 closestPoint = closest(trackingData.getPos(), target);
+
+        Vector2 closestPointDisplacement = closestPoint - trackingData.getPos();
+        Vector2 targetDisplacement = target - trackingData.getPos();
+
+        double angleToClose = closestPoint.getAngle() - trackingData.getHeading();
+        double angleToTarget = target.getAngle() - trackingData.getHeading();
+
+        double distanceToClose = closestPointDisplacement.getMagnitude();
+        double distanceToTarget = targetDisplacement.getMagnitude();
+
+        // go backwards
+        if (abs(angleToClose) >= degToRad(90)) distanceToClose = -distanceToClose;
+
+        if (distanceToTarget < 1.5) {
+            /*
+            angleErr = 0;
+            // used for settling
+            distanceErr = distanceToClose;
+            */
+        } else {
+            angleErr = angleToTarget;
+            // used for settling
+            distanceErr = distanceToTarget;
+        }
+
+        colorPrintf("Angle Err: %f\nDistance Err: %f\n\n", BLUE, angleErr, distanceErr);
+
+        // rotate angle to be +- 90
+        angleErr = rollAngle90(angleErr);
+
+        double angleVel = turnController->step(-radToDeg(angleErr));
+        double distanceVel = driveController->step(-inchToCm(distanceErr) * 10);
+
+        move({ 0, distanceVel }, 0);
+        pros::delay(10);
+    } while (!(driveController->isSettled() && turnController->isSettled()));
+
+    move({ 0, 0 }, 0);
 }
