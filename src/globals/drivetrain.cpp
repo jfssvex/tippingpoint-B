@@ -2,7 +2,7 @@
 #include "chassis.h"
 
 // PID Gain Constants
-PIDInfo driveConstants(0.2, 0.000001, 0.1);
+PIDInfo driveConstants(0.005, 0.0001, 0.00005);
 PIDInfo turnConstants(1, 0, 0);
 
 // Definitions
@@ -25,13 +25,11 @@ std::shared_ptr<OdomChassisController> chassis = ChassisControllerBuilder()
 		{TL_PORT, BL_PORT}, // Left motors are 1 & 2 (reversed)
         {TR_PORT, BR_PORT}    // Right motors are 3 & 4
 	) 
-    /*
     .withGains(
-        {0.001, 0, 0.0001}, // Distance controller gains
+        {0.005, 0.0001, 0.00005}, // Distance controller gains
         {0.001, 0, 0.0001}, // Turn controller gains
         {0.001, 0, 0.0001}  // Angle controller gains (helps drive straight)
     )
-    */
     // green gearset, 4 inch wheel diameter, 11.5 inch wheel track
     .withDimensions(AbstractMotor::gearset::green, {{3.25_in, 14_in}, imev5GreenTPR})
     .withOdometry() // use the same scales as the chassis (above)

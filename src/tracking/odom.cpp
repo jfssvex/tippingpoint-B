@@ -125,6 +125,8 @@ void tracking(void* parameter) {
     odomDebugDisplay.setStateCallback(setState);
 	odomDebugDisplay.setResetCallback(resetSensors);
 
+    chassis->setState({ 0_in, 0_in, 90_deg });
+
     // Tracking loop
     while (true) {
         Vector2 localPos;

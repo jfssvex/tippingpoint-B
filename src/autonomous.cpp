@@ -3,7 +3,7 @@
 
 void myAuton() {
     // trackingData.update({0, 20}, 0);
-    chassis->setState({0_in, 0_in, 0_deg});
+    chassis->setState({0_in, 0_in, 90_deg});
 
     forklift1.enable();
     forklift2.enable();
@@ -40,8 +40,8 @@ void myAuton() {
     forklift1.goMiddle();
     forklift2.goDown();
 
-    // chassis->driveToPoint({ 0_ft, 15_in });
-    chassis->moveDistance(1.5_ft);
+    chassis->driveToPoint({ 0_ft, 1_ft });
+    // chassis->moveDistance(1.5_ft);
 
     // Wait for it to reach okay tolerance levels
     do {
@@ -51,7 +51,7 @@ void myAuton() {
 
     printf("Forklift 2 error: %f\n", abs(forklift2.getError()));
 
-    forklift2.goUp();
+    forklift2.goMiddle();
 
     // Wait for it to reach okay tolerance levels
     do {
@@ -59,8 +59,7 @@ void myAuton() {
         pros::delay(10);
     } while (abs(forklift2.getError()) > 40);
 
-    // chassis->driveToPoint({ 0_ft, 0_ft }, true);
-    chassis->moveDistance(-1.5_ft);
+    chassis->driveToPoint({ 0_ft, 0_ft }, true);
 
     forklift2.goDown();
     
