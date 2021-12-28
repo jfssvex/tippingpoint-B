@@ -55,19 +55,19 @@ void initialize() {
 	// Statistics display mode update
 	// showStats = new bool(true);
 
-	display.setMode(DEBUG);
+	// display.setMode(DEBUG);
 
-	display.logMessage("Calibrating IMU...");
+	// display.logMessage("Calibrating IMU...");
 	myImu.reset();
 	while (myImu.is_calibrating()) {
 		pros::delay(10);
 	}
-	display.logMessage("IMU reset!");
+	// display.logMessage("IMU reset!");
 
-	display.logMessage("Calibrating forklifts...");
+	// display.logMessage("Calibrating forklifts...");
 	forklift1.calibrate();
 	forklift2.calibrate();
-	display.logMessage("Calibrated forklifts!");
+	// display.logMessage("Calibrated forklifts!");
 
 	forklift1.goUp();
 	forklift2.goUp();

@@ -120,10 +120,10 @@ void tracking(void* parameter) {
     rEnc.reset();
     // bEnc.reset();
 
-    // OdomDebug odomDebugDisplay(lv_scr_act(), LV_COLOR_ORANGE);
+    OdomDebug odomDebugDisplay(lv_scr_act(), LV_COLOR_ORANGE);
 
-    // odomDebugDisplay.setStateCallback(setState);
-	// odomDebugDisplay.setResetCallback(resetSensors);
+    odomDebugDisplay.setStateCallback(setState);
+	odomDebugDisplay.setResetCallback(resetSensors);
 
     chassis->setState({ 0_in, 0_in, 90_deg });
 
@@ -193,11 +193,11 @@ void tracking(void* parameter) {
         );
 
         // Update tracking data
-        trackingData.update(globalPos.getX(), globalPos.getY(), degToRad(myImu.get_rotation()));
-        // trackingData.update(globalPos, trackingData.getHeading() + aDelta);
+        // trackingData.update(globalPos.getX(), globalPos.getY(), degToRad(myImu.get_rotation()));
+        trackingData.update(globalPos, trackingData.getHeading() + aDelta);
 
         // Update odom debug display data
-        // odomDebugDisplay.setData({ trackingData.getPos().getX(), trackingData.getPos().getY(), trackingData.getHeading() }, { lEncVal, rEncVal });
+        odomDebugDisplay.setData({ trackingData.getPos().getX(), trackingData.getPos().getY(), trackingData.getHeading() }, { lEncVal, rEncVal });
         // odomDebugDisplay.setData({ chassis->getOdometry()->getState().x.convert(inch), chassis->getOdometry()->getState().y.convert(inch), chassis->getOdometry()->getState().theta.convert(radian) }, { lEncVal, rEncVal });
 
         // Debug print
