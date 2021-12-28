@@ -41,10 +41,12 @@ void myAuton() {
     forklift1.goMiddle();
     forklift2.goDown();
 
-    chassis->driveToPoint({ 0_ft, 1_ft });
+    // chassis->driveToPoint({ 0_ft, 1_ft });
     // driveTrainPID.experimentalMoveToPoint({ 0, 12 });
     // chassis->moveDistance(1.5_ft);
+    driveTrainPID.moveToPoint({ 0, 12 });
 
+    /*
     // Wait for it to reach okay tolerance levels
     do {
         // printf("Error: %f\n", forklift2.getError());
@@ -81,7 +83,8 @@ void myAuton() {
     driveTrainPID.move({}, 0);
     intake.stop();
 
-    chassis->driveToPoint({ 0_ft, 0_ft }, true);
+    // chassis->driveToPoint({ 0_ft, 0_ft }, true);
+    */
 
     
     
