@@ -35,10 +35,10 @@ class DrivetrainPID {
         
         /**
          * Set the velocity based on the current and wanted position and angle
-         * @param dir The direction as a Vector2
+         * @param straight The forward/backward velocity
          * @param turn The angle in radians
         */
-        void move(Vector2 dir, double turn, bool backwards = false);
+        void move(double straight, double turn);
 
         /**
          * Turn to the angle needed to reach a position, drive to the position, and then turn to the desired angle

@@ -24,15 +24,10 @@ DrivetrainPID::~DrivetrainPID() {
     delete this->drivetrain;
 }
 
-void DrivetrainPID::move(Vector2 dir, double turn, bool backwards) {
-    // dir = toLocalCoordinates(dir);
-
-    // Calculate distance using pythagorean theorem and motor velocity
-    double distance = dir.getMagnitude();
-
+void DrivetrainPID::move(double straight, double turn) {
     // Get outputs for each side 
-    double leftOutput = distance + turn;
-    double rightOutput = distance - turn;
+    double leftOutput = straight + turn;
+    double rightOutput = straight - turn;
 
     // Scale to be between [-1, 1] if not
     double scalar = std::max(std::abs(leftOutput), std::abs(rightOutput));
@@ -41,15 +36,12 @@ void DrivetrainPID::move(Vector2 dir, double turn, bool backwards) {
         rightOutput /= scalar;
     }
 
-    if (backwards) {
-        leftOutput *= -1;
-        rightOutput *= -1;
-    }
-
+    // Scale motor velocities to be between [-127, 127]
     double leftMotorVel = leftOutput * 127;
     double rightMotorVel = rightOutput * 127;
 
     colorPrintf("Motor powers: %f %f\n", MAGENTA, rightMotorVel, rightMotorVel);
+    
     // Set motor vel
     driveTrain->tank(leftMotorVel, rightMotorVel);
 }
@@ -110,20 +102,9 @@ void DrivetrainPID::moveToPoint(Vector2 target, bool backwards) {
 
         colorPrintf("Dist err: %f\nDist vel: %f\n\n", BLUE, deltaDist, vel);
 
-        // No need to include angle data since it's already at angle needed to move to position
-        // Dividing by 2 miraculously fixes it
-        // TODO: Find out why dividing the velocity by 2 fixes it
-        
-        bool velBackwards = vel < 0;
+        move(vel, 0);
 
-        if (backwards) {
-            // velBackwards = vel > 0;
-        }
-
-        this->move({ 0, vel }, 0, velBackwards);
-
-
-        if (pros::millis() - time >= 6000) {
+        if (pros::millis() - time >= 3000) {
             // Taking too long, something might be going wrong
             break;
         }
@@ -131,7 +112,7 @@ void DrivetrainPID::moveToPoint(Vector2 target, bool backwards) {
         pros::delay(20);
     } while (!this->driveController->isSettled());
 
-    move({}, 0);
+    move(0, 0);
 }
 
 void DrivetrainPID::moveRelative(Vector2 offset, double aOffset) {
@@ -161,7 +142,7 @@ void DrivetrainPID::rotateTo(double target) {
     turnController->target = target;
     do {
         // Run PID step and move to angle
-        move(Vector2(), -turnController->step(trackingData.getHeading()));
+        move(0, -turnController->step(trackingData.getHeading()));
 
         pros::delay(20);
     } while (!turnController->isSettled() && pros::millis() - time <= 3000); // Break if settled or taking more than 3s
@@ -239,9 +220,9 @@ void DrivetrainPID::experimentalMoveToPoint(Vector2 target) {
         double angleVel = turnController->step(-radToDeg(angleErr));
         double distanceVel = driveController->step(-inchToCm(distanceErr) * 10);
 
-        move({ 0, distanceVel }, 0);
+        move(distanceVel, 0);
         pros::delay(10);
     } while (!(driveController->isSettled() && turnController->isSettled()));
 
-    move({ 0, 0 }, 0);
+    move(0, 0);
 }
