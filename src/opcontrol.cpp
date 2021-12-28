@@ -47,6 +47,9 @@ void myOpControl() {
 
     int maintenanceToggle = 0;
 
+    pros::Motor armMotor(ARM_PORT, pros::E_MOTOR_GEARSET_18, false);
+    armMotor.set_brake_mode(MOTOR_BRAKE_HOLD);
+
     intake.enable();
     forklift1.enable();
     forklift2.enable();
@@ -73,9 +76,9 @@ void myOpControl() {
         int left = masterController.get_analog(ANALOG_LEFT_Y);
         int right = masterController.get_analog(ANALOG_RIGHT_Y);
 
-        // Brake controls for drifting???
-        int brakeLeft = masterController.get_digital(DIGITAL_L2);
-        int brakeRight = masterController.get_digital(DIGITAL_R2);
+        // Arm controls
+        int armDown = masterController.get_digital(DIGITAL_L2);
+        int armUp = masterController.get_digital(DIGITAL_R2);
 
         // Intake manual controls
         int intakeUp = masterController.get_digital(DIGITAL_L1);
@@ -217,6 +220,14 @@ void myOpControl() {
                 forklift2.setPower(forkliftSpeed);
             } else {
                 forklift2.setPower(0);
+            }
+
+            if (armUp) {
+                armMotor.move(127);
+            } else if (armDown) {
+                armMotor.move(-127);
+            } else {
+                armMotor.move(0);
             }
         }
 
