@@ -43,8 +43,8 @@ double PIDController::step(double newSense) {
     // Set last error since we're done with last error calcs for now
     this->lastError = this->error;
 
-    // Disable integral until it enters usuable range (surpasses threshold)
-    if (this->error == 0 || abs(this->error) > this->integralTolerance) {
+    // Disable integral if it's outside of usable range
+    if (this->error == 0 || abs(this->error) > this->integralTolerance || this->error > this->target) {
         this->integral = 0;
     }
 
