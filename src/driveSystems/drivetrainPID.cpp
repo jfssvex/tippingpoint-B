@@ -10,6 +10,8 @@
 
 #define VECTOR_LENGTH(vec) sqrt(pow(vec.getX(), 2) + pow(vec.getY(), 2))
 
+#define inchToCm(inch) inch*2.54
+
 DrivetrainPID::DrivetrainPID(Drivetrain* drivetrain, PIDInfo driveConstants, PIDInfo turnConstants, double distTolerance, double distIntegralTolerance, double turnTolerance, double turnIntegralTolerance) {
     this->driveController = new PIDController(0, driveConstants, distTolerance, distIntegralTolerance);
     this->turnController = new PIDController(0, turnConstants, turnTolerance, turnIntegralTolerance);
@@ -22,7 +24,7 @@ DrivetrainPID::~DrivetrainPID() {
     delete this->drivetrain;
 }
 
-void DrivetrainPID::move(Vector2 dir, double turn) {
+void DrivetrainPID::move(Vector2 dir, double turn, bool backwards) {
     // dir = toLocalCoordinates(dir);
 
     // Calculate distance using pythagorean theorem and motor velocity
@@ -39,9 +41,15 @@ void DrivetrainPID::move(Vector2 dir, double turn) {
         rightOutput /= scalar;
     }
 
+    if (backwards) {
+        leftOutput *= -1;
+        rightOutput *= -1;
+    }
+
     double leftMotorVel = leftOutput * 127;
     double rightMotorVel = rightOutput * 127;
 
+    colorPrintf("Motor powers: %f %f\n", MAGENTA, rightMotorVel, rightMotorVel);
     // Set motor vel
     driveTrain->tank(leftMotorVel, rightMotorVel);
 }
@@ -56,20 +64,23 @@ void DrivetrainPID::moveToOrientation(Vector2 target, double angle) {
 
 void DrivetrainPID::moveToPoint(Vector2 target, bool backwards) {
     // Turn to angle of point first (important in nonholonomic)
-    Vector2 deltaVec = (target - trackingData.getPos());
+    Vector2 displacement = (target - trackingData.getPos());
 
     colorPrintf("Current position: %f %f\n", BLUE, trackingData.getPos().getX(), trackingData.getPos().getY());
     colorPrintf("Desired position: %f %f\n", BLUE, target.getX(), target.getY());
-    colorPrintf("Delta: %f %f\n", BLUE, deltaVec.getX(), deltaVec.getY());
-    colorPrintf("\n\n\n----- ANGLE TO TURN TO: %f -----\n\n\n", BLUE, radToDeg(deltaVec.getAngle()));
+    colorPrintf("Displacement: %f %f\n", BLUE, displacement.getX(), displacement.getY());
+    colorPrintf("\n\n\n----- ANGLE TO TURN TO: %f -----\n\n\n", BLUE, radToDeg(displacement.getAngle()));
     
+    /*
     if (backwards) {
-        this->rotateTo(-deltaVec.getAngle() + degToRad(180) + degToRad(90));
+        this->rotateTo(-displacement.getAngle() + degToRad(90) + degToRad(180));
     } else {
-        this->rotateTo(-deltaVec.getAngle() + degToRad(90));
+        this->rotateTo(-displacement.getAngle() + degToRad(90));
     }
+    
 
-    pros::delay(500);
+    pros::delay(2000);
+    */
 
     // Get starting time
     double time = pros::millis();
@@ -78,10 +89,10 @@ void DrivetrainPID::moveToPoint(Vector2 target, bool backwards) {
     this->driveController->target = 0; // Set target to 0 as loop will use delta as sense
 
     do {
-        double deltaDist = (target - trackingData.getPos()).getMagnitude();
+        double deltaDist = VECTOR_LENGTH(target) - VECTOR_LENGTH(trackingData.getPos());
 
-        if (backwards) {
-            deltaDist *= -1;
+        if (trackingData.getPos().getX() < 0 || trackingData.getPos().getY() < 0) {
+            deltaDist = -deltaDist;
         }
 
         // Vector2 delta = target - trackingData.getPos(); // This could also work buts it's very finicky in the simulator
@@ -89,17 +100,30 @@ void DrivetrainPID::moveToPoint(Vector2 target, bool backwards) {
         // double deltaDist = target.getX() - trackingData.getPos().getY();
         colorPrintf("Delta distance: %f\n", GREEN, deltaDist);
 
-        // Flip positivity since we're using the delta as the sense
+        // Get velocity from controller
         float vel = -(this->driveController->step(deltaDist));
+
+        // Keep between [-1, 1]
+        if (abs(vel) > 1) {
+            vel /= abs(vel);
+        }
 
         colorPrintf("Dist err: %f\nDist vel: %f\n\n", BLUE, deltaDist, vel);
 
         // No need to include angle data since it's already at angle needed to move to position
-        // Any issues? Divide vel by 2
-        this->move({ 0, vel }, 0);
+        // Dividing by 2 miraculously fixes it
+        // TODO: Find out why dividing the velocity by 2 fixes it
+        
+        bool velBackwards = vel < 0;
+
+        if (backwards) {
+            // velBackwards = vel > 0;
+        }
+
+        this->move({ 0, vel }, 0, velBackwards);
 
 
-        if (pros::millis() - time >= 3000) {
+        if (pros::millis() - time >= 6000) {
             // Taking too long, something might be going wrong
             break;
         }
@@ -144,4 +168,32 @@ void DrivetrainPID::rotateTo(double target) {
 
     move({}, 0);
     trackingData.setAngleModulusSuspend(false);
+}
+
+double dot(double x1, double y1, double x2, double y2) {
+    return (x1 * x2) + (y1 * y2);
+}
+
+Vector2 closest(Vector2 current, Vector2 target) {
+    Vector2 head(sin(current.getAngle()), cos(current.getAngle()));
+    
+    Vector2 n = head.normalize();
+    Vector2 v = target - current;
+    double d = dot(v.getX(), v.getY(), n.getX(), n.getY());
+    return current + (n * d);
+}
+
+double rollAngle180(double angle) {
+    angle = radToDeg(angle);
+    double newAngle = angle - 360 * std::floor((angle + 180.0) * (1.0 / 360.0));
+    return degToRad(newAngle);
+}
+
+double rollAngle90(double angle) {
+  angle = rollAngle180(angle);
+  if (abs(angle) > degToRad(90)) {
+    angle += degToRad(180);
+    angle = rollAngle180(angle);
+  }
+  return angle;
 }

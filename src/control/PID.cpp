@@ -3,7 +3,7 @@
 #include "main.h"
 
 #define DBL_MAX 1.7E308
-#define SETTLE_DELAY 2000
+#define SETTLE_DELAY 200
 
 PIDInfo::PIDInfo(double p, double i, double d) {
     // Set local variables to object vars
