@@ -24,6 +24,36 @@ DrivetrainPID::~DrivetrainPID() {
     delete this->drivetrain;
 }
 
+void stepMotor(pros::Motor motor, float targetSpeed) {
+    float targetRPM = motor.get_target_velocity();
+    auto gearset = motor.get_gearing();
+    float rpmScale = 0;
+
+    switch(gearset) {
+        case (pros::E_MOTOR_GEARSET_36): { // Torque cartridge
+            rpmScale = 100;
+            break;
+        }
+        case (pros::E_MOTOR_GEARSET_18): { // High speed cartridge
+            rpmScale = 200;
+            break;
+        }
+        case (pros::E_MOTOR_GEARSET_06): { // Turbo cartridge
+            rpmScale = 600;
+            break;
+        }
+    }
+
+    float pastTarget = (targetRPM / rpmScale) * 127;
+    
+    float delta = targetSpeed - pastTarget;
+    if (abs(delta) > MAX_ACCELERATION) {
+        delta = (delta / abs(delta)) * MAX_ACCELERATION;
+    }
+
+    motor.move(delta);
+}
+
 void DrivetrainPID::move(double straight, double turn) {
     // Get outputs for each side 
     double leftOutput = straight + turn;
@@ -201,11 +231,10 @@ void DrivetrainPID::experimentalMoveToPoint(Vector2 target) {
         if (abs(angleToClose) >= degToRad(90)) distanceToClose = -distanceToClose;
 
         if (distanceToTarget < 1.5) {
-            /*
+            // Don't focus on angle adjustment
             angleErr = 0;
             // used for settling
             distanceErr = distanceToClose;
-            */
         } else {
             angleErr = angleToTarget;
             // used for settling
