@@ -2,6 +2,7 @@ var class_drivetrain_p_i_d =
 [
     [ "DrivetrainPID", "class_drivetrain_p_i_d.html#a8d9315a9c8915ac953ce91c3b9550f78", null ],
     [ "~DrivetrainPID", "class_drivetrain_p_i_d.html#aa082af05a9e58ac7519e0351cc70f441", null ],
+    [ "experimentalMoveToPoint", "class_drivetrain_p_i_d.html#a2cf7c7558b10d4f83676574311e986e5", null ],
     [ "getDriveController", "class_drivetrain_p_i_d.html#a7473ac8518fe003e0f05ca11380502f3", null ],
     [ "getTurnController", "class_drivetrain_p_i_d.html#a0f6155f37a0ef28ceb1f471646663378", null ],
     [ "move", "class_drivetrain_p_i_d.html#a75b7aef8cec9054d0c227f32bd255377", null ],
