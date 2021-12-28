@@ -1,5 +1,6 @@
 var chassis_8h =
 [
+    [ "ARM_PORT", "chassis_8h.html#a12c4c33aab30c2f422e86b46d9591b33", null ],
     [ "BENC_PORT_BOT", "chassis_8h.html#a47b6654d56486b0a4bbf1cf0d2e2872a", null ],
     [ "BENC_PORT_TOP", "chassis_8h.html#ae1ed7af00f533cc312e709f1cf643954", null ],
     [ "BL_PORT", "chassis_8h.html#aee4d6a4bb97672b8cc732efd671311e4", null ],
