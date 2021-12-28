@@ -5,12 +5,10 @@
 #include "serialLogUtil.h"
 #include <math.h>
 
-// Flips radian angle
 #define flipAngle(a)  (a > 0) ? (-2 * M_PI + a) : (2 * M_PI + a) 
-
 #define VECTOR_LENGTH(vec) sqrt(pow(vec.getX(), 2) + pow(vec.getY(), 2))
-
 #define inchToCm(inch) inch*2.54
+#define MAX_ACCELERATION 1
 
 DrivetrainPID::DrivetrainPID(Drivetrain* drivetrain, PIDInfo driveConstants, PIDInfo turnConstants, double distTolerance, double distIntegralTolerance, double turnTolerance, double turnIntegralTolerance) {
     this->driveController = new PIDController(0, driveConstants, distTolerance, distIntegralTolerance);
@@ -177,7 +175,7 @@ void DrivetrainPID::rotateTo(double target) {
         pros::delay(20);
     } while (!turnController->isSettled() && pros::millis() - time <= 3000); // Break if settled or taking more than 3s
 
-    move({}, 0);
+    move(0, 0);
     trackingData.setAngleModulusSuspend(false);
 }
 
