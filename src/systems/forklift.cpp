@@ -66,8 +66,8 @@ int scaleMotorPIDOutput(double inp) {
 
 //TODO: tune PID constants
 void Forklift::update() {
-    this->position = this->potentiometer->get_value_calibrated();    
-
+    this->position = this->potentiometer->get_value();   
+    
     if (manualPower == 0) {
         // Retain position if manual power not being applied with custom PID loop
         double speed = pidController->step(this->position);
@@ -101,6 +101,7 @@ bool Forklift::changeState(uint8_t newState) {
     bool processed = SystemManager::changeState(newState);
 
     if (!processed) {
+        colorPrintf("State change not processed!\n", RED);
         return false;
     }
 
@@ -130,8 +131,6 @@ bool Forklift::changeState(uint8_t newState) {
             break;
         }
         case OPERATOR_OVERRIDE: {
-            // Only temporarily set to coast
-            // TODO: Set back to hold
             this->forkliftMotor->set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 
             // Set target to current position since user will be controlling anyways
