@@ -1,83 +1,47 @@
 #include "main.h"
 #include "globals.h"
+#include "macros.h"
 
 void myAuton() {
     trackingData.update({0, 0}, 0);
+    // trackingData.update({0, 20}, 0);
+    chassis->setState({0_in, 0_in, 90_deg});
+
     forklift1.enable();
     forklift2.enable();
     intake.enable();
 
-    /*
-    forklift1.goDown();
+    forklift1.goMiddle();
     forklift2.goDown();
 
-    intake.clockwise(80);
+    driveTrainPID.moveToPoint({ 0, 12 });
 
-    pros::delay(3000);
+    // Wait for it to reach okay tolerance levels
+    do {
+        pros::delay(10);
+    } while (abs(forklift2.getError()) > 40);
 
-
-    forklift1.goMiddle();
     forklift2.goMiddle();
-    intake.counterClockwise(80);
 
-    pros::delay(3000);
+    // Wait for it to reach okay tolerance levels
+    do {
+        pros::delay(10);
+    } while (abs(forklift2.getError()) > 40);
 
-    forklift1.goUp();
     forklift2.goUp();
-
-    intake.stop();
-
-    pros::delay(3000);
-    */
-
-    // forklift2.goUp();
-
-    // forklift1.goMiddle();
-    // forklift2.goDown();
-
-    forklift1.goUp();
-    forklift2.goUp();
-
-    driveTrainPID.moveToPoint(Vector2( 0, 24 ));
-
-    pros::delay(3000);
 
     driveTrainPID.moveToPoint(Vector2( 0, 0 ), true);
-    // driveTrainPID.moveToPoint(Vector2( 0, 0 ), false);
 
-    // driveTrainPID.move({ 0, -0.25 }, 0, true);
+    // Wait for it to reach okay tolerance levels
+    do {
+        pros::delay(10);
+    } while (abs(forklift2.getError()) > 40);
 
-    // // Wait for it to reach okay tolerance levels
-    // do {
-    //     // printf("Error: %f\n", forklift2.getError());
-    //     pros::delay(10);
-    // } while (abs(forklift2.getError()) > 40);
+    startIntakeSmoothMove(false, false);
+    intake.counterClockwise(80);
 
-    // forklift2.goUp();
+    pros::delay(5000);
 
-    // // Wait for it to reach okay tolerance levels
-    // do {
-    //     // printf("Error: %f\n", forklift2.getError());
-    //     pros::delay(10);
-    // } while (abs(forklift2.getError()) > 40);
-
-
-
-    // pros::delay(250);
-    // driveTrainPID.rotateTo(degToRad(0)); // Rotate to 90 degrees
-    // driveTrainPID.moveToPoint(Vector2( 0, 0 ));
-
-    
-
-   /*
-    printTracking = true;
-
-    driveTrain->forward(64);
-    pros::delay(20000);
-    driveTrain->forward(0);
-
-    pros::delay(500);
-
-    printTracking = false;
-    */
+    driveTrainPID.move({}, 0);
+    intake.stop();
 }

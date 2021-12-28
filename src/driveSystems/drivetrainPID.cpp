@@ -197,3 +197,51 @@ double rollAngle90(double angle) {
   }
   return angle;
 }
+
+void DrivetrainPID::experimentalMoveToPoint(Vector2 target) {
+    driveController->reset();
+    turnController->reset();
+
+    double angleErr = 0, distanceErr = 0;
+
+    do {
+        Vector2 closestPoint = closest(trackingData.getPos(), target);
+
+        Vector2 closestPointDisplacement = closestPoint - trackingData.getPos();
+        Vector2 targetDisplacement = target - trackingData.getPos();
+
+        double angleToClose = closestPoint.getAngle() - trackingData.getHeading();
+        double angleToTarget = target.getAngle() - trackingData.getHeading();
+
+        double distanceToClose = closestPointDisplacement.getMagnitude();
+        double distanceToTarget = targetDisplacement.getMagnitude();
+
+        // go backwards
+        if (abs(angleToClose) >= degToRad(90)) distanceToClose = -distanceToClose;
+
+        if (distanceToTarget < 1.5) {
+            /*
+            angleErr = 0;
+            // used for settling
+            distanceErr = distanceToClose;
+            */
+        } else {
+            angleErr = angleToTarget;
+            // used for settling
+            distanceErr = distanceToTarget;
+        }
+
+        colorPrintf("Angle Err: %f\nDistance Err: %f\n\n", BLUE, angleErr, distanceErr);
+
+        // rotate angle to be +- 90
+        angleErr = rollAngle90(angleErr);
+
+        double angleVel = turnController->step(-radToDeg(angleErr));
+        double distanceVel = driveController->step(-inchToCm(distanceErr) * 10);
+
+        move({ 0, distanceVel }, 0);
+        pros::delay(10);
+    } while (!(driveController->isSettled() && turnController->isSettled()));
+
+    move({ 0, 0 }, 0);
+}

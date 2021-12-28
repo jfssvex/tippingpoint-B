@@ -54,6 +54,12 @@ class DrivetrainPID {
         void moveToPoint(Vector2 target, bool backwards = false);
 
         /**
+         * Move to a specific point without turning on the spot first
+         * @param target The position to reach as a Vector2
+        */
+        void experimentalMoveToPoint(Vector2 target);
+
+        /**
          * Move and turn to a specific point and orientation relative to the bot's current
          * position and orientation
          * @param offset The desired position relative to the robot's current position as a Vector2

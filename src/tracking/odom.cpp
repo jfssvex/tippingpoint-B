@@ -101,6 +101,7 @@ void tracking(void* parameter) {
 
     uint32_t printTime = pros::millis();
 
+    /*
     // Reset all motor positions
     for (pros::Motor* tmp : driveTrain->allMotors) {
         tmp->tare_position();
@@ -110,6 +111,8 @@ void tracking(void* parameter) {
     tRight.set_zero_position(0);
     bLeft.set_zero_position(0);
     bRight.set_zero_position(0);
+
+    */
     
 
     // Reset encoders to 0 before starting
@@ -121,6 +124,8 @@ void tracking(void* parameter) {
 
     odomDebugDisplay.setStateCallback(setState);
 	odomDebugDisplay.setResetCallback(resetSensors);
+
+    chassis->setState({ 0_in, 0_in, 90_deg });
 
     // Tracking loop
     while (true) {
@@ -192,20 +197,21 @@ void tracking(void* parameter) {
         trackingData.update(globalPos, trackingData.getHeading() + aDelta);
 
         // Update odom debug display data
-        odomDebugDisplay.setData({ trackingData.getPos().getX(), trackingData.getPos().getY(), trackingData.getHeading() }, { lEncVal, rEncVal });
+        // odomDebugDisplay.setData({ trackingData.getPos().getX(), trackingData.getPos().getY(), trackingData.getHeading() }, { lEncVal, rEncVal });
+        odomDebugDisplay.setData({ chassis->getOdometry()->getState().x.convert(inch), chassis->getOdometry()->getState().y.convert(inch), chassis->getOdometry()->getState().theta.convert(radian) }, { lEncVal, rEncVal });
 
         // Debug print
         if (pros::millis() - printTime > 75 && printTracking) {
             // Only print every 75ms to reduce lag
 
-            /*
+            
             colorPrintf("X: %f, Y: %f, A: %f\n", 
                 GREEN,
                 trackingData.getPos().getX(), 
                 trackingData.getPos().getY(), 
                 radToDeg(trackingData.getHeading())
             );
-            */
+            
 
             printTime = pros::millis();
         }

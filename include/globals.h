@@ -58,3 +58,6 @@ extern DisplayController display;
 
 // Actual controller
 extern pros::Controller masterController;
+
+// Okapi chassis
+extern std::shared_ptr<OdomChassisController> chassis;

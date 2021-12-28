@@ -80,7 +80,7 @@ void PIDController::reset() {
     this->target = 0;
     this->speed = 0;
 
-    this->lastError = 0;
+    this->lastError = DBL_MAX;
     this->error = 0;
 
     this->integral = 0;
