@@ -68,5 +68,6 @@ void myAuton() {
     forklift2.enable();
     intake.enable();
 
-    testForklifts();
+    // testForklifts();
+    grabMogo();
 }
