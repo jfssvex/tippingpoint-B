@@ -101,6 +101,7 @@ void myOpControl() {
         
         int forkliftSpeed = 100;
         int intakeSpeed = 80; // Also can be 40
+        int armSpeed = 30;
 
         double threshold = 0;
 
@@ -223,11 +224,11 @@ void myOpControl() {
             }
 
             if (armUp) {
-                armMotor.move(127);
+                arm.setPower(armSpeed);
             } else if (armDown) {
-                armMotor.move(-127);
+                arm.setPower(-armSpeed);
             } else {
-                armMotor.move(0);
+                arm.setPower(0);
             }
         }
 

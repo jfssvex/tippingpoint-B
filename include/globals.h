@@ -16,6 +16,7 @@
 #include "tracking.h"
 #include "systems/intake.h"
 #include "systems/forklift.h"
+#include "systems/arm.h"
 
 // Motors
 
@@ -43,8 +44,10 @@ extern pros::Imu myImu;
 extern Intake intake;
 extern Forklift forklift1;
 extern Forklift forklift2;
-
 // extern std::vector<SystemManager> systemManagers;
+
+// Arm
+extern Arm arm;
 
 // Drivetrain
 extern SkidSteerDrive* driveTrain;
