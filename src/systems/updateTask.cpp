@@ -16,6 +16,7 @@ void updateSystemManagers(void* param) {
         forklift1.update();
         forklift2.update();
         intake.update();
+        arm.update();
 
         pros::delay(20);
     }

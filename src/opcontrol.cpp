@@ -58,6 +58,7 @@ void myOpControl() {
     intake.control();
     forklift1.control();
     forklift2.control();
+    arm.control();
 
     forklift1.goDown();
     forklift2.goDown();

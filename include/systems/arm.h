@@ -1,6 +1,7 @@
 #include "main.h"
 #include "chassis.h"
 #include "systemManager.h"
+#include "control/PID.h"
 
 //to do:
 // add inheritance from system managers
@@ -14,8 +15,11 @@ class Arm: public SystemManager {
         static const uint8_t DOWN_STATE = 0x03; // loading rings
         static const uint8_t OPERATOR_OVERRIDE = 0x20;
 
+        //Arm motor
+        pros::Motor armMotor = pros::Motor(ARM_PORT, pros::E_MOTOR_GEARSET_18, true);
+
         //Constructor
-        Arm(uint8_t defaultState, double downPos, double upPos);
+        Arm(uint8_t defaultState, double downPos, double upPos, PIDInfo constants);
 
         //Destructor
         ~Arm();
@@ -32,14 +36,18 @@ class Arm: public SystemManager {
 
         void update() override;
 
+        bool changeState(uint8_t newState);
+
         void fullReset() override;
         
-        //Arm motor
-        pros::Motor armMotor = pros::Motor(ARM_PORT, pros::E_MOTOR_GEARSET_18, true);
 
     protected:
         int armManualPower = 0;
 
         double downPos;
         double upPos;
+
+        //PID
+        PIDInfo constants;
+        PIDController *pidController;
 };
