@@ -30,7 +30,7 @@ class Arm: public SystemManager {
         //Allows for an operator to control the system
         void control();
 
-        // void update() override;
+        void update() override;
 
         void fullReset() override;
         

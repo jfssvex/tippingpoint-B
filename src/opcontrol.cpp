@@ -101,7 +101,7 @@ void myOpControl() {
         
         int forkliftSpeed = 100;
         int intakeSpeed = 80; // Also can be 40
-        int armSpeed = 30;
+        int armSpeed = 60;
 
         double threshold = 0;
 

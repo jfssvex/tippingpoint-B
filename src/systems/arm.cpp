@@ -7,13 +7,13 @@ Arm::Arm(uint8_t defaultState, double upPos, double downPos) : SystemManager(def
     this->downPos = downPos;
 }
 
+Arm::~Arm() {
+    
+}
+
 void Arm::setPower(int armPower) {
     armManualPower = armPower;
     armMotor.move(armPower);
-}
-
-void Arm::control() {
-    this->changeState(OPERATOR_OVERRIDE);
 }
 
 void Arm::raise() {
@@ -26,6 +26,10 @@ void Arm::lower() {
 
 void Arm::control() {
     this->changeState(OPERATOR_OVERRIDE);
+}
+
+void Arm::update() {
+
 }
 
 void Arm::fullReset() {
