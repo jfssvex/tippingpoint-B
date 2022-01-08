@@ -192,9 +192,9 @@ void tracking(void* parameter) {
             trackingData.getPos().getY() + (localPos.getY() * globalOffsetX) - (localPos.getX() * globalOffsetY)
         );
 
-        // Update tracking data
-        // trackingData.update(globalPos.getX(), globalPos.getY(), degToRad(myImu.get_rotation()));
-        trackingData.update(globalPos, trackingData.getHeading() + aDelta);
+        // Update tracking data, add 90 to account 
+        trackingData.update(globalPos.getX(), globalPos.getY(), degToRad(myImu.get_rotation() + 90));
+        // trackingData.update(globalPos, trackingData.getHeading() + aDelta);
 
         // Update odom debug display data
         odomDebugDisplay.setData({ trackingData.getPos().getX(), trackingData.getPos().getY(), trackingData.getHeading() }, { lEncVal, rEncVal });

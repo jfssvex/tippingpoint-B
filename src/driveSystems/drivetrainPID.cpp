@@ -91,16 +91,11 @@ void DrivetrainPID::moveToPoint(Vector2 target, bool backwards) {
     colorPrintf("Displacement: %f %f\n", BLUE, displacement.getX(), displacement.getY());
     colorPrintf("\n\n\n----- ANGLE TO TURN TO: %f -----\n\n\n", BLUE, radToDeg(displacement.getAngle()));
     
-    /*
     if (backwards) {
-        this->rotateTo(-displacement.getAngle() + degToRad(90) + degToRad(180));
+        this->rotateTo(-displacement.getAngle() + degToRad(180));
     } else {
-        this->rotateTo(-displacement.getAngle() + degToRad(90));
+        this->rotateTo(-displacement.getAngle());
     }
-    
-
-    pros::delay(2000);
-    */
 
     // Get starting time
     double time = pros::millis();
