@@ -209,4 +209,13 @@ void tracking(void* param);
 */
 void odomResetData();
 
+/**
+ * @brief Calculates the intersection point of a circle and line
+ * @param circleOrigin The origin / center point of the circle
+ * @param radius The radius of the circle
+ * @param linePoints Tuple including the line points (start and end)
+ * @returns An array of intersection points between the circle and line
+ */
+std::vector<Vector2> lineCircleIntersection(Vector2 circleOrigin, double radius, std::pair<Vector2, Vector2> linePoints);
+
 #endif
