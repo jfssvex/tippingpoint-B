@@ -9,8 +9,5 @@ var class_intake =
     [ "setPower", "class_intake.html#a2c379879ee68fa1e8a5a970c8321f494", null ],
     [ "stop", "class_intake.html#aa3093b638197b57b18ee9d519f4da68b", null ],
     [ "timedOut", "class_intake.html#a6f725bff73deb783c2f35cd087513bed", null ],
-    [ "update", "class_intake.html#af7e009e05fcb3e7b2f41c489303182c3", null ],
-    [ "constants", "class_intake.html#a0f6097ebe42ab6b724ea36eaf4f94896", null ],
-    [ "intake_pidController", "class_intake.html#add55934fbfddd339d2906baceca071ee", null ],
-    [ "intakeMotor", "class_intake.html#ab80c1f4c6579ae6a1d4ea0e7ee16bc7f", null ]
+    [ "update", "class_intake.html#af7e009e05fcb3e7b2f41c489303182c3", null ]
 ];
