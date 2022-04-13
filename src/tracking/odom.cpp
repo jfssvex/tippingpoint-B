@@ -193,7 +193,7 @@ void tracking(void* parameter) {
         );
 
         // Update tracking data
-        trackingData.update(globalPos, degToRad(myImu.get_rotation() + 90));
+        trackingData.update(globalPos, degToRad(myImu.get_rotation() - 90));
         // trackingData.update(globalPos, trackingData.getHeading() + aDelta);
 
         // Update odom debug display data

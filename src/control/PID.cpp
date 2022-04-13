@@ -22,7 +22,7 @@ PIDController::PIDController(double target, PIDInfo constants, double tolerance,
     this->integralTolerance = integralTolerance;
 }
 
-double PIDController::step(double newSense) {
+double PIDController::step(double newSense, bool settlePrint) {
     // Set new sense
     this->sense = newSense;
 
@@ -53,6 +53,7 @@ double PIDController::step(double newSense) {
 
     // Start settling if error falls under tolerance
     if (abs(this->error) <= this->tolerance) {
+        if (settlePrint) printf("Settling...\n");
         // Start timer if it wasn't already settling
         if (!this->settling) {
             this->settleStart = pros::millis();
@@ -64,6 +65,7 @@ double PIDController::step(double newSense) {
 
         // Consider controller settled after SETTLE_DELAY
         if (pros::millis() - this->settleStart > SETTLE_DELAY) {
+            if (settlePrint) printf("Settled!\n");
             this->settled = true;
         }
     } else {

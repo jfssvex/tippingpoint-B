@@ -83,7 +83,7 @@ class PIDController {
          * @param newSense New sensor data
          * @return New speed after running calculations 
         */
-        double step(double newSense);
+        double step(double newSense, bool settlePrint = false);
 
         /**
          * Reset all PID controller values back to their defaults

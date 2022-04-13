@@ -12,6 +12,14 @@
 #include "tracking.h"
 
 /**
+ * Possible sides to swing turn on
+*/
+enum SWING_SIDE {
+    LEFT,
+    RIGHT
+};
+        
+/**
  * \brief Wrapper class on top of Drivetrain class to implement PID + Odom on any drivetrain
 */
 class DrivetrainPID {
@@ -69,9 +77,16 @@ class DrivetrainPID {
 
         /**
          * Rotate the robot to the desired orientation
-         * @param angle The desired rotation in radians
+         * @param target The desired rotation in radians
         */ 
-        void rotateTo(double angle);
+        void rotateTo(double target);
+
+        /**
+         * Rotate the robot to the desired orientation only using the 
+         * motors of a specific side
+         * @param target The desired rotation in radians
+        */ 
+        void swingRotateTo(double target, SWING_SIDE side);
 
         /**
          * Returns the drive controller
@@ -82,7 +97,7 @@ class DrivetrainPID {
          * Returns the turn controller
         */ 
         PIDController* getTurnController() { return turnController; };
-    
+
     private:
         // PID Drive Controller
         PIDController* driveController;

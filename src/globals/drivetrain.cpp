@@ -4,7 +4,7 @@
 // PID Gain Constants
 PIDInfo driveConstants(0.5, 0.01, 0.005);
 PIDInfo driveConstantsOkapi(0.005, 0.0001, 0.00005);
-PIDInfo turnConstants(1, 0, 0);
+PIDInfo turnConstants(0.1, 0, 0.25);
 
 // Definitions
 SkidSteerDrive* driveTrain = new SkidSteerDrive(&tLeft, &tRight, &bLeft, &bRight);
@@ -16,8 +16,8 @@ DrivetrainPID driveTrainPID(
     turnConstants, 
     0.7,  // Inches
     1,    // Inches
-    degToRad(0), // Radians
-    0.3   // Radians
+    1,    // Degrees
+    0.3   // Degrees
 );
 
 

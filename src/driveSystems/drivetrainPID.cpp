@@ -4,6 +4,7 @@
 #include "globals.h"
 #include "serialLogUtil.h"
 #include <math.h>
+#include <algorithm>
 
 #define flipAngle(a)  (a > 0) ? (-2 * M_PI + a) : (2 * M_PI + a) 
 #define VECTOR_LENGTH(vec) sqrt(pow(vec.getX(), 2) + pow(vec.getY(), 2))
@@ -68,7 +69,7 @@ void DrivetrainPID::move(double straight, double turn) {
     double leftMotorVel = leftOutput * 127;
     double rightMotorVel = rightOutput * 127;
 
-    colorPrintf("Motor powers: %f %f\n", MAGENTA, rightMotorVel, rightMotorVel);
+    // colorPrintf("Motor powers: %f %f\n", MAGENTA, rightMotorVel, rightMotorVel);
     
     // Set motor vel
     driveTrain->tank(leftMotorVel, rightMotorVel);
@@ -106,10 +107,6 @@ void DrivetrainPID::moveToPoint(Vector2 target, bool backwards) {
     do {
         double deltaDist = VECTOR_LENGTH(target) - VECTOR_LENGTH(trackingData.getPos());
 
-        if (trackingData.getPos().getX() < 0 || trackingData.getPos().getY() < 0) {
-            deltaDist = -deltaDist;
-        }
-
         // Vector2 delta = target - trackingData.getPos(); // This could also work buts it's very finicky in the simulator
         // double deltaDist = delta.getMagnitude();
         // double deltaDist = target.getX() - trackingData.getPos().getY();
@@ -127,7 +124,7 @@ void DrivetrainPID::moveToPoint(Vector2 target, bool backwards) {
 
         move(vel, 0);
 
-        if (pros::millis() - time >= 3000) {
+        if (pros::millis() - time >= 6000) {
             // Taking too long, something might be going wrong
             break;
         }
@@ -151,7 +148,7 @@ void DrivetrainPID::rotateTo(double target) {
     // Stop applying modulo to angle to prevent issues
     trackingData.setAngleModulusSuspend(true);
 
-    // target = radToDeg(target);
+    target = radToDeg(target);
 
     // Get starting time
     double time = pros::millis();
@@ -161,14 +158,63 @@ void DrivetrainPID::rotateTo(double target) {
         target = flipAngle(target);
     }
 
-    // turnController->reset();
+    colorPrintf("Heading: %f\n\n", GREEN, trackingData.getHeading());
+
+    turnController->reset();
     turnController->target = target;
     do {
         // Run PID step and move to angle
-        move(0, -turnController->step(trackingData.getHeading()));
+        move(0, turnController->step(radToDeg(trackingData.getHeading())));
+
+        pros::delay(20);
+    } while (!turnController->isSettled() && pros::millis() - time <= 6000); // Break if settled or taking more than 3s
+
+    move(0, 0);
+    trackingData.setAngleModulusSuspend(false);
+}
+
+void DrivetrainPID::swingRotateTo(double target, SWING_SIDE side) {
+    // Stop applying modulo to angle to prevent issues
+    trackingData.setAngleModulusSuspend(true);
+
+    // Get starting time
+    double time = pros::millis();
+
+    // Turn the other way if it's more efficient
+    if (abs(target - trackingData.getHeading()) > degToRad(180)) {
+        target = flipAngle(target);
+    }
+
+    target = radToDeg(target);
+
+    turnController->reset();
+    turnController->target = target;
+    do {
+        // Run PID step and move to angle
+        double vel = -turnController->step(radToDeg(trackingData.getHeading()), true);
+
+        // Only power motors specified
+        switch (side) {
+            case LEFT: {
+                driveTrain->tank(
+                    std::clamp(vel, -1., 1.) * 127, 
+                    0
+                );
+                break;
+            };
+
+            case RIGHT: {
+                driveTrain->tank(
+                    0, 
+                    std::clamp(vel, -1., 1.) * 127
+                );
+            };
+        };
 
         pros::delay(20);
     } while (!turnController->isSettled() && pros::millis() - time <= 3000); // Break if settled or taking more than 3s
+
+    colorPrintf("ANGLE: %f\n", GREEN, radToDeg(trackingData.getHeading()));
 
     move(0, 0);
     trackingData.setAngleModulusSuspend(false);
